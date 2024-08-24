@@ -110,6 +110,41 @@
             margin-bottom: 30px;
             color: var(--white);
         }
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,1) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+#about {
+    background-color: var(--black);
+    padding-top: 0;
+    position: relative;
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+.about-content {
+    padding-top: 60px;
+}
 
         .cta-button {
             display: inline-block;
@@ -339,7 +374,7 @@
         <h2>About Golden Slipper</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="https://lawrence18365.github.io/GoldenSlipperCleaning1/images/abbie-founder.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
+                <img src="https://i.ibb.co/yY0qsgd/447983071-389656226803764-4611442101221982112-n.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
             </div>
             <div class="about-text">
                 <p>Welcome to Golden Slipper Cleaning Services, a luxury cleaning business born out of passion and perseverance. Founded by Abbie, our journey began three years ago with a vision to create a cleaning service that truly makes a difference in people's lives.</p>
