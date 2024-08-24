@@ -90,7 +90,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.3);
         }
 
         .hero-content {
@@ -110,41 +110,55 @@
             margin-bottom: 30px;
             color: var(--white);
         }
-.hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 80%, rgba(0,0,0,1) 100%);
-    z-index: 1;
-}
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        }
 
-#about {
-    background-color: var(--black);
-    padding-top: 0;
-    position: relative;
-}
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
 
-#about::before {
-    content: "";
-    position: absolute;
-    top: -100px;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-}
+        #about {
+            background-color: var(--black);
+            padding: 100px 0;
+            position: relative;
+        }
 
-.about-content {
-    padding-top: 60px;
-}
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 45%;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(244, 208, 63, 0.3);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
 
         .cta-button {
             display: inline-block;
@@ -173,51 +187,6 @@
             text-align: center;
             color: var(--gold);
         }
-
-        #about {
-        background-color: var(--black);
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-    .about-content {
-        display: flex;
-        align-items: flex-start;
-        gap: 50px;
-    }
-
-    .about-image {
-        flex: 1;
-        max-width: 45%;
-    }
-
-    .about-image img {
-        width: 100%;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(244, 208, 63, 0.3);
-    }
-
-    .about-text {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .about-text p {
-        margin-bottom: 20px;
-        line-height: 1.6;
-    }
-
-    @media (max-width: 768px) {
-        .about-content {
-            flex-direction: column;
-        }
-
-        .about-image {
-            max-width: 100%;
-        }
-    }
 
         .services-grid {
             display: grid;
@@ -370,20 +339,20 @@
     </section>
 
     <section id="about">
-    <div class="container">
-        <h2>About Golden Slipper</h2>
-        <div class="about-content">
-            <div class="about-image">
-                <img src="https://i.ibb.co/yY0qsgd/447983071-389656226803764-4611442101221982112-n.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
-            </div>
-            <div class="about-text">
-                <p>Welcome to Golden Slipper Cleaning Services, a luxury cleaning business born out of passion and perseverance. Founded by Abbie, our journey began three years ago with a vision to create a cleaning service that truly makes a difference in people's lives.</p>
-                <p>After overcoming personal challenges and embracing a holistic lifestyle, Abbie discovered her passion for low-toxic essential oils. This newfound purpose led to the creation of Golden Slipper Cleaning Services, where we combine professional expertise with holistic practices.</p>
-                <p>Our mission is to provide high-detailed, bespoke cleaning services infused with essential oils, aromatherapy, and organic products. We're dedicated to creating not just clean spaces, but harmonious environments that promote wellbeing.</p>
+        <div class="container">
+            <h2>About Golden Slipper</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://i.ibb.co/yY0qsgd/447983071-389656226803764-4611442101221982112-n.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
+                </div>
+                <div class="about-text">
+                    <p>Welcome to Golden Slipper Cleaning Services, a luxury cleaning business born out of passion and perseverance. Founded by Abbie, our journey began three years ago with a vision to create a cleaning service that truly makes a difference in people's lives.</p>
+                    <p>After overcoming personal challenges and embracing a holistic lifestyle, Abbie discovered her passion for low-toxic essential oils. This newfound purpose led to the creation of Golden Slipper Cleaning Services, where we combine professional expertise with holistic practices.</p>
+                    <p>Our mission is to provide high-detailed, bespoke cleaning services infused with essential oils, aromatherapy, and organic products. We're dedicated to creating not just clean spaces, but harmonious environments that promote wellbeing.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="services">
         <div class="container">
@@ -449,7 +418,7 @@
             <form>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+<input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
