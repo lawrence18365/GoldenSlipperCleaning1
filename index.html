@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Golden Slipper Cleaning Services - Luxury Holistic Cleaning</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --gold: #F4D03F;
             --black: #000000;
             --white: #FFFFFF;
-            --light-gray: #F5F5F5;
             --dark-gray: #333333;
         }
 
@@ -23,8 +21,8 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: var(--white);
-            color: var(--dark-gray);
+            background-color: var(--black);
+            color: var(--white);
             line-height: 1.6;
         }
 
@@ -40,6 +38,7 @@
             position: fixed;
             width: 100%;
             z-index: 1000;
+            border-bottom: 1px solid var(--gold);
         }
 
         nav {
@@ -50,7 +49,7 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 28px;
             color: var(--gold);
             text-decoration: none;
         }
@@ -75,62 +74,7 @@
             color: var(--white);
         }
 
-        .hero {
-            background-image: url('https://images.unsplash.com/photo-1724120136637-54e2c9189219?q=80&w=2815&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--white);
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: var(--white);
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--gold);
-            color: var(--black);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: var(--white);
-            transform: translateY(-3px);
-        }
-
-        section {
+        #about {
             padding: 100px 0;
         }
 
@@ -139,11 +83,7 @@
             font-size: 36px;
             margin-bottom: 30px;
             text-align: center;
-            color: var(--black);
-        }
-
-        #about {
-            background-color: var(--light-gray);
+            color: var(--gold);
         }
 
         .about-content {
@@ -154,176 +94,26 @@
 
         .about-image {
             flex: 1;
-            max-width: 400px;
+            max-width: 500px;
         }
 
         .about-image img {
             width: 100%;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(244, 208, 63, 0.3);
         }
 
         .about-text {
             flex: 1;
         }
 
-        #services {
-            background-color: var(--white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .service-card {
-            border: 2px solid var(--gold);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            background-color: var(--white);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card i {
-            font-size: 48px;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            font-size: 24px;
+        .about-text p {
             margin-bottom: 15px;
-            color: var(--black);
-        }
-
-        #holistic-approach {
-            background-color: var(--light-gray);
-        }
-
-        .holistic-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .holistic-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .holistic-card i {
-            font-size: 48px;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        .holistic-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--black);
-        }
-
-        #testimonials {
-            background-color: var(--white);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background-color: var(--light-gray);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-card h4 {
-            color: var(--gold);
-        }
-
-        #contact {
-            background-color: var(--light-gray);
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--black);
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--gold);
-            border-radius: 5px;
-            background-color: var(--white);
-            color: var(--black);
-        }
-
-        button {
-            background-color: var(--gold);
-            color: var(--black);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #e6c200;
-        }
-
-        footer {
-            background-color: var(--black);
-            color: var(--gold);
-            text-align: center;
-            padding: 20px 0;
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-            }
-
-            .about-content,
-            .services-grid,
-            .holistic-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
             }
 
             .about-content {
@@ -344,23 +134,28 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#holistic-approach">Our Approach</a></li>
+                <li><a href="#our-approach">Our Approach</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
+    <section id="about">
         <div class="container">
-            <div class="hero-content">
-                <h1>Luxury Holistic Cleaning</h1>
-                <p>Experience the perfect blend of professional cleaning and aromatherapy</p>
-                <a href="#contact" class="cta-button">Book Your Bespoke Service</a>
+            <h2>About Golden Slipper</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://lawrence18365.github.io/GoldenSlipperCleaning1/images/abbie-founder.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
+                </div>
+                <div class="about-text">
+                    <p>Welcome to Golden Slipper Cleaning Services, a luxury cleaning business born out of passion and perseverance. Founded by Abbie, our journey began three years ago with a vision to create a cleaning service that truly makes a difference in people's lives.</p>
+                    <p>After overcoming personal challenges and embracing a holistic lifestyle, Abbie discovered her passion for low-toxic essential oils. This newfound purpose led to the creation of Golden Slipper Cleaning Services, where we combine professional expertise with holistic practices.</p>
+                    <p>Our mission is to provide high-detailed, bespoke cleaning services infused with essential oils, aromatherapy, and organic products. We're dedicated to creating not just clean spaces, but harmonious environments that promote wellbeing.</p>
+                </div>
             </div>
         </div>
     </section>
-
     <section id="about">
         <div class="container">
             <h2>About Golden Slipper</h2>
