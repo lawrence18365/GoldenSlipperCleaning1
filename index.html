@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Slipper Cleaning Services - Experience Pristine Cleanliness</title>
+    <title>Golden Slipper Cleaning Services - Luxury Holistic Cleaning</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,6 +11,8 @@
             --gold: #F4D03F;
             --black: #000000;
             --white: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
         }
 
         * {
@@ -22,8 +23,9 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: var(--black);
-            color: var(--gold);
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
         }
 
         .container {
@@ -33,7 +35,7 @@
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: var(--black);
             padding: 20px 0;
             position: fixed;
             width: 100%;
@@ -137,45 +139,36 @@
             font-size: 36px;
             margin-bottom: 30px;
             text-align: center;
+            color: var(--black);
         }
 
-        #vital-info {
-            background-color: rgba(0, 0, 0, 0.8);
+        #about {
+            background-color: var(--light-gray);
         }
 
-        #vital-info h2 {
-            color: var(--gold);
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+        .about-image {
+            flex: 1;
+            max-width: 400px;
         }
 
-        .info-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid var(--gold);
+        .about-image img {
+            width: 100%;
             border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .info-card:hover {
-            transform: translateY(-5px);
+        .about-text {
+            flex: 1;
         }
 
-        .info-card i {
-            font-size: 36px;
-            color: var(--gold);
-            margin-bottom: 15px;
-        }
-
-        .info-card h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--gold);
+        #services {
+            background-color: var(--white);
         }
 
         .services-grid {
@@ -190,7 +183,7 @@
             padding: 30px;
             text-align: center;
             transition: transform 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--white);
         }
 
         .service-card:hover {
@@ -206,10 +199,41 @@
         .service-card h3 {
             font-size: 24px;
             margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        #holistic-approach {
+            background-color: var(--light-gray);
+        }
+
+        .holistic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .holistic-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .holistic-card i {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .holistic-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--black);
         }
 
         #testimonials {
-            background-color: var(--black);
+            background-color: var(--white);
         }
 
         .testimonial-grid {
@@ -219,8 +243,7 @@
         }
 
         .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 2px solid var(--gold);
+            background-color: var(--light-gray);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
@@ -241,7 +264,7 @@
         }
 
         #contact {
-            background-color: var(--black);
+            background-color: var(--light-gray);
         }
 
         form {
@@ -256,7 +279,7 @@
         label {
             display: block;
             margin-bottom: 5px;
-            color: var(--gold);
+            color: var(--black);
         }
 
         input,
@@ -265,8 +288,8 @@
             padding: 10px;
             border: 1px solid var(--gold);
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--gold);
+            background-color: var(--white);
+            color: var(--black);
         }
 
         button {
@@ -285,7 +308,7 @@
         }
 
         footer {
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: var(--black);
             color: var(--gold);
             text-align: center;
             padding: 20px 0;
@@ -296,10 +319,19 @@
                 display: none;
             }
 
-            .info-grid,
+            .about-content,
             .services-grid,
+            .holistic-grid,
             .testimonial-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                max-width: 100%;
             }
         }
     </style>
@@ -310,7 +342,9 @@
         <nav class="container">
             <a href="#" class="logo">Golden Slipper</a>
             <ul class="nav-links">
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#holistic-approach">Our Approach</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -320,110 +354,113 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Experience Pristine Cleanliness</h1>
-                <p>Professional, bespoke luxury cleaning services in Eastern Sydney</p>
-                <a href="#contact" class="cta-button">Book Now</a>
+                <h1>Luxury Holistic Cleaning</h1>
+                <p>Experience the perfect blend of professional cleaning and aromatherapy</p>
+                <a href="#contact" class="cta-button">Book Your Bespoke Service</a>
             </div>
         </div>
     </section>
 
-    <section id="vital-info">
+    <section id="about">
         <div class="container">
-            <h2>Why Choose Golden Slipper?</h2>
-            <div class="info-grid">
-                <div class="info-card">
-                    <i class="fas fa-clock"></i>
-                                       <h3>Flexible Hours</h3>
-                    <p>Open daily until 6 PM to accommodate your schedule.</p>
+            <h2>About Golden Slipper</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/400/400" alt="Abbie - Founder of Golden Slipper Cleaning Services">
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Easy Contact</h3>
-                    <p>Reach us anytime at 0434 431 361.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Local Expertise</h3>
-                    <p>Serving Botany and surrounding areas with pride.</p>
-                </div>
-                <div class="info-card">
-                    <i class="fas fa-star"></i>
-                    <h3>5-Star Service</h3>
-                    <p>Perfect 5.0 rating from 25 satisfied clients.</p>
+                <div class="about-text">
+                    <p>Welcome to Golden Slipper Cleaning Services, a luxury cleaning business born out of passion and perseverance. Founded by Abbie, our journey began three years ago with a vision to create a cleaning service that truly makes a difference in people's lives.</p>
+                    <p>After overcoming personal challenges and embracing a holistic lifestyle, Abbie discovered her passion for low-toxic essential oils. This newfound purpose led to the creation of Golden Slipper Cleaning Services, where we combine professional expertise with holistic practices.</p>
+                    <p>Our mission is to provide high-detailed, bespoke cleaning services infused with essential oils, aromatherapy, and organic products. We're dedicated to creating not just clean spaces, but harmonious environments that promote wellbeing.</p>
                 </div>
             </div>
         </div>
     </section>
 
-<section id="services">
-  <div class="container">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <i class="fas fa-broom" aria-hidden="true" alt="Spring Clean Icon"></i>
-        <h3>Spring Clean / Deep Clean</h3>
-        <p>Thorough cleaning from top to bottom, leaving no corner untouched. Perfect for a seasonal refresh or a comprehensive deep clean.</p>
-      </div>
-
-      <div class="service-card">
-        <i class="fas fa-calendar-check" aria-hidden="true" alt="One-Off Cleaning Icon"></i>
-        <h3>One-Off Cleaning</h3>
-        <p>Perfect for special occasions or when you need a quick refresh. Enjoy a spotless home with our detailed one-time cleaning service.</p>
-      </div>
-
-      <div class="service-card">
-        <i class="fas fa-building" aria-hidden="true" alt="Commercial Cleaning Icon"></i>
-        <h3>Commercial Cleaning</h3>
-        <p>Keep your workplace spotless and productive with our customized commercial cleaning solutions. Catering to offices, retail spaces, and more.</p>
-      </div>
-
-      <div class="service-card">
-        <i class="fas fa-home" aria-hidden="true" alt="Residential Cleaning Icon"></i>
-        <h3>Residential Cleaning</h3>
-        <p>Regular or one-time cleaning services for your home, tailored to your needs. Ensure a healthy living environment for you and your family.</p>
-      </div>
-
-      <div class="service-card">
-        <i class="fas fa-couch" aria-hidden="true" alt="Upholstery Cleaning Icon"></i>
-        <h3>Upholstery Cleaning</h3>
-        <p>Revitalize your furniture with our specialized techniques. Expert care for sofas, chairs, and other upholstered items.</p>
-      </div>
-
-      <div class="service-card">
-        <i class="fas fa-utensils" aria-hidden="true" alt="BBQ and Oven Cleaning Icon"></i>
-        <h3>BBQ &amp; Oven Cleaning</h3>
-        <p>Detailed cleaning for your cooking appliances. Ensure optimal performance and hygiene with our BBQ and oven cleaning service.</p>
-      </div>
-      
-    </div>
-  </div>
-</section>
-    </section>
-
-   <section id="testimonials">
-    <div class="container">
-        <h2>Testimonials</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
-                <h4>- Michael</h4>
-            </div>
-            <div class="testimonial-card">
-                <p>"Abbie and her team are just brilliant! I’m a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
-                <h4>- Jessie Withers</h4>
-            </div>
-            <div class="testimonial-card">
-                <p>"Golden Slipper Cleaning Services are incredible for all your cleaning needs. They are so professional to deal with and their attention to detail is incredible. The apartment felt like a hotel after they had been. I would highly recommend them and will definitely be using them in the future, best in the business!"</p>
-                <h4>- Grainne O'Sullivan</h4>
+    <section id="services">
+        <div class="container">
+            <h2>Our Luxury Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                    <h3>Residential Cleaning</h3>
+                    <p>Bespoke cleaning services for your home, tailored to your needs and preferences. We use organic products and essential oils to create a clean and harmonious living environment.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building" aria-hidden="true"></i>
+                    <h3>Commercial Cleaning</h3>
+                    <p>Elevate your workplace with our premium commercial cleaning solutions. We create a clean, fresh, and productive environment for your business using our signature holistic approach.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-broom" aria-hidden="true"></i>
+                    <h3>Deep Cleaning</h3>
+                    <p>Experience a transformative clean with our deep cleaning service. We leave no corner untouched, rejuvenating your space from top to bottom with our organic cleaning methods.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-couch" aria-hidden="true"></i>
+                    <h3>Upholstery Cleaning</h3>
+                    <p>Revitalize your furniture with our specialized upholstery cleaning. We use gentle, organic cleaners and essential oils to refresh and deodorize your upholstered items.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                    <h3>One-Off Cleaning</h3>
+                    <p>Perfect for special occasions or when you need a quick refresh. Enjoy a spotless home with our detailed one-time cleaning service, complete with aromatherapy benefits.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-utensils" aria-hidden="true"></i>
+                    <h3>Kitchen Deep Clean</h3>
+                    <p>Transform your kitchen with our thorough deep cleaning service. We use organic, food-safe products to ensure a hygienic and inviting cooking space.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <section id="holistic-approach">
+        <div class="container">
+            <h2>Our Holistic Approach</h2>
+            <div class="holistic-grid">
+                <div class="holistic-card">
+                    <i class="fas fa-leaf" aria-hidden="true"></i>
+                    <h3>Organic Products</h3>
+                    <p>We use only organic, eco-friendly cleaning products that are safe for you, your family, and the environment.</p>
+                </div>
+                <div class="holistic-card">
+                    <i class="fas fa-spa" aria-hidden="true"></i>
+                    <h3>Essential Oils</h3>
+                    <p>Our services incorporate the power of essential oils, providing aromatherapy benefits along with a pristine clean.</p>
+                </div>
+                <div class="holistic-card">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                    <h3>Wellbeing Focus</h3>
+                    <p>We believe in creating harmonious environments that promote overall wellbeing, not just cleanliness.</p>
+                </div>
+            </div>
+</div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Golden Slipper's attention to detail is second to none! I love that they use non-toxic, organic products. The essential oil aromatherapy is an amazing touch - my home feels clean and so peaceful after their visits."</p>
+                    <h4>- Sarah M.</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"As a business owner, I appreciate Golden Slipper's professionalism and their holistic approach to cleaning. Our office has never looked better, and our employees love the fresh, natural scents they use."</p>
+                    <h4>- John D., CEO</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I was skeptical about 'luxury' cleaning, but Golden Slipper has made me a believer. The level of care and attention they bring to each service is truly exceptional. It's not just cleaning; it's an experience."</p>
+                    <h4>- Emily R.</h4>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2>Book Your Bespoke Cleaning Experience</h2>
             <form>
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -434,10 +471,26 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
                 </div>
-                <button type="submit">Send Message</button>
+                <div class="form-group">
+                    <label for="service">Service Interested In</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="residential">Residential Cleaning</option>
+                        <option value="commercial">Commercial Cleaning</option>
+                        <option value="deep-clean">Deep Cleaning</option>
+                        <option value="upholstery">Upholstery Cleaning</option>
+                        <option value="one-off">One-Off Cleaning</option>
+                        <option value="kitchen">Kitchen Deep Clean</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Details</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <button type="submit">Request a Quote</button>
             </form>
         </div>
     </section>
@@ -445,8 +498,33 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
+            <p>Serving Botany and surrounding areas in Eastern Sydney</p>
+            <p>Contact: 0434 431 361 | hello@goldenslippercleaning.com.au</p>
+            <p>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+            </p>
         </div>
     </footer>
-</body>
 
+    <script>
+        // Add smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handling (you'll need to replace this with your actual form submission logic)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will get back to you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
 </html>
