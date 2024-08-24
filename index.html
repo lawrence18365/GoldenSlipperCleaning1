@@ -10,6 +10,8 @@
         :root {
             --gold: #F4D03F;
             --black: #000000;
+            --dark-gray: #1a1a1a;
+            --light-gray: #333333;
             --white: #FFFFFF;
         }
 
@@ -23,6 +25,7 @@
             font-family: 'Roboto', sans-serif;
             background-color: var(--black);
             color: var(--white);
+            line-height: 1.6;
         }
 
         .container {
@@ -32,11 +35,16 @@
         }
 
         header {
-            background-color: var(--black);
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
         }
 
         nav {
@@ -47,9 +55,14 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-size: 28px;
             color: var(--gold);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--white);
         }
 
         .nav-links {
@@ -90,7 +103,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
@@ -100,15 +113,17 @@
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 48px;
+            font-size: 54px;
             margin-bottom: 20px;
-            color: var(--white);
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content p {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 30px;
             color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         .hero::after {
@@ -121,14 +136,20 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        section {
+            padding: 100px 0;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--gold);
         }
 
         #about {
-            background-color: var(--black);
-            padding: 100px 0;
+            background-color: var(--dark-gray);
             position: relative;
         }
 
@@ -148,7 +169,12 @@
             height: 400px;
             object-fit: cover;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(244, 208, 63, 0.3);
+            box-shadow: 0 4px 20px rgba(244, 208, 63, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
         }
 
         .about-text {
@@ -157,7 +183,7 @@
 
         .about-text p {
             margin-bottom: 20px;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         .cta-button {
@@ -176,16 +202,8 @@
             transform: translateY(-3px);
         }
 
-        section {
-            padding: 100px 0;
-        }
-
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            margin-bottom: 30px;
-            text-align: center;
-            color: var(--gold);
+        #services {
+            background-color: var(--black);
         }
 
         .services-grid {
@@ -195,16 +213,17 @@
         }
 
         .service-card {
+            background-color: var(--dark-gray);
             border: 2px solid var(--gold);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
-            transition: transform 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(244, 208, 63, 0.2);
         }
 
         .service-card i {
@@ -219,6 +238,10 @@
             color: var(--gold);
         }
 
+        #testimonials {
+            background-color: var(--dark-gray);
+        }
+
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -226,7 +249,7 @@
         }
 
         .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--black);
             border: 2px solid var(--gold);
             border-radius: 10px;
             padding: 30px;
@@ -245,6 +268,10 @@
 
         .testimonial-card h4 {
             color: var(--gold);
+        }
+
+        #contact {
+            background-color: var(--black);
         }
 
         form {
@@ -268,8 +295,15 @@
             padding: 10px;
             border: 1px solid var(--gold);
             border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--gold);
+            background-color: var(--dark-gray);
+            color: var(--white);
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--white);
         }
 
         button {
@@ -280,18 +314,33 @@
             border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         button:hover {
-            background-color: #e6c200;
+            background-color: var(--white);
+            transform: translateY(-3px);
         }
 
         footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: var(--gold);
+            background-color: var(--black);
+            color: var(--white);
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--white);
         }
 
         @media (max-width: 768px) {
@@ -311,6 +360,14 @@
 
             .about-image {
                 max-width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
             }
         }
     </style>
