@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Golden Slipper Cleaning Services - Experience Pristine Cleanliness</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,364 +13,376 @@
             --dark-gray: #1a1a1a;
             --light-gray: #333333;
             --white: #FFFFFF;
+            --font-body-family: 'Poppins', sans-serif;
+            --font-heading-family: 'Poppins', sans-serif;
+            --font-body-weight: 300;
+            --font-body-weight-bold: 600;
+            --font-heading-weight: 600;
         }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-        font-family: 'Roboto', sans-serif;
-        background-color: var(--black);
-        color: var(--white);
-        line-height: 1.6;
-    }
+        body {
+            font-family: var(--font-body-family);
+            font-weight: var(--font-body-weight);
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading-family);
+            font-weight: var(--font-heading-weight);
+        }
 
-    header {
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 20px 0;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-        transition: background-color 0.3s ease;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    header.scrolled {
-        background-color: rgba(0, 0, 0, 0.95);
-    }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+        }
 
-    .logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 28px;
-        color: var(--gold);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .logo:hover {
-        color: var(--white);
-    }
+        .logo {
+            font-family: var(--font-heading-family);
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    .nav-links {
-        display: flex;
-        list-style: none;
-    }
+        .logo:hover {
+            color: var(--white);
+        }
 
-    .nav-links li {
-        margin-left: 30px;
-    }
-
-    .nav-links a {
-        color: var(--gold);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-        color: var(--white);
-    }
-
-    .hero {
-        background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/IpN263esg-sFSo-BI2ig4.webp');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        position: relative;
-    }
-
-    .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 1;
-    }
-
-    .hero-content h1 {
-        font-family: 'Playfair Display', serif;
-        font-size: 54px;
-        margin-bottom: 20px;
-        color: var(--gold);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-content p {
-        font-size: 20px;
-        margin-bottom: 30px;
-        color: var(--white);
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100px;
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-    }
-
-    section {
-        padding: 100px 0;
-    }
-
-    h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 40px;
-        margin-bottom: 40px;
-        text-align: center;
-        color: var(--gold);
-    }
-
-    #about {
-        background-color: var(--dark-gray);
-        position: relative;
-    }
-
-    .about-content {
-        display: flex;
-        align-items: center;
-        gap: 50px;
-    }
-
-    .about-image {
-        flex: 1;
-        max-width: 45%;
-    }
-
-    .about-image img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(244, 208, 63, 0.3);
-        transition: transform 0.3s ease;
-    }
-
-    .about-image img:hover {
-        transform: scale(1.02);
-    }
-
-    .about-text {
-        flex: 1;
-    }
-
-    .about-text p {
-        margin-bottom: 20px;
-        line-height: 1.8;
-    }
-
-    .cta-button {
-        display: inline-block;
-        background-color: var(--gold);
-        color: var(--black);
-        padding: 12px 30px;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: bold;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    .cta-button:hover {
-        background-color: var(--white);
-        transform: translateY(-3px);
-    }
-
-    #services {
-        background-color: var(--black);
-    }
-
-    .services-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-    .service-card {
-        background-color: var(--dark-gray);
-        border: 2px solid var(--gold);
-        border-radius: 10px;
-        padding: 30px;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(244, 208, 63, 0.2);
-    }
-
-    .service-card i {
-        font-size: 48px;
-        color: var(--gold);
-        margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-        font-size: 24px;
-        margin-bottom: 15px;
-        color: var(--gold);
-    }
-
-    #testimonials {
-        background-color: var(--dark-gray);
-    }
-
-    .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-    .testimonial-card {
-        background-color: var(--black);
-        border: 2px solid var(--gold);
-        border-radius: 10px;
-        padding: 30px;
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .testimonial-card p {
-        font-style: italic;
-        margin-bottom: 15px;
-    }
-
-    .testimonial-card h4 {
-        color: var(--gold);
-    }
-
-    #contact {
-        background-color: var(--black);
-    }
-
-    form {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-        color: var(--gold);
-    }
-
-    input,
-    textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid var(--gold);
-        border-radius: 5px;
-        background-color: var(--dark-gray);
-        color: var(--white);
-        transition: border-color 0.3s ease;
-    }
-
-    input:focus,
-    textarea:focus {
-        outline: none;
-        border-color: var(--white);
-    }
-
-    button {
-        background-color: var(--gold);
-        color: var(--black);
-        padding: 12px 30px;
-        border: none;
-        border-radius: 50px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-
-    button:hover {
-        background-color: var(--white);
-        transform: translateY(-3px);
-    }
-
-    footer {
-        background-color: var(--black);
-        color: var(--white);
-        text-align: center;
-        padding: 40px 0;
-    }
-
-    footer p {
-        margin-bottom: 10px;
-    }
-
-    footer a {
-        color: var(--gold);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-        color: var(--white);
-    }
-
-    @media (max-width: 768px) {
         .nav-links {
-            display: none;
+            display: flex;
+            list-style: none;
         }
 
-        .about-content,
-        .services-grid,
-        .testimonial-grid {
-            grid-template-columns: 1fr;
+        .nav-links li {
+            margin-left: 30px;
         }
 
-        .about-content {
-            flex-direction: column;
+        .nav-links a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-        .about-image {
-            max-width: 100%;
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .hero {
+            background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/IpN263esg-sFSo-BI2ig4.webp');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content h1 {
-            font-size: 40px;
+            font-size: 54px;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content p {
-            font-size: 18px;
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
-    }
-</style>
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--gold);
+        }
+
+        #about {
+            background-color: var(--dark-gray);
+            position: relative;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            max-width: 45%;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(244, 208, 63, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        #services {
+            background-color: var(--black);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--dark-gray);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(244, 208, 63, 0.2);
+        }
+
+        .service-card i {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        #testimonials {
+            background-color: var(--dark-gray);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--black);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card h4 {
+            color: var(--gold);
+        }
+
+        #contact {
+            background-color: var(--black);
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--gold);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--gold);
+            border-radius: 5px;
+            background-color: var(--dark-gray);
+            color: var(--white);
+            transition: border-color 0.3s ease;
+            font-family: var(--font-body-family);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--white);
+        }
+
+        button {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-family: var(--font-body-family);
+        }
+
+        button:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-content,
+            .services-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                max-width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -416,32 +428,32 @@
             <h2>Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <i class="fas fa-broom" aria-hidden="true" alt="Spring Clean Icon"></i>
+                    <i class="fas fa-broom" aria-hidden="true"></i>
                     <h3>Spring Clean / Deep Clean</h3>
                     <p>Thorough cleaning from top to bottom, leaving no corner untouched. Perfect for a seasonal refresh or a comprehensive deep clean.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-calendar-check" aria-hidden="true" alt="One-Off Cleaning Icon"></i>
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
                     <h3>One-Off Cleaning</h3>
                     <p>Perfect for special occasions or when you need a quick refresh. Enjoy a spotless home with our detailed one-time cleaning service.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-building" aria-hidden="true" alt="Commercial Cleaning Icon"></i>
+                    <i class="fas fa-building" aria-hidden="true"></i>
                     <h3>Commercial Cleaning</h3>
                     <p>Keep your workplace spotless and productive with our customized commercial cleaning solutions. Catering to offices, retail spaces, and more.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-home" aria-hidden="true" alt="Residential Cleaning Icon"></i>
+                    <i class="fas fa-home" aria-hidden="true"></i>
                     <h3>Residential Cleaning</h3>
                     <p>Regular or one-time cleaning services for your home, tailored to your needs. Ensure a healthy living environment for you and your family.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-couch" aria-hidden="true" alt="Upholstery Cleaning Icon"></i>
+                    <i class="fas fa-couch" aria-hidden="true"></i>
                     <h3>Upholstery Cleaning</h3>
                     <p>Revitalize your furniture with our specialized techniques. Expert care for sofas, chairs, and other upholstered items.</p>
                 </div>
                 <div class="service-card">
-                    <i class="fas fa-utensils" aria-hidden="true" alt="Oven Cleaning Icon"></i>
+                    <i class="fas fa-utensils" aria-hidden="true"></i>
                     <h3>Oven Cleaning</h3>
                     <p>Detailed cleaning for your cooking appliances. Ensure optimal performance and hygiene with our BBQ and oven cleaning service.</p>
                 </div>
