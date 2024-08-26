@@ -360,21 +360,6 @@
                 display: none;
             }
 
-            .menu-toggle {
-                display: block;
-                color: var(--gold);
-                font-size: 24px;
-                cursor: pointer;
-            }
-
-            .hero-content h1 {
-                font-size: 36px;
-            }
-
-            .hero-content p {
-                font-size: 18px;
-            }
-
             .about-content,
             .services-grid,
             .testimonial-grid {
@@ -389,12 +374,12 @@
                 max-width: 100%;
             }
 
-            .service-card i {
-                font-size: 36px;
+            .hero-content h1 {
+                font-size: 40px;
             }
 
-            .service-card h3 {
-                font-size: 20px;
+            .hero-content p {
+                font-size: 18px;
             }
         }
     </style>
@@ -403,9 +388,6 @@
     <header>
         <nav class="container">
             <a href="#" class="logo">Golden Slipper</a>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
@@ -415,7 +397,123 @@
         </nav>
     </header>
 
-    <!-- Rest of the HTML remains unchanged -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Experience Pristine Cleanliness</h1>
+                <p>Professional, bespoke luxury cleaning services in Eastern Sydney</p>
+                <a href="#contact" class="cta-button">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Golden Slipper</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://i.ibb.co/84SjCk4/Untitled-design-3-1.png" alt="Abbie - Founder of Golden Slipper Cleaning Services">
+                </div>
+                <div class="about-text">
+                    <p>Welcome to Golden Slipper Cleaning Services, a luxury cleaning business born out of passion and perseverance. Founded by Abbie, our journey began three years ago with a vision to create a cleaning service that truly makes a difference in people's lives.</p>
+                    <p>After overcoming personal challenges and embracing a holistic lifestyle, Abbie discovered her passion for low-toxic essential oils. This newfound purpose led to the creation of Golden Slipper Cleaning Services, where we combine professional expertise with holistic practices.</p>
+                    <p>Our mission is to provide high-detailed, bespoke cleaning services infused with essential oils, aromatherapy, and organic products. We're dedicated to creating not just clean spaces, but harmonious environments that promote wellbeing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-broom" aria-hidden="true"></i>
+                    <h3>Spring Clean / Deep Clean</h3>
+                    <p>Thorough cleaning from top to bottom, leaving no corner untouched. Perfect for a seasonal refresh or a comprehensive deep clean.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                    <h3>One-Off Cleaning</h3>
+                    <p>Perfect for special occasions or when you need a quick refresh. Enjoy a spotless home with our detailed one-time cleaning service.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building" aria-hidden="true"></i>
+                    <h3>Commercial Cleaning</h3>
+                    <p>Keep your workplace spotless and productive with our customized commercial cleaning solutions. Catering to offices, retail spaces, and more.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                    <h3>Residential Cleaning</h3>
+                    <p>Regular or one-time cleaning services for your home, tailored to your needs. Ensure a healthy living environment for you and your family.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-couch" aria-hidden="true"></i>
+                    <h3>Upholstery Cleaning</h3>
+                    <p>Revitalize your furniture with our specialized techniques. Expert care for sofas, chairs, and other upholstered items.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-utensils" aria-hidden="true"></i>
+                    <h3>Oven Cleaning</h3>
+                    <p>Detailed cleaning for your cooking appliances. Ensure optimal performance and hygiene with our BBQ and oven cleaning service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
+                    <h4>- Michael</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Abbie and her team are just brilliant! I'm a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
+                    <h4>- Jessie Withers</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Golden Slipper Cleaning Services are incredible for all your cleaning needs. They are so professional to deal with and their attention to detail is incredible. The apartment felt like a hotel after they had been. I would highly recommend them and will definitely be using them in the future, best in the business!"</p>
+                    <h4>- Grainne O'Sullivan</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+<input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
+            <p>Serving Botany and surrounding areas in Eastern Sydney</p>
+            <p>Contact: 0434 431 361 | hello@goldenslippercleaning.com.au</p>
+            <p>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+            </p>
+        </div>
+    </footer>
 
     <script>
         // Add smooth scrolling for navigation links
@@ -433,14 +531,6 @@
             e.preventDefault();
             alert('Thank you for your interest! We will get back to you shortly.');
             this.reset();
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
     </script>
 </body>
