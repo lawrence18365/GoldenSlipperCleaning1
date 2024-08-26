@@ -45,41 +45,70 @@
             padding: 0 20px;
         }
 
-        header {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
+       header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
 
-        header.scrolled {
-            background-color: rgba(0, 0, 0, 0.95);
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.logo {
+    font-family: var(--font-heading-family);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        .logo {
-            font-family: var(--font-heading-family);
-            font-weight: 700;
-            font-size: 24px;
-            color: var(--gold);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.nav-links {
+    display: none;
+}
 
-        .logo:hover {
-            color: var(--white);
-        }
+.menu-toggle {
+    display: block;
+    color: var(--gold);
+    font-size: 24px;
+    cursor: pointer;
+}
 
-        .nav-links {
-            display: none;
-        }
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links li {
+        margin-left: 20px;
+    }
+
+    .nav-links a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+        color: var(--white);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 
         .menu-toggle {
             display: block;
@@ -409,19 +438,19 @@
 </head>
 <body>
     <header>
-        <nav class="container">
-            <a href="#" class="logo">Golden Slipper</a>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="container">
+        <a href="#" class="logo">Golden Slipper</a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero">
         <div class="container">
