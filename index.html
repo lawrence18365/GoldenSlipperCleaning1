@@ -47,7 +47,7 @@
 
         header {
             background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
@@ -67,7 +67,7 @@
         .logo {
             font-family: var(--font-heading-family);
             font-weight: 700;
-            font-size: 28px;
+            font-size: 24px;
             color: var(--gold);
             text-decoration: none;
             transition: color 0.3s ease;
@@ -78,23 +78,14 @@
         }
 
         .nav-links {
-            display: flex;
-            list-style: none;
+            display: none;
         }
 
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
+        .menu-toggle {
+            display: block;
             color: var(--gold);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
         }
 
         .hero {
@@ -124,14 +115,14 @@
         }
 
         .hero-content h1 {
-            font-size: 54px;
+            font-size: 36px;
             margin-bottom: 20px;
             color: var(--gold);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content p {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 30px;
             color: var(--white);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
@@ -148,12 +139,12 @@
         }
 
         section {
-            padding: 100px 0;
+            padding: 60px 0;
         }
 
         h2 {
-            font-size: 40px;
-            margin-bottom: 40px;
+            font-size: 32px;
+            margin-bottom: 30px;
             text-align: center;
             color: var(--gold);
         }
@@ -165,18 +156,19 @@
 
         .about-content {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 50px;
+            gap: 30px;
         }
 
         .about-image {
-            flex: 1;
-            max-width: 45%;
+            width: 100%;
+            max-width: 300px;
         }
 
         .about-image img {
             width: 100%;
-            height: 400px;
+            height: auto;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(244, 208, 63, 0.3);
@@ -188,7 +180,7 @@
         }
 
         .about-text {
-            flex: 1;
+            text-align: center;
         }
 
         .about-text p {
@@ -218,7 +210,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 30px;
         }
 
@@ -237,13 +229,13 @@
         }
 
         .service-card i {
-            font-size: 48px;
+            font-size: 36px;
             color: var(--gold);
             margin-bottom: 20px;
         }
 
         .service-card h3 {
-            font-size: 24px;
+            font-size: 20px;
             margin-bottom: 15px;
             color: var(--gold);
         }
@@ -254,7 +246,7 @@
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr;
             gap: 30px;
         }
 
@@ -285,7 +277,7 @@
         }
 
         form {
-            max-width: 600px;
+            max-width: 100%;
             margin: 0 auto;
         }
 
@@ -318,6 +310,7 @@
         }
 
         button {
+            width: 100%;
             background-color: var(--gold);
             color: var(--black);
             padding: 12px 30px;
@@ -343,6 +336,7 @@
 
         footer p {
             margin-bottom: 10px;
+            font-size: 14px;
         }
 
         footer a {
@@ -355,31 +349,60 @@
             color: var(--white);
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
+        @media (min-width: 768px) {
+            .menu-toggle {
                 display: none;
             }
 
-            .about-content,
-            .services-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
+            .nav-links {
+                display: flex;
+                list-style: none;
             }
 
-            .about-content {
-                flex-direction: column;
+            .nav-links li {
+                margin-left: 30px;
             }
 
-            .about-image {
-                max-width: 100%;
+            .nav-links a {
+                color: var(--gold);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: var(--white);
             }
 
             .hero-content h1 {
-                font-size: 40px;
+                font-size: 54px;
             }
 
             .hero-content p {
-                font-size: 18px;
+                font-size: 20px;
+            }
+
+            .about-content {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 50px;
+            }
+
+            .about-image {
+                max-width: 45%;
+            }
+
+            .about-text {
+                text-align: left;
+            }
+
+            .services-grid,
+            .testimonial-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            button {
+                width: auto;
             }
         }
     </style>
@@ -388,6 +411,9 @@
     <header>
         <nav class="container">
             <a href="#" class="logo">Golden Slipper</a>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
@@ -515,7 +541,7 @@
         </div>
     </footer>
 
-    <script>
+     <script>
         // Add smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -531,6 +557,14 @@
             e.preventDefault();
             alert('Thank you for your interest! We will get back to you shortly.');
             this.reset();
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
     </script>
 </body>
