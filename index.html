@@ -60,43 +60,30 @@
         }
 
         .logo img {
-            height: 60px;
+            height: 120px; /* Increased from 60px to 120px */
             width: auto;
-            margin-right: 10px;
+            margin-right: 20px; /* Increased from 10px to 20px for better spacing */
         }
 
         @media (max-width: 768px) {
             .logo img {
-                height: 40px;
+                height: 80px; /* Increased from 40px to 80px for mobile */
             }
         }
 
-        header.scrolled {
-            background-color: rgba(0, 0, 0, 0.95);
+        /* Adjust header padding to accommodate larger logo */
+        header {
+            padding: 15px 0; /* Increased from 10px to 15px */
         }
 
+        /* Adjust nav layout for better responsiveness */
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-heading-family);
-            font-weight: 700;
-            font-size: 28px;
-            color: var(--gold);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .logo:hover {
-            color: var(--white);
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-links {
-            display: flex;
-            list-style: none;
+            margin-top: 10px;
         }
 
         .nav-links li {
