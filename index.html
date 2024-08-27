@@ -6,159 +6,158 @@
     <title>Golden Slipper Cleaning Services - Experience Pristine Cleanliness</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <style>
-    :root {
-        --gold: #F4D03F;
-        --black: #000000;
-        --dark-gray: #1a1a1a;
-        --light-gray: #333333;
-        --white: #FFFFFF;
-        --font-body-family: 'Poppins', sans-serif;
-        --font-heading-family: 'Poppins', sans-serif;
-        --font-body-weight: 300;
-        --font-body-weight-bold: 600;
-        --font-heading-weight: 600;
-    }
+    <style>
+        :root {
+            --gold: #F4D03F;
+            --black: #000000;
+            --dark-gray: #1a1a1a;
+            --light-gray: #333333;
+            --white: #FFFFFF;
+            --font-body-family: 'Poppins', sans-serif;
+            --font-heading-family: 'Poppins', sans-serif;
+            --font-body-weight: 300;
+            --font-body-weight-bold: 600;
+            --font-heading-weight: 600;
+        }
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-        font-family: var(--font-body-family);
-        font-weight: var(--font-body-weight);
-        background-color: var(--black);
-        color: var(--white);
-        line-height: 1.6;
-    }
+        body {
+            font-family: var(--font-body-family);
+            font-weight: var(--font-body-weight);
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
 
-    h1, h2, h3, h4, h5, h6 {
-        font-family: var(--font-heading-family);
-        font-weight: var(--font-heading-weight);
-    }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading-family);
+            font-weight: var(--font-heading-weight);
+        }
 
-    .container {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    header {
-        background-color: rgba(0, 0, 0, 0.8);
-        padding: 10px 0;
-        position: fixed;
-        width: 100%;
-        z-index: 1000;
-        transition: background-color 0.3s ease;
-    }
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.95);
+        }
 
-    .logo {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-    }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .logo img {
-        height: 150px;
-        width: auto;
-        margin-right: 10px;
-    }
+        .logo {
+            font-family: var(--font-heading-family);
+            font-weight: 700;
+            font-size: 28px;
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-    .nav-links {
-        display: flex;
-        list-style: none;
-    }
+        .logo:hover {
+            color: var(--white);
+        }
 
-    .nav-links li {
-        margin-left: 30px;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-    .nav-links a {
-        color: var(--gold);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 18px;
-        transition: color 0.3s ease;
-    }
+        .nav-links li {
+            margin-left: 30px;
+        }
 
-    .nav-links a:hover {
-        color: var(--white);
-    }
+        .nav-links a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    .hero {
-        background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/IpN263esg-sFSo-BI2ig4.webp');
-        background-size: cover;
-        background-position: center;
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        text-align: center;
-        position: relative;
-    }
+        .nav-links a:hover {
+            color: var(--white);
+        }
 
-    .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
+        .hero {
+            background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/IpN263esg-sFSo-BI2ig4.webp');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
 
-    .hero-content {
-        position: relative;
-        z-index: 1;
-    }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-    .hero-content h1 {
-        font-size: 54px;
-        margin-bottom: 20px;
-        color: var(--gold);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
 
-    .hero-content p {
-        font-size: 20px;
-        margin-bottom: 30px;
-        color: var(--white);
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
+        .hero-content h1 {
+            font-size: 54px;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-    .cta-button {
-        display: inline-block;
-        background-color: var(--gold);
-        color: var(--black);
-        padding: 12px 30px;
-        text-decoration: none;
-        border-radius: 50px;
-        font-weight: bold;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-    }
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
 
-    .cta-button:hover {
-        background-color: var(--white);
-        transform: translateY(-3px);
-    }
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        }
 
-    section {
-        padding: 100px 0;
-    }
+        section {
+            padding: 100px 0;
+        }
 
-    h2 {
-        font-size: 40px;
-        margin-bottom: 40px;
-        text-align: center;
-        color: var(--gold);
-    }
+        h2 {
+            font-size: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--gold);
+        }
+
         #about {
             background-color: var(--dark-gray);
             position: relative;
@@ -319,22 +318,21 @@
         }
 
         button {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--gold);
-    border-radius: 5px;
-    background-color: var(--gold);
-    color: var(--black);
-    font-weight: bold;
-    font-size: 16px; /* Match the size of other form elements */
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-family: var(--font-body-family);
+        }
 
-button:hover {
-    background-color: var(--black);
-    color: var(--gold);
-}
+        button:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
 
         footer {
             background-color: var(--black);
@@ -357,40 +355,47 @@ button:hover {
             color: var(--white);
         }
 
-         @media (max-width: 900px) {
-        .nav-links {
-            display: none;
-        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
 
-        .logo img {
-            height: 60px;
-        }
+            .about-content,
+            .services-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
 
-        .hero-content h1 {
-            font-size: 40px;
-        }
+            .about-content {
+                flex-direction: column;
+            }
 
-        .hero-content p {
-            font-size: 18px;
+            .about-image {
+                max-width: 100%;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
         }
-    }
-</style>
+    </style>
 </head>
 <body>
-    <header>
-    <nav class="container">
-        <a href="#" class="logo">
-            <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
-        </a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
+     <header>
+        <nav class="container">
+            <a href="#" class="logo">Golden Slipper Cleaning Services</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section class="hero">
         <div class="container">
@@ -407,7 +412,7 @@ button:hover {
             <h2>About Golden Slipper</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="https://i.ibb.co/0QL9g66/1636c0cc-8ec9-4757-9461-22a2cefd2ec3.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
+                    <img src="https://i.ibb.co/84SjCk4/Untitled-design-3-1.png" alt="Abbie - Founder of Golden Slipper Cleaning Services">
                 </div>
                 <div class="about-text">
                     <p>Welcome to Golden Slipper Cleaning Services, a luxury cleaning business born out of passion and perseverance. Founded by Abbie, our journey began three years ago with a vision to create a cleaning service that truly makes a difference in people's lives.</p>
@@ -418,7 +423,7 @@ button:hover {
         </div>
     </section>
 
-    <section id="services">
+     <section id="services">
         <div class="container">
             <h2>Our Services</h2>
             <div class="services-grid">
@@ -536,44 +541,7 @@ button:hover {
         </div>
     </footer>
 
-    <script>
-        // Add smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Form submission handling
-        const form = document.querySelector('form');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                if (response.ok) {
-                    alert('Thank you for your message! We will get back to you shortly.');
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                alert('Oops! There was a problem submitting your form. Please try again later.');
-                console.error(error);
-            }
-        });
-    </script>
-</body>
-</html><script>
+   <script>
         // Add smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
