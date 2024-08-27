@@ -50,26 +50,19 @@
     position: fixed;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    padding: 5px 0;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+    padding: 0 20px;
 }
 
 .logo img {
-    height: auto;
-    width: 200px; /* Increased base size */
-    max-width: 100%;
+    height: 60px;
+    width: auto;
 }
 
 .nav-links {
@@ -78,6 +71,31 @@ nav {
     margin: 0;
     padding: 0;
 }
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 50px;
+    }
+    
+    .nav-links {
+        display: none; /* Hide on mobile, you might want to add a mobile menu toggle */
+    }
 
 .nav-links li {
     margin-left: 20px;
@@ -430,7 +448,7 @@ nav {
     </style>
 </head>
 <body>
-     <header>
+    <header>
     <nav>
         <a href="#" class="logo">
             <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
