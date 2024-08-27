@@ -47,22 +47,29 @@
 
         header {
     background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
-    padding: 5px 0;
+    transition: background-color 0.3s ease;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .logo img {
-    height: 60px;
+    height: 150px; /* Increased from 120px to 150px */
     width: auto;
+    margin-right: 20px;
 }
 
 .nav-links {
@@ -80,7 +87,6 @@ nav {
     color: var(--gold);
     text-decoration: none;
     font-weight: 500;
-    font-size: 18px;
     transition: color 0.3s ease;
 }
 
@@ -90,45 +96,20 @@ nav {
 
 @media (max-width: 768px) {
     .logo img {
-        height: 50px;
+        height: 100px; /* Increased from 80px to 100px for mobile */
     }
     
-    .nav-links {
-        display: none; /* Hide on mobile, you might want to add a mobile menu toggle */
-    }
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--white);
-}
-
-@media (max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
-    }
-    
-    .logo img {
-        width: 150px; /* Adjusted for mobile */
     }
     
     .nav-links {
-        margin-top: 10px;
+        margin-top: 15px;
     }
     
     .nav-links li {
-        margin: 0 10px;
+        margin: 0 15px;
     }
 }
         .nav-links a {
@@ -294,55 +275,37 @@ nav {
         }
 
         #testimonials {
-        background-color: var(--dark-gray);
-        padding: 80px 0;
-    }
-
-    .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-    .testimonial-card {
-        background-color: var(--black);
-        border: 2px solid var(--gold);
-        border-radius: 10px;
-        padding: 30px;
-        text-align: center;
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .testimonial-card p {
-        font-style: italic;
-        margin-bottom: 15px;
-        flex-grow: 1;
-    }
-
-    .testimonial-card .stars {
-        color: var(--gold);
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .testimonial-card h4 {
-        color: var(--gold);
-        margin-top: 10px;
-    }
-
-    @media (max-width: 768px) {
-        .testimonial-grid {
-            grid-template-columns: 1fr;
+            background-color: var(--dark-gray);
         }
-    }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--black);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card h4 {
+            color: var(--gold);
+        }
+
         #contact {
             background-color: var(--black);
         }
@@ -449,7 +412,7 @@ nav {
 </head>
 <body>
     <header>
-    <nav>
+    <nav class="container">
         <a href="#" class="logo">
             <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
         </a>
@@ -488,7 +451,7 @@ nav {
         </div>
     </section>
 
-     <section id="services">
+    <section id="services">
         <div class="container">
             <h2>Our Services</h2>
             <div class="services-grid">
@@ -532,64 +495,40 @@ nav {
     </section>
 
     <section id="testimonials">
-    <div class="container">
-        <h2>Testimonials</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
-                <div class="stars">★★★★★</div>
-                <h4>- Michael</h4>
-            </div>
-            <div class="testimonial-card">
-                <p>"Abbie and her team are just brilliant! I'm a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
-                <div class="stars">★★★★★</div>
-                <h4>- Jessie Withers</h4>
-            </div>
-            <div class="testimonial-card">
-                <p>"Golden Slipper Cleaning Services are incredible for all your cleaning needs. They are so professional to deal with and their attention to detail is incredible. The apartment felt like a hotel after they had been. I would highly recommend them and will definitely be using them in the future, best in the business!"</p>
-                <div class="stars">★★★★★</div>
-                <h4>- Grainne O'Sullivan</h4>
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
+                    <h4>- Michael</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Abbie and her team are just brilliant! I'm a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
+                    <h4>- Jessie Withers</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Golden Slipper Cleaning Services are incredible for all your cleaning needs. They are so professional to deal with and their attention to detail is incredible. The apartment felt like a hotel after they had been. I would highly recommend them and will definitely be using them in the future, best in the business!"</p>
+                    <h4>- Grainne O'Sullivan</h4>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section id="contact">
         <div class="container">
             <h2>Contact Us</h2>
-            <form action="https://formspree.io/f/your_formspree_endpoint" method="POST" enctype="multipart/form-data">
+            <form>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+<input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone (optional)</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="service">Service Interested In</label>
-                    <select id="service" name="service" required>
-                        <option value="">Select a service</option>
-                        <option value="Spring Clean">Spring Clean / Deep Clean</option>
-                        <option value="One-Off Cleaning">One-Off Cleaning</option>
-                        <option value="Commercial Cleaning">Commercial Cleaning</option>
-                        <option value="Domestic Cleaning">Domestic Cleaning</option>
-                        <option value="Upholstery Cleaning">Upholstery Cleaning</option>
-                        <option value="Non-Toxic Oven Cleaning">Non-Toxic Oven Cleaning</option>
-                        <option value="Construction Cleaning">Construction/Post-Renovation Cleaning</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message or Questions</label>
+                    <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="file">Attach Photos or Videos (optional)</label>
-                    <input type="file" id="file" name="attachment" accept="image/*,video/*">
                 </div>
                 <button type="submit">Send Message</button>
             </form>
@@ -609,7 +548,7 @@ nav {
         </div>
     </footer>
 
-   <script>
+    <script>
         // Add smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -620,29 +559,11 @@ nav {
             });
         });
 
-        // Form submission handling
-        const form = document.querySelector('form');
-        form.addEventListener('submit', async (e) => {
+        // Form submission handling (you'll need to replace this with your actual form submission logic)
+        document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                if (response.ok) {
-                    alert('Thank you for your message! We will get back to you shortly.');
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                alert('Oops! There was a problem submitting your form. Please try again later.');
-                console.error(error);
-            }
+            alert('Thank you for your interest! We will get back to you shortly.');
+            this.reset();
         });
     </script>
 </body>
