@@ -249,37 +249,55 @@
         }
 
         #testimonials {
-            background-color: var(--dark-gray);
-        }
+        background-color: var(--dark-gray);
+        padding: 80px 0;
+    }
 
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .testimonial-card {
+        background-color: var(--black);
+        border: 2px solid var(--gold);
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .testimonial-card p {
+        font-style: italic;
+        margin-bottom: 15px;
+        flex-grow: 1;
+    }
+
+    .testimonial-card .stars {
+        color: var(--gold);
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .testimonial-card h4 {
+        color: var(--gold);
+        margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
         .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: 1fr;
         }
-
-        .testimonial-card {
-            background-color: var(--black);
-            border: 2px solid var(--gold);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-card h4 {
-            color: var(--gold);
-        }
-
+    }
         #contact {
             background-color: var(--black);
         }
@@ -467,24 +485,27 @@
     </section>
 
     <section id="testimonials">
-        <div class="container">
-            <h2>Testimonials</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
-                    <h4>- Michael</h4>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Abbie and her team are just brilliant! I'm a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
-                    <h4>- Jessie Withers</h4>
-                </div>
-                <div class="testimonial-card">
-                    <p>"Golden Slipper Cleaning Services are incredible for all your cleaning needs. They are so professional to deal with and their attention to detail is incredible. The apartment felt like a hotel after they had been. I would highly recommend them and will definitely be using them in the future, best in the business!"</p>
-                    <h4>- Grainne O'Sullivan</h4>
-                </div>
+    <div class="container">
+        <h2>Testimonials</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
+                <div class="stars">★★★★★</div>
+                <h4>- Michael</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Abbie and her team are just brilliant! I'm a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
+                <div class="stars">★★★★★</div>
+                <h4>- Jessie Withers</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Golden Slipper Cleaning Services are incredible for all your cleaning needs. They are so professional to deal with and their attention to detail is incredible. The apartment felt like a hotel after they had been. I would highly recommend them and will definitely be using them in the future, best in the business!"</p>
+                <div class="stars">★★★★★</div>
+                <h4>- Grainne O'Sullivan</h4>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="contact">
         <div class="container">
