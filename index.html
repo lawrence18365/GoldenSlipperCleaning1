@@ -46,46 +46,72 @@
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
 
-        .logo img {
-            height: 120px; /* Increased from 60px to 120px */
-            width: auto;
-            margin-right: 20px; /* Increased from 10px to 20px for better spacing */
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        @media (max-width: 768px) {
-            .logo img {
-                height: 80px; /* Increased from 40px to 80px for mobile */
-            }
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
-        /* Adjust header padding to accommodate larger logo */
-        header {
-            padding: 15px 0; /* Increased from 10px to 15px */
-        }
+.logo img {
+    height: 150px; /* Increased from 120px to 150px */
+    width: auto;
+    margin-right: 20px;
+}
 
-        /* Adjust nav layout for better responsiveness */
-        nav {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-        .nav-links {
-            margin-top: 10px;
-        }
+.nav-links li {
+    margin-left: 30px;
+}
 
+.nav-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 100px; /* Increased from 80px to 100px for mobile */
+    }
+    
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-links {
+        margin-top: 15px;
+    }
+    
+    .nav-links li {
+        margin: 0 15px;
+    }
+}
         .nav-links li {
             margin-left: 30px;
         }
@@ -390,18 +416,19 @@
 </head>
 <body>
     <header>
-        <nav class="container">
-            <a href="#" class="logo">
-                <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="container">
+        <a href="#" class="logo">
+            <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
 
     <section class="hero">
         <div class="container">
