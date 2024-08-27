@@ -67,9 +67,10 @@ nav {
 }
 
 .logo img {
-    height: 150px; /* Increased from 120px to 150px */
+    height: 160px; /* Slightly increased from 150px */
     width: auto;
-    margin-right: 20px;
+    margin-right: 10px; /* Reduced from 20px to tighten spacing */
+    padding: 5px; /* Added minimal padding */
 }
 
 .nav-links {
@@ -87,11 +88,13 @@ nav {
     color: var(--gold);
     text-decoration: none;
     font-weight: 500;
+    font-size: 20px; /* Increased size for better visibility */
     transition: color 0.3s ease;
+    padding: 10px 15px; /* Added padding for larger clickable area */
 }
 
 .nav-links a:hover {
-    color: var(--white);
+    color: var(--white); /* Changed hover color to white for contrast */
 }
 
 @media (max-width: 768px) {
@@ -348,21 +351,22 @@ nav {
         }
 
         button {
-            background-color: var(--gold);
-            color: var(--black);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-family: var(--font-body-family);
-        }
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    background-color: var(--gold);
+    color: var(--black);
+    font-weight: bold;
+    font-size: 16px; /* Match the size of other form elements */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-        button:hover {
-            background-color: var(--white);
-            transform: translateY(-3px);
-        }
+button:hover {
+    background-color: var(--black);
+    color: var(--gold);
+}
 
         footer {
             background-color: var(--black);
