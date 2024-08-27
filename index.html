@@ -46,64 +46,73 @@
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
 
-        header.scrolled {
-            background-color: rgba(0, 0, 0, 0.95);
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
-        .logo {
-            font-family: var(--font-heading-family);
-            font-weight: 700;
-            font-size: 28px;
-            color: var(--gold);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.logo img {
+    height: auto;
+    width: 200px; /* Increased base size */
+    max-width: 100%;
+}
 
-        .logo:hover {
-            color: var(--white);
-        }
-         .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-        .logo img {
-            height: 160px;
-            width: auto;
-            margin-right: 10px;
-        }
+.nav-links li {
+    margin-left: 20px;
+}
 
-        @media (max-width: 768px) {
-            .logo img {
-                height: 40px;
-            }
-        }
+.nav-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
+.nav-links a:hover {
+    color: var(--white);
+}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+    
+    .logo img {
+        width: 150px; /* Adjusted for mobile */
+    }
+    
+    .nav-links {
+        margin-top: 10px;
+    }
+    
+    .nav-links li {
+        margin: 0 10px;
+    }
+}
         .nav-links a {
             color: var(--gold);
             text-decoration: none;
@@ -422,18 +431,18 @@
 </head>
 <body>
      <header>
-        <nav class="container">
-            <a href="#" class="logo">
-                <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <a href="#" class="logo">
+            <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero">
         <div class="container">
