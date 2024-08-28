@@ -434,7 +434,8 @@ nav {
             .hero-content p {
                 font-size: 18px;
             }
-        .menu-toggle {
+        
+           .menu-toggle {
             display: none;
             font-size: 24px;
             color: var(--gold);
@@ -619,34 +620,27 @@ nav {
 
     
     <script>
-        // Add smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+        // Wait for the DOM to be fully loaded before executing the script
+document.addEventListener('DOMContentLoaded', function() {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
-            });
+            }
         });
-        
-          navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        e.preventDefault();
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
+    });
 
-        // Form submission handling
-        const form = document.querySelector('form');
+    // Form submission handling
+    const form = document.querySelector('form');
+    if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(form);
@@ -669,30 +663,32 @@ nav {
                 console.error(error);
             }
         });
-       
-         // Add this new script for the dropdown menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
+    }
 
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-            });
+    // Dropdown menu functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-            // Close the menu when a link is clicked
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                });
-            });
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
 
-            // Close the menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!event.target.closest('.nav-links') && !event.target.closest('.menu-toggle')) {
-                    navLinks.classList.remove('active');
-                }
+        // Close the menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
             });
         });
+
+        // Close the menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.nav-links') && !event.target.closest('.menu-toggle')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+});
     </script>
 </body>
 </html>
