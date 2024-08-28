@@ -46,83 +46,99 @@
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s ease;
-        }
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
-        .logo img {
-            height: 80px;
-            width: auto;
-            margin-right: 20px;
-        }
+.logo img {
+    height: 80px;
+    width: auto;
+    margin-right: 20px;
+}
 
-        .logo-text {
-            font-family: 'Great Vibes', cursive;
-            font-size: 36px;
-            color: var(--gold);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+.logo-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: var(--gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
-        .menu-toggle {
-            display: block;
-            font-size: 24px;
-            color: var(--gold);
-            cursor: pointer;
-            z-index: 1001;
-        }
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    color: var(--gold);
+    cursor: pointer;
+    z-index: 1001;
+}
 
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            flex-direction: column;
-            align-items: flex-start;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            min-width: 200px;
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+}
 
-        .nav-links.active {
-            display: flex;
-        }
+.nav-links li {
+    list-style: none;
+    margin-left: 30px;
+}
 
-        .nav-links li {
-            list-style: none;
-            margin: 10px 0;
-            width: 100%;
-        }
+.nav-links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .nav-links a {
-            color: var(--gold);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            display: block;
-            padding: 5px 0;
-        }
+.nav-links a:hover {
+    color: var(--white);
+}
 
-        .nav-links a:hover {
-            color: var(--white);
-        }
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 5px 0;
+    }
+}
 
         .hero {
             height: 20vh;
@@ -394,10 +410,10 @@
             <i class="fas fa-bars"></i>
         </div>
         <ul class="nav-links">
-            <li><a href="./About.html">About</a></li>
+            <li><a href="./index.html">Home</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="./faq.html">F&Q</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
         </ul>
     </nav>
 </header>
@@ -485,61 +501,40 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
+       document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-            function positionDropdown() {
-                const toggleRect = menuToggle.getBoundingClientRect();
-                navLinks.style.top = `${toggleRect.bottom}px`;
-                navLinks.style.right = `${window.innerWidth - toggleRect.right}px`;
-            }
+    function toggleMenu(e) {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+    }
 
-            function toggleMenu(e) {
-                e.stopPropagation();
-                navLinks.classList.toggle('active');
-                if (navLinks.classList.contains('active')) {
-                    positionDropdown();
-                }
-            }
+    menuToggle.addEventListener('click', toggleMenu);
 
-            menuToggle.addEventListener('click', toggleMenu);
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
 
-            window.addEventListener('resize', function() {
-                if (navLinks.classList.contains('active')) {
-                    positionDropdown();
-                }
-            });
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
 
-            window.addEventListener('scroll', function() {
-                if (navLinks.classList.contains('active')) {
-                    positionDropdown();
-                }
-            });
-
-            document.addEventListener('click', function(e) {
-                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-                    navLinks.classList.remove('active');
-                }
-            });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-
-                    if (targetElement) {
-                        navLinks.classList.remove('active');
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
+            if (targetElement) {
+                navLinks.classList.remove('active');
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
                 });
-            });
+            }
         });
+    });
+});
     </script>
 </body>
 </html>
