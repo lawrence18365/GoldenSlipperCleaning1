@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Golden Slipper Cleaning Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --gold: #F4D03F;
+            --black: #000000;
+            --dark-gray: #1a1a1a;
+            --light-gray: #333333;
+            --white: #FFFFFF;
+            --font-body-family: 'Poppins', sans-serif;
+            --font-heading-family: 'Poppins', sans-serif;
+            --font-body-weight: 300;
+            --font-body-weight-bold: 600;
+            --font-heading-weight: 600;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body-family);
+            font-weight: var(--font-body-weight);
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading-family);
+            font-weight: var(--font-heading-weight);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 80px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+        .logo-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .hero {
+            background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/IpN263esg-sFSo-BI2ig4.webp');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 72px;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: var(--font-body-weight-bold);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--light-gray);
+        }
+
+        .faq-question::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
+                <span class="logo-text">Golden Slipper</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Frequently Asked Questions</h1>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="container">
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What areas do you serve?</div>
+                    <div class="faq-answer">
+                        <p>We primarily serve Botany and the surrounding areas in Eastern Sydney. However, we may be able to accommodate requests in nearby suburbs. Please contact us for more information about your specific location.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What types of cleaning services do you offer?</div>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of cleaning services including:</p>
+                        <ul>
+                            <li>Spring Clean / Deep Clean</li>
+                            <li>End of Lease Cleaning</li>
+                            <li>Commercial Cleaning</li>
+                            <li>Domestic Cleaning</li>
+                            <li>Upholstery Cleaning</li>
+                            <li>Non-Toxic Oven Cleaning</li>
+                            <li>Construction/Post-Renovation Cleaning</li>
+                        </ul>
+                        <p>Each service can be tailored to meet your specific needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What makes your cleaning services eco-friendly?</div>
+                    <div class="faq-answer">
+                        <p>We use non-toxic, environmentally friendly cleaning products that are safe for you, your family, and the environment. Our cleaning solutions often incorporate essential oils, which not only clean effectively but also leave a natural, fresh scent. We avoid harsh chemicals that can be harmful to health and the environment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I book a cleaning service?</div>
+                    <div class="faq-answer">
+                        <p>Booking a cleaning service is easy! You can:</p>
+                        <ol>
+                            <li>Use our online booking form on the Contact page</li>
+                            <li>Call us at 0434 431 361</li>
+                            <li>Email us at Abbie.murphy@googlemail.com</li>
+                        </ol>
+                        <p>We'll get back to you promptly to confirm your booking and discuss any specific requirements you may have.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to be home during the cleaning service?</div>
+                    <div class="faq-answer">
+                        <p>It's not necessary for you to be home during the cleaning service. Many of our clients provide us with a key or access code. However, if you prefer to be present, that's perfectly fine too. We can work around your schedule and preferences.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Are your cleaning staff insured and background checked?</div>
+                    <div class="faq-answer">
+                        <p>Yes, all our cleaning staff are fully insured and have undergone thorough background checks. We prioritize the safety and security of our clients and their properties. Our team is professionally trained and adheres to strict quality and safety standards.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What if I'm not satisfied with the cleaning service?</div>
+                    <div class="faq-answer">
+                        <p>Your satisfaction is our top priority. If you're not completely satisfied with any aspect of our service, please let us know within 24 hours of the cleaning. We'll be happy to return and address any areas of concern at no additional cost. We stand behind our work and are committed to ensuring your complete satisfaction.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you bring your own cleaning supplies and equipment?</div>
+                    <div class="faq-answer">
+                        <p>Yes, we bring all necessary cleaning supplies and equipment. Our eco-friendly cleaning products and professional-grade tools ensure a thorough and effective clean. If you have any specific products you'd like us to use or avoid, please let us know in advance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do you price your services?</div>
+                    <div class="faq-answer">
+                        <p>Our pricing is based on several factors including the type of service, size of the space, and specific cleaning requirements. We offer competitive rates and strive to provide excellent value for our high-quality, eco-friendly services. For an accurate quote, please contact us with details about your cleaning needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can you accommodate special requests or cleaning preferences?</div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We understand that every client and space is unique. We're happy to accommodate special requests or specific cleaning preferences. Please communicate any particular needs or concerns when booking your service, and we'll do our best to tailor our cleaning to your requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
+            <p>Serving Botany and surrounding areas in Eastern Sydney</p>
+            <p>Contact: 0434 431 361 | Abbie.murphy@googlemail.com</p>
+            <p>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-facebook"></i></a>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to handle FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
