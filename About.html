@@ -34,6 +34,11 @@
             line-height: 1.6;
         }
 
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading-family);
+            font-weight: var(--font-heading-weight);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -41,11 +46,14 @@
         }
 
         header {
-            background-color: var(--black);
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px 0;
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             z-index: 1000;
+            transition: background-color 0.3s ease;
         }
 
         nav {
@@ -94,14 +102,19 @@
         }
 
         .hero {
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 40px 0;
-            background-color: var(--black);
+            position: relative;
+            margin-top: 120px;
         }
 
-        .hero h1 {
+        .hero-content h1 {
             font-family: 'Great Vibes', cursive;
             font-size: 72px;
+            margin-bottom: 20px;
             color: var(--gold);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
@@ -110,133 +123,62 @@
             padding: 40px 0;
         }
 
-        h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 48px;
-            color: var(--gold);
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
         .content-container {
-            background-color: var(--dark-gray);
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 40px;
-        }
-
-        .about-content, .mission-content {
             max-width: 800px;
             margin: 0 auto;
         }
 
+        .about-item, .mission-item, .timeline-item {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about-item:hover, .mission-item:hover, .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-header, .mission-header, .timeline-header {
+            font-size: 24px;
+            font-weight: var(--font-body-weight-bold);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-header:hover, .mission-header:hover, .timeline-header:hover {
+            background-color: var(--light-gray);
+        }
+
+        .about-content, .mission-content, .timeline-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .about-item.active .about-content,
+        .mission-item.active .mission-content,
+        .timeline-item.active .timeline-content {
+            padding: 20px;
+            max-height: 2000px;
+        }
+
         .about-image {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .about-image img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(244, 208, 63, 0.3);
-        }
-
-        .about-text, .mission-text {
-            text-align: center;
-        }
-
-        .about-text p, .mission-text p {
-            margin-bottom: 20px;
-        }
-
-        .mission-text ul {
-            text-align: left;
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--gold);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            right: -17px;
-            background-color: var(--black);
-            border: 4px solid var(--gold);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left {
-            left: 0;
-        }
-
-        .right {
-            left: 50%;
-        }
-
-        .left::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            right: 30px;
-            border: medium solid var(--gold);
-            border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent var(--gold);
-        }
-
-        .right::before {
-            content: " ";
-            height: 0;
-            position: absolute;
-            top: 22px;
-            width: 0;
-            z-index: 1;
-            left: 30px;
-            border: medium solid var(--gold);
-            border-width: 10px 10px 10px 0;
-            border-color: transparent var(--gold) transparent transparent;
-        }
-
-        .right::after {
-            left: -16px;
-        }
-
-        .timeline-content {
-            padding: 20px 30px;
-            background-color: var(--light-gray);
-            position: relative;
-            border-radius: 6px;
+            max-width: 100%;
+            border-radius: 8px;
         }
 
         footer {
@@ -265,33 +207,8 @@
                 display: none;
             }
 
-            .hero h1 {
+            .hero-content h1 {
                 font-size: 48px;
-            }
-
-            .timeline::after {
-                left: 31px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-
-            .timeline-item::before {
-                left: 60px;
-                border: medium solid var(--gold);
-                border-width: 10px 10px 10px 0;
-                border-color: transparent var(--gold) transparent transparent;
-            }
-
-            .left::after, .right::after {
-                left: 15px;
-            }
-
-            .right {
-                left: 0%;
             }
         }
     </style>
@@ -315,34 +232,30 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Our Story</h1>
+            <div class="hero-content">
+                <h1>Our Story</h1>
+            </div>
         </div>
     </section>
 
     <section id="about">
         <div class="container">
             <div class="content-container">
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="https://i.ibb.co/0QL9g66/1636c0cc-8ec9-4757-9461-22a2cefd2ec3.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
-                    </div>
-                    <div class="about-text">
-                        <h2>Welcome to Golden Slipper Cleaning Services</h2>
+                <div class="about-item">
+                    <div class="about-header">About Golden Slipper Cleaning Services</div>
+                    <div class="about-content">
+                        <div class="about-image">
+                            <img src="https://i.ibb.co/0QL9g66/1636c0cc-8ec9-4757-9461-22a2cefd2ec3.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
+                        </div>
                         <p>At Golden Slipper Cleaning Services, our story began in 2021 with a vision to make a difference in people's lives. Our founder, Abbie, embarked on a journey fueled by perseverance and dedication. Overcoming personal health challenges really sparked a passion for non-toxic cleaning products and a more holistic lifestyle. Through self-education, Abbie discovered the incredible benefits of combining non-toxic products with essential oils, leading to amazing results.</p>
-                        <p>Today, Golden Slipper Cleaning Services offers high-attention-to-detail cleaning that stands out from the rest. We save you precious time, allowing you to focus on what matters most - yourself, your family, and your business. We understand that every client is unique, which is why we offer bespoke cleaning services tailored to your specific needs. Our packages are curated to meet your individual requirements, ensuring a personalized cleaning experience.</p>
+                        <p>Today, Golden Slipper Cleaning Services offers high-attention-to-detail cleaning that stands out from the rest. We save you precious time, allowing you to focus on what matters most - yourself, your family, and your business. We understand that every client is unique, which is why we offer bespoke cleaning services tailored to your specific needs.</p>
                         <p>With Golden Slipper Cleaning Services, you can trust that your space will be cleaned with care, respect, and a commitment to your wellbeing. Let us take care of the cleaning, so you can focus on what matters most.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="mission">
-        <div class="container">
-            <div class="content-container">
-                <div class="mission-content">
-                    <h2>Our Mission</h2>
-                    <div class="mission-text">
+                <div class="mission-item">
+                    <div class="mission-header">Our Mission</div>
+                    <div class="mission-content">
                         <p>At Golden Slipper Cleaning Services, our mission is to provide exceptional, eco-friendly cleaning solutions that promote a healthier living environment and enhance the overall quality of life for our clients. We are committed to:</p>
                         <ul>
                             <li>Utilizing non-toxic, environmentally friendly cleaning products</li>
@@ -353,36 +266,16 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="journey">
-        <div class="container">
-            <h2>Our Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
+                <div class="timeline-item">
+                    <div class="timeline-header">Our Journey</div>
                     <div class="timeline-content">
-                        <h3>2021</h3>
-                        <p>Golden Slipper Cleaning Services is founded by Abbie, inspired by her personal health journey and passion for non-toxic cleaning.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>2022</h3>
-                        <p>Expansion of services to include commercial cleaning, catering to businesses in Eastern Sydney.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <h3>2023</h3>
-                        <p>Introduction of specialized services such as non-toxic oven cleaning and upholstery cleaning.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <h3>2024</h3>
-                        <p>Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</p>
+                        <ul>
+                            <li><strong>2021:</strong> Golden Slipper Cleaning Services is founded by Abbie, inspired by her personal health journey and passion for non-toxic cleaning.</li>
+                            <li><strong>2022:</strong> Expansion of services to include commercial cleaning, catering to businesses in Eastern Sydney.</li>
+                            <li><strong>2023:</strong> Introduction of specialized services such as non-toxic oven cleaning and upholstery cleaning.</li>
+                            <li><strong>2024:</strong> Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -401,5 +294,14 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.about-header, .mission-header, .timeline-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
