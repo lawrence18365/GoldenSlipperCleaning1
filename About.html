@@ -146,18 +146,18 @@
             color: var(--white);
         }
 
-        .hero {
-            height: 20vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
-            background-size: cover;
-            background-position: center;
-            margin-top: 120px;
-        }
+    .hero {
+    padding-top: 120px; /* Adjust this value to match your header height */
+    background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 50vh; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
 
         .hero::before {
             content: "";
@@ -510,60 +510,39 @@
 
     <script>
        document.addEventListener('DOMContentLoaded', function() {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        function positionDropdown() {
-            const toggleRect = menuToggle.getBoundingClientRect();
-            navLinks.style.top = `${toggleRect.bottom}px`;
-            navLinks.style.right = `${window.innerWidth - toggleRect.right}px`;
+    function toggleMenu(e) {
+        e.stopPropagation();
+        navLinks.classList.toggle('active');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinks.classList.remove('active');
         }
+    });
 
-        function toggleMenu(e) {
-            e.stopPropagation();
-            navLinks.classList.toggle('active');
-            if (navLinks.classList.contains('active')) {
-                positionDropdown();
-            }
-        }
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
 
-        menuToggle.addEventListener('click', toggleMenu);
-
-        window.addEventListener('resize', function() {
-            if (navLinks.classList.contains('active')) {
-                positionDropdown();
-            }
-        });
-
-        window.addEventListener('scroll', function() {
-            if (navLinks.classList.contains('active')) {
-                positionDropdown();
-            }
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+            if (targetElement) {
                 navLinks.classList.remove('active');
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
             }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-
-                if (targetElement) {
-                    navLinks.classList.remove('active');
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
         });
     });
+});
     </script>
 </body>
 </html>
