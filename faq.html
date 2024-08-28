@@ -101,13 +101,13 @@
 
         .hero {
             height: 50vh;
-            display: fixed;
+            display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
-            background-size: cover;
             background-position: center;
+            margin-top: 120px;
         }
 
         .hero::before {
@@ -134,7 +134,7 @@
         }
 
         section {
-            padding: 10px 0;
+            padding: 80px 0;
         }
 
         .faq-container {
@@ -147,6 +147,13 @@
             border-radius: 8px;
             margin-bottom: 20px;
             overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
         .faq-question {
@@ -189,7 +196,7 @@
         }
 
         footer {
-            background-color: var(--black);
+            background-color: var(--dark-gray);
             color: var(--white);
             text-align: center;
             padding: 40px 0;
@@ -242,8 +249,7 @@
             </div>
         </div>
     </section>
-
-    <section id="faq">
+ <section id="faq">
         <div class="container">
             <div class="faq-container">
                 <div class="faq-item">
@@ -281,9 +287,11 @@
                     <div class="faq-question">How do I book a cleaning service?</div>
                     <div class="faq-answer">
                         <p>Booking a cleaning service is easy! You can:</p>
-                           <p>Use our online booking form on the Contact page</p>
-                             <p>Call us at 0434 431 361</p>
-                          <p>Email us at Abbie.murphy@googlemail.com</p>
+                        <ul>
+                            <li>Use our online booking form on the Contact page</li>
+                            <li>Call us at 0434 431 361</li>
+                            <li>Email us at Abbie.murphy@googlemail.com</li>
+                        </ul>
                         <p>We'll get back to you promptly to confirm your booking and discuss any specific requirements you may have.</p>
                     </div>
                 </div>
@@ -333,7 +341,7 @@
         </div>
     </section>
 
-     <footer>
+    <footer>
         <div class="container">
             <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
             <p>Serving Botany and surrounding areas in Eastern Sydney</p>
@@ -360,7 +368,7 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                    behavior 'smooth'
                 });
             });
         });
