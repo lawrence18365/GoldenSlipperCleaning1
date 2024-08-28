@@ -406,6 +406,38 @@
             </p>
         </div>
     </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        function positionDropdown() {
+            const toggleRect = menuToggle.getBoundingClientRect();
+            navLinks.style.top = `${toggleRect.bottom + window.scrollY}px`;
+            navLinks.style.right = `${window.innerWidth - toggleRect.right}px`;
+        }
+
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                positionDropdown();
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (navLinks.classList.contains('active')) {
+                positionDropdown();
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>
 </antArt
