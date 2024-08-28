@@ -91,14 +91,14 @@
         display: none;
         position: absolute;
         top: 100%;
-        right: 20px;
+        right: 20px; /* Align to the right */
         background-color: rgba(0, 0, 0, 0.9);
         padding: 20px;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start; /* Align items to the left within the dropdown */
         border-radius: 5px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        min-width: 200px;
+        min-width: 200px; /* Set a minimum width for the dropdown */
     }
 
     .nav-links.active {
@@ -108,7 +108,46 @@
     .nav-links li {
         list-style: none;
         margin: 10px 0;
-        width: 100%;
+        width: 100%; /* Make list items full width of the dropdown */
+    }
+
+    .nav-links a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        display: block; /* Make the entire area clickable */
+        padding: 5px 0;
+    }
+
+    .nav-links a:hover {
+        color: var(--white);
+    }
+
+    @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
     }
 
     .nav-links a {
@@ -359,20 +398,23 @@
 </head>
 <body>
     <header>
-        <nav class="container">
-            <a href="index.html" class="logo">
-                <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
-                <span class="logo-text">Golden Slipper</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#testimonials">Testimonials</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="container">
+        <a href="#" class="logo">
+            <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
+            <span class="logo-text">Golden Slipper</span>
+        </a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section class="hero">
         <div class="container">
@@ -456,7 +498,7 @@
         </div>
     </footer>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+     document.addEventListener('DOMContentLoaded', function() {
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
@@ -469,7 +511,9 @@
         function toggleMenu(e) {
             e.stopPropagation();
             navLinks.classList.toggle('active');
-            if (navLinks.classList.contains('active')) {
+            if (navLinks.classList.contain
+
+s('active')) {
                 positionDropdown();
             }
         }
