@@ -49,6 +49,8 @@
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px 0;
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             z-index: 1000;
             transition: background-color 0.3s ease;
@@ -100,12 +102,14 @@
         }
 
         .hero {
-            height: 50vh;
+            height: 20vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
+            background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
             background-position: center;
             margin-top: 120px;
         }
@@ -134,7 +138,7 @@
         }
 
         section {
-            padding: 80px 0;
+            padding: 40px 0;
         }
 
         .faq-container {
@@ -249,6 +253,7 @@
             </div>
         </div>
     </section>
+
  <section id="faq">
         <div class="container">
             <div class="faq-container">
@@ -368,7 +373,7 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior 'smooth'
+                    behavior: 'smooth'
                 });
             });
         });
