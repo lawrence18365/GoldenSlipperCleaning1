@@ -8,10 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --gold: #d4a12a;
             --black: #000000;
-            --dark-gray: #1a1a1a;
-            --light-gray: #333333;
             --white: #FFFFFF;
             --font-body-family: 'Lora', serif;
             --font-heading-family: 'Lora', serif;
@@ -59,14 +56,12 @@
         }
 
         nav {
-             display: flex;
-             justify-content: flex-start; /* add this to align logo to left */
-             align-items: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-             margin-left: 0; /* add this to remove default margin */
-             flex-grow: 1; /* add this to make logo take up more space */
             text-decoration: none;
         }
 
@@ -79,7 +74,7 @@
         }
 
         .menu-toggle {
-            display: block;
+            display: none;
             font-size: 24px;
             color: var(--white);
             cursor: pointer;
@@ -87,27 +82,13 @@
         }
 
         .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            flex-direction: column;
-            align-items: flex-start;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            min-width: 200px;
-        }
-
-        .nav-links.active {
             display: flex;
+            align-items: center;
         }
 
         .nav-links li {
             list-style: none;
-            margin: 10px 0;
-            width: 100%;
+            margin-left: 20px;
         }
 
         .nav-links a {
@@ -115,12 +96,10 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
-            display: block;
-            padding: 5px 0;
         }
 
         .nav-links a:hover {
-            color: var(--gold);
+            color: var(--white);
         }
 
         .hero {
@@ -150,7 +129,6 @@
         }
 
         .hero-content h1 {
-            font-family: var(--font-heading-family);
             font-size: 48px;
             margin-bottom: 20px;
             color: var(--white);
@@ -163,7 +141,6 @@
             color: var(--white);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
-
 
         .hero::after {
             content: "";
@@ -183,12 +160,12 @@
             font-size: 40px;
             margin-bottom: 40px;
             text-align: center;
-            color: var(--gold);
+            color: var(--white);
         }
 
         .cta-button {
             display: inline-block;
-            background-color: var(--gold);
+            background-color: var(--white);
             color: var(--black);
             padding: 12px 30px;
             text-decoration: none;
@@ -198,7 +175,8 @@
         }
 
         .cta-button:hover {
-            background-color: var(--white);
+            background-color: var(--black);
+            color: var(--white);
             transform: translateY(-3px);
         }
 
@@ -213,8 +191,8 @@
         }
 
         .service-card {
-            background-color: var(--dark-gray);
-            border: 2px solid var(--gold);
+            background-color: var(--white);
+            color: var(--black);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
@@ -223,71 +201,67 @@
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(244, 208, 63, 0.2);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
         }
 
         .service-card i {
             font-size: 48px;
-            color: var(--gold);
+            color: var(--black);
             margin-bottom: 20px;
         }
 
         .service-card h3 {
             font-size: 24px;
             margin-bottom: 15px;
-            color: var(--gold);
+            color: var(--black);
         }
 
         #testimonials {
-        background-color: var(--dark-gray);
-        padding: 80px 0;
-    }
-
-    .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-
-    .testimonial-card {
-        background-color: var(--black);
-        border: 2px solid var(--gold);
-        border-radius: 10px;
-        padding: 30px;
-        text-align: center;
-        transition: transform 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .testimonial-card p {
-        font-style: italic;
-        margin-bottom: 15px;
-        flex-grow: 1;
-    }
-
-    .testimonial-card .stars {
-        color: var(--gold);
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-
-    .testimonial-card h4 {
-        color: var(--gold);
-        margin-top: 10px;
-    }
-
-    @media (max-width: 768px) {
-        .testimonial-grid {
-            grid-template-columns: 1fr;
+            background-color: var(--white);
+            color: var(--black);
+            padding: 80px 0;
         }
-    }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--black);
+            color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .testimonial-card .stars {
+            color: var(--white);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-card h4 {
+            color: var(--white);
+            margin-top: 10px;
+        }
+
         #contact {
             background-color: var(--black);
         }
@@ -304,29 +278,31 @@
         label {
             display: block;
             margin-bottom: 5px;
-            color: var(--gold);
+            color: var(--white);
         }
 
         input,
-        textarea {
+        textarea,
+        select {
             width: 100%;
             padding: 10px;
-            border: 1px solid var(--gold);
+            border: 1px solid var(--white);
             border-radius: 5px;
-            background-color: var(--dark-gray);
+            background-color: var(--black);
             color: var(--white);
             transition: border-color 0.3s ease;
             font-family: var(--font-body-family);
         }
 
         input:focus,
-        textarea:focus {
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: var(--white);
         }
 
         button {
-            background-color: var(--gold);
+            background-color: var(--white);
             color: var(--black);
             padding: 12px 30px;
             border: none;
@@ -338,7 +314,8 @@
         }
 
         button:hover {
-            background-color: var(--white);
+            background-color: var(--black);
+            color: var(--white);
             transform: translateY(-3px);
         }
 
@@ -354,49 +331,14 @@
         }
 
         footer a {
-            color: var(--gold);
+            color: var(--white);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: var(--white);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .about-content,
-            .services-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .about-image {
-                max-width: 100%;
-            }
-
-            @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 40px;
-            }
-
-            .hero-content p {
-                font-size: 18px;
-            }
-        }
-        
-           .menu-toggle {
-            display: none;
-            font-size: 24px;
-            color: var(--gold);
-            cursor: pointer;
+            color: var(--black);
+            background-color: var(--white);
         }
 
         @media (max-width: 768px) {
@@ -423,11 +365,24 @@
             .nav-links li {
                 margin: 10px 0;
             }
+
+            .services-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 40px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
-      <header>
+    <header>
         <nav class="container">
             <a href="#" class="logo">
                 <span class="logo-text">Golden Slipper Cleaning Services</span>
@@ -444,10 +399,10 @@
         </nav>
     </header>
 
- <section class="hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Where Luxury Meets <span class="eco-text">ECO</span> Friendly Living</h1>
+                <h1>Where Luxury Meets ECO Friendly Living</h1>
                 <p>Experience a fresher, healthier clean with our eco-friendly and organic cleaning services, using only non-toxic products that are gentle on your home and environment.</p>
                 <a href="#contact" class="cta-button">Book Now</a>
             </div>
@@ -488,26 +443,21 @@
                     <h3>Non-Toxic Oven Cleaning</h3>
                     <p>Detailed, non-toxic cleaning for your oven. Ensure optimal performance and hygiene without harmful chemicals.</p>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-hard-hat" aria-hidden="true"></i>
-                    <h3>Construction/Post-Renovation Cleaning</h3>
-                    <p>Specializing in thorough cleaning after construction or renovation projects. We'll make your space spotless and ready for use.</p>
-                </div>
             </div>
         </div>
     </section>
 
     <section id="testimonials">
-    <div class="container">
-        <h2>Testimonials</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
-                <div class="stars">★★★★★</div>
-                <h4>- Michael</h4>
-            </div>
-            <div class="testimonial-card">
-                <p>"Abbie and her team are just brilliant! I'm a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Very happy with the work. The team was on point and was open to any additional things I wanted cleaned up. They were very easy to work with. I had to work from home during the service and it was a great experience and not a problem at all. My apartment has never been so clean and I highly recommend their service!"</p>
+                    <div class="stars">★★★★★</div>
+                    <h4>- Michael</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Abbie and her team are just brilliant! I'm a clean freak - but the attention to detail is second to none! Would highly recommend Golden Slipper Cleaning Services! Added bonus is that everything is toxic/chemically free. Which definitely keeps your mind at rest when you have children roaming about. Will definitely be using again!"</p>
                 <div class="stars">★★★★★</div>
                 <h4>- Jessie Withers</h4>
             </div>
