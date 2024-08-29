@@ -8,13 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
+    --gold: #F4D03F;
     --black: #000000;
+    --dark-gray: #1a1a1a;
+    --light-gray: #333333;
     --white: #FFFFFF;
-    --font-body-family: 'Lora', serif;
-    --font-heading-family: 'Lora', serif;
-    --font-body-weight: 400;
-    --font-body-weight-bold: 700;
-    --font-heading-weight: 400;
+    --font-body-family: 'Poppins', sans-serif;
+    --font-heading-family: 'Poppins', sans-serif;
+    --font-body-weight: 300;
+    --font-body-weight-bold: 600;
+    --font-heading-weight: 600;
 }
 
 * {
@@ -43,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-    background-color: var(--black);
+    background-color: black;
     padding: 10px 0;
     position: fixed;
     width: 100%;
@@ -85,23 +88,17 @@ nav {
     text-decoration: none;
 }
 
-.logo img {
-    height: 80px;
-    width: auto;
-    margin-right: 20px;
-}
-
 .logo-text {
     font-family: 'Great Vibes', cursive;
     font-size: 36px;
-    color: var(--white);
+    color: var(--gold);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .menu-toggle {
     display: block;
     font-size: 24px;
-    color: var(--white);
+    color: var(--gold);
     cursor: pointer;
     z-index: 1001;
 }
@@ -131,7 +128,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--gold);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -175,7 +172,7 @@ nav {
     font-family: 'Great Vibes', cursive;
     font-size: 72px;
     margin-bottom: 20px;
-    color: var(--white);
+    color: var(--gold);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -200,7 +197,7 @@ section {
     max-width: 500px;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(244, 208, 63, 0.3);
     transition: transform 0.3s ease;
 }
 
@@ -229,7 +226,7 @@ section {
     content: '';
     position: absolute;
     width: 6px;
-    background-color: var(--white);
+    background-color: var(--gold);
     top: 0;
     bottom: 0;
     left: 50%;
@@ -250,7 +247,7 @@ section {
     height: 25px;
     right: -17px;
     background-color: var(--black);
-    border: 4px solid var(--white);
+    border: 4px solid var(--gold);
     top: 15px;
     border-radius: 50%;
     z-index: 1;
@@ -272,9 +269,9 @@ section {
     width: 0;
     z-index: 1;
     right: 30px;
-    border: medium solid var(--white);
+    border: medium solid var(--gold);
     border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent var(--white);
+    border-color: transparent transparent transparent var(--gold);
 }
 
 .right::before {
@@ -285,9 +282,9 @@ section {
     width: 0;
     z-index: 1;
     left: 30px;
-    border: medium solid var(--white);
+    border: medium solid var(--gold);
     border-width: 10px 10px 10px 0;
-    border-color: transparent var(--white) transparent transparent;
+    border-color: transparent var(--gold) transparent transparent;
 }
 
 .right::after {
@@ -296,7 +293,7 @@ section {
 
 .content {
     padding: 20px 30px;
-    background-color: var(--black);
+    background-color: var(--dark-gray);
     position: relative;
     border-radius: 6px;
 }
@@ -313,71 +310,13 @@ footer p {
 }
 
 footer a {
-    color: var(--white);
+    color: var(--gold);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
     color: var(--white);
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background-color: var(--black);
-    border-radius: 8px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
-}
-
-.faq-question {
-    font-size: 18px;
-    font-weight: var(--font-body-weight-bold);
-    padding: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.faq-question:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.faq-question::after {
-    content: '\f107';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: var(--white);
-    transition: transform 0.3s ease;
-}
-
-.faq-item.active .faq-question::after {
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-}
-
-.faq-item.active .faq-answer {
-    padding: 20px;
-    max-height: 1000px;
 }
 
 @media (max-width: 768px) {
@@ -445,9 +384,9 @@ footer a:hover {
 
     .timeline-item::before {
         left: 60px;
-        border: medium solid var(--white);
+        border: medium solid var(--gold);
         border-width: 10px 10px 10px 0;
-        border-color: transparent var(--white) transparent transparent;
+        border-color: transparent var(--gold) transparent transparent;
     }
 
     .left::after, .right::after {
