@@ -59,12 +59,14 @@
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+             display: flex;
+             justify-content: flex-start; /* add this to align logo to left */
+             align-items: center;
         }
 
         .logo {
+             margin-left: 0; /* add this to remove default margin */
+             flex-grow: 1; /* add this to make logo take up more space */
             text-decoration: none;
         }
 
