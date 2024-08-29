@@ -42,66 +42,68 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 20px;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: transparent;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    z-index: 1000;
-}
 
-header.scrolled {
-    background-color: var(--black);
-}
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        padding: 20px;
+        transition: background-color 0.3s ease;
+        z-index: 1000;
+    }
 
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.logo-text {
-    color: var(--white);
-    font-size: 24px;
-    font-weight: 400;
-    font-family: 'Lora', serif;
-}
+    header.scrolled {
+        background-color: var(--black);
+    }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-}
+    .logo {
+        text-decoration: none;
+    }
 
-.nav-links li {
-    margin-left: 20px;
-}
+    .logo-text {
+        color: var(--white);
+        font-size: 24px;
+        font-weight: 400;
+        font-family: 'Lora', serif;
+    }
 
-.nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-}
+    .nav-links {
+        display: flex;
+        list-style: none;
+    }
 
-.nav-links a:hover {
-    opacity: 0.8;
-}
+    .nav-links li {
+        margin-left: 20px;
+    }
 
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    color: var(--white);
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-}
+    .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        opacity: 0.8;
+    }
+
+    .menu-toggle {
+        display: none;
+        font-size: 24px;
+        color: var(--white);
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+    }
 
 .hero {
     background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/ZXYd_ZT_1Uox3s_E1YMEj.webp');
@@ -346,29 +348,30 @@ footer a:hover {
 }
 
 @media (max-width: 1024px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 20px;
-        flex-direction: column;
-        align-items: flex-end;
-    }
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            border-radius: 5px;
+        }
 
-    .nav-links.active {
-        display: flex;
-    }
+        .nav-links.active {
+            display: flex;
+        }
 
-    .menu-toggle {
-        display: block;
-    }
+        .nav-links li {
+            margin: 10px 0;
+        }
 
-    .nav-links li {
-        margin: 10px 0;
+        .menu-toggle {
+            display: block;
+        }
     }
-}
 
 @media (max-width: 768px) {
     .services-grid,
@@ -406,21 +409,23 @@ footer a:hover {
 </head>
 <body>
     <header>
-        <div class="container">
-            <a href="#" class="logo">
-                <span class="logo-text">Golden Slipper Cleaning Services</span>
-            </a>
-            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
+    <div class="container">
+        <a href="#" class="logo">
+            <span class="logo-text">Golden Slipper Cleaning Services</span>
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
             <ul class="nav-links">
                 <li><a href="./About.html">About</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="./faq.html">FAQ</a></li>
             </ul>
-        </div>
-    </header>
+        </nav>
+    </div>
+</header>
 
     <section class="hero">
         <div class="container">
