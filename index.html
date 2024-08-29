@@ -314,8 +314,11 @@
             outline: none;
             border-color: var(--white);
         }
-
-        button {
+      .button-container {
+          text-align: center;
+          margin-top: 20px;
+       }
+ button {
             background-color: var(--white);
             color: var(--black);
             padding: 12px 30px;
@@ -325,9 +328,10 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             font-family: var(--font-body-family);
+            display: inline-block; /* This ensures the button takes only the necessary width */
         }
 
-        button:hover {
+button:hover {
             background-color: var(--black);
             color: var(--white);
             transform: translateY(-3px);
@@ -466,7 +470,7 @@
 
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
+            <h2>Book Now</h2>
             <form action="https://formspree.io/f/your_formspree_endpoint" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -500,8 +504,9 @@
                 <div class="form-group">
                     <label for="file">Attach Photos or Videos (optional)</label>
                     <input type="file" id="file" name="attachment" accept="image/*,video/*">
+               <div class="button-container">
+                    <button type="submit">Book Now</button>
                 </div>
-                <button type="submit">Send Message</button>
             </form>
         </div>
     </section>
