@@ -7,70 +7,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-:root {
-    --black: #000000;
-    --white: #FFFFFF;
-    --font-body-family: 'Lora', serif;
-    --font-heading-family: 'Lora', serif;
-    --font-body-weight: 400;
-    --font-body-weight-bold: 700;
-    --font-heading-weight: 400;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-  margin: 0; /* added to remove default margin */
-  padding: 0; /* added to remove default padding */
-  padding-top: 60vh; /* added to create space for the hero image */
-    font-family: var(--font-body-family);
-    font-weight: var(--font-body-weight);
-    background-color: var(--black);
-    color: var(--white);
-    line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading-family);
-    font-weight: var(--font-heading-weight);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: transparent;
-    padding: 20px;
-    transition: background-color 0.3s ease;
-    z-index: 1000;
-}
-header.scrolled {
-            background-color: black;
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --font-body-family: 'Lora', serif;
+            --font-heading-family: 'Lora', serif;
+            --font-body-weight: 400;
+            --font-body-weight-bold: 700;
+            --font-heading-weight: 400;
         }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.logo {
-    text-decoration: none;
-    margin-right: auto; /* This pushes the logo to the left */
-}
+        body {
+            font-family: var(--font-body-family);
+            font-weight: var(--font-body-weight);
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
 
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading-family);
+            font-weight: var(--font-heading-weight);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            text-decoration: none;
+            margin-right: auto;
+        }
 .menu-toggle {
     margin-left: auto; /* This pushes the hamburger to the right */
 }
@@ -84,325 +76,256 @@ header .container {
             }
         }
 
-.logo-text {
-    color: var(--white);
-    font-size: 24px;
-    font-weight: 400;
-    font-family: 'Lora', serif;
-}
+        .logo-text {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 400;
+            font-family: 'Lora', serif;
+        }
 
-.menu-toggle {
-    display: block;
-    font-size: 24px;
-    color: var(--white);
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-}
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: var(--white);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
 
-.nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 20px; /* Align with the hamburger button */
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    flex-direction: column;
-    align-items: flex-end;
-    border-radius: 5px; /* Optional: adds rounded corners */
-}
-.nav-links.active {
-    display: flex;
-}
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
 
-.nav-links li {
-    list-style: none;
-    margin: 10px 0;
-}
+        .nav-links li {
+            list-style: none;
+            margin-left: 20px;
+        }
 
-.nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-weight: 500;
-    transition: opacity 0.3s ease;
-}
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
 
-.nav-links a:hover {
-    opacity: 0.8;
-}
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
 
-.menu-toggle {
-    display: block;
-    font-size: 24px;
-    color: var(--white);
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-}
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1724891067261-94ff172291bb?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
 
-           .hero {
-  background-image: url('https://images.unsplash.com/photo-1724891067261-94ff172291bb?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-size: cover;
-  background-position: center;
-  height: 60vh; /* increased height to make the image bigger */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative; /* changed to relative */
-  width: 100%; /* added to make the hero take up the full width of the page */
-}
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
 
-.hero-content h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: var(--white);
-}
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
 
-.hero-content p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    color: var(--white);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
+        section {
+            padding: 80px 0;
+        }
 
-.hero::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-}
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--white);
+        }
 
-section {
-    padding: 100px 0;
-}
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-h2 {
-    font-size: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    color: var(--white);
-}
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+        }
 
-.cta-button {
-    display: inline-block;
-    background-color: var(--white);
-    color: var(--black);
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+        .about-image {
+            flex: 0 0 300px;
+        }
 
-.cta-button:hover {
-    background-color: var(--black);
-    color: var(--white);
-    transform: translateY(-3px);
-}
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-#services {
-    background-color: var(--black);
-}
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--white);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
 
-.service-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid var(--white);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-}
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -17px;
+            background-color: var(--white);
+            border: 4px solid var(--black);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
 
-.service-card i {
-    font-size: 48px;
-    color: var(--white);
-    margin-bottom: 20px;
-}
+        .left {
+            left: 0;
+        }
 
-.service-card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: var(--white);
-}
+        .right {
+            left: 50%;
+        }
 
-#testimonials {
-    background-color: var(--black);
-    padding: 80px 0;
-}
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid var(--white);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent var(--white);
+        }
 
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid var(--white);
+            border-width: 10px 10px 10px 0;
+            border-color: transparent var(--white) transparent transparent;
+        }
 
-.testimonial-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid var(--white);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
+        .right::after {
+            left: -16px;
+        }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-}
+        .content {
+            padding: 20px 30px;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 6px;
+            color: var(--black);
+        }
 
-.testimonial-card p {
-    font-style: italic;
-    margin-bottom: 15px;
-    flex-grow: 1;
-}
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
 
-.testimonial-card .stars {
-    color: var(--white);
-    font-size: 24px;
-    margin-bottom: 10px;
-}
+        footer p {
+            margin-bottom: 10px;
+        }
 
-.testimonial-card h4 {
-    color: var(--white);
-    margin-top: 10px;
-}
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
 
-#contact {
-    background-color: var(--black);
-}
+        footer a:hover {
+            opacity: 0.8;
+        }
 
-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: var(--white);
-}
-
-input,
-textarea,
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--white);
-    border-radius: 5px;
-    background-color: var(--black);
-    color: var(--white);
-    transition: border-color 0.3s ease;
-    font-family: var(--font-body-family);
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: var(--white);
-}
-
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-button {
-    background-color: var(--white);
-    color: var(--black);
-    padding: 12px 30px;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-family: var(--font-body-family);
-    display: inline-block;
-}
-
-button:hover {
-    background-color: var(--black);
-    color: var(--white);
-    transform: translateY(-3px);
-}
-
-footer {
-    background-color: var(--black);
-    color: var(--white);
-    text-align: center;
-    padding: 40px 0;
-}
-
-footer p {
-    margin-bottom: 10px;
-}
-
-footer a {
-    color: var(--white);
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-footer a:hover {
-    opacity: 0.8;
-}
-
-@media (max-width: 768px) {
-    .services-grid,
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content h1 {
-        font-size: 40px;
-    }
-
-    .hero-content p {
-        font-size: 18px;
-    }
-}
- .about-content,
-            .timeline {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
                 flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .about-image {
+                flex: 0 0 100%;
             }
 
             .timeline::after {
@@ -419,7 +342,7 @@ footer a:hover {
                 left: 60px;
                 border: medium solid var(--white);
                 border-width: 10px 10px 10px 0;
-                border-color: transparent var(--white);
+                border-color: transparent var(--white) transparent transparent;
             }
 
             .left::after, .right::after {
@@ -430,42 +353,44 @@ footer a:hover {
                 left: 0%;
             }
         }
-</style>
+    </style>
 </head>
 <body>
     <header>
-    <div class="container">
+        <div class="container">
             <a href="#" class="logo">
-                <span class="logo-text">Golden Slipper <span class="services-text">Cleaning Services</span></span>
-            </a>    
-        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="./About.html">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-<section class="hero">
+                <span class="logo-text">Golden Slipper Cleaning Services</span>
+            </a>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#mission">Mission</a></li>
+                    <li><a href="#journey">Journey</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Welcome to Golden Slipper</h1>
+                <p>Experience pristine cleanliness with our eco-friendly cleaning services</p>
             </div>
         </div>
     </section>
 
     <section id="about">
         <div class="container">
+            <h2>About Us</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>At Golden Slipper Cleaning Services, our story began in 2021 with a vision to make a difference in people's lives. Our founder, Abbie, embarked on a journey fueled by perseverance and dedication. Overcoming personal health challenges really sparked a passion for non-toxic cleaning products and a more holistic lifestyle. Through self-education, Abbie discovered the incredible benefits of combining non-toxic products with essential oils, leading to amazing results.</p>
-                    <p>Today, Golden Slipper Cleaning Services offers high-attention-to-detail cleaning that stands out from the rest. We save you precious time, allowing you to focus on what matters most - yourself, your family, and your business. We understand that every client is unique, which is why we offer bespoke cleaning services tailored to your specific needs. Our packages are curated to meet your individual requirements, ensuring a personalized cleaning experience.</p>
-                    <p>With Golden Slipper Cleaning Services, you can trust that your space will be cleaned with care, respect, and a commitment to your wellbeing. Let us take care of the cleaning, so you can focus on what matters most.</p>
+                    <p>At Golden Slipper Cleaning Services, our story began in 2021 with a vision to make a difference in people's lives. Our founder, Abbie, embarked on a journey fueled by perseverance and dedication. Overcoming personal health challenges really sparked a passion for non-toxic cleaning products and a more holistic lifestyle.</p>
+                    <p>Today, Golden Slipper Cleaning Services offers high-attention-to-detail cleaning that stands out from the rest. We save you precious time, allowing you to focus on what matters most - yourself, your family, and your business.</p>
                 </div>
                 <div class="about-image">
                     <img src="https://i.ibb.co/0QL9g66/1636c0cc-8ec9-4757-9461-22a2cefd2ec3.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
@@ -532,7 +457,7 @@ footer a:hover {
         </div>
     </footer>
 
-  <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('header');
             const menuToggle = document.querySelector('.menu-toggle');
