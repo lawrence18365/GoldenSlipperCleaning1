@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
+      :root {
     --black: #000000;
     --white: #FFFFFF;
     --font-body-family: 'Lora', serif;
@@ -54,18 +54,22 @@ header {
     align-items: center;
     transition: background-color 0.3s ease;
     z-index: 1000;
-    font-family: 'Lora', serif;
-    font-weight: 400;
 }
 
 header.scrolled {
     background-color: var(--black);
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+}
+
 .logo-text {
     color: var(--white);
     font-size: 24px;
     font-weight: 400;
+    font-family: 'Lora', serif;
 }
 
 .nav-links {
@@ -85,7 +89,7 @@ header.scrolled {
 }
 
 .nav-links li {
-    margin-left: 20px;
+    margin: 10px 0;
 }
 
 .nav-links a {
@@ -100,10 +104,13 @@ header.scrolled {
 }
 
 .menu-toggle {
-    display: block;
+    display: none;
     font-size: 24px;
     color: var(--white);
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 .hero {
@@ -348,20 +355,7 @@ footer a:hover {
     opacity: 0.8;
 }
 
-@media (max-width: 768px) {
-    .services-grid,
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content h1 {
-        font-size: 40px;
-    }
-
-    .hero-content p {
-        font-size: 18px;
-    }
-
+@media (max-width: 1024px) {
     .nav-links {
         display: none;
         position: absolute;
@@ -386,7 +380,23 @@ footer a:hover {
         margin: 10px 0;
     }
 }
-@media (min-width: 769px) {
+
+@media (max-width: 768px) {
+    .services-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1025px) {
     .nav-links {
         display: flex;
         position: static;
@@ -407,21 +417,21 @@ footer a:hover {
 </head>
 <body>
     <header>
-        <div class="container">
-            <a href="#" class="logo">
-                <span class="logo-text">Golden Slipper Cleaning Services</span>
-            </a>
-           <div class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-    <i class="fas fa-bars"></i>
-           </div>
-            <ul class="nav-links">
-                <li><a href="./About.html">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-            </ul>
-        </div>
-    </header>
+    <div class="container">
+        <a href="#" class="logo">
+            <span class="logo-text">Golden Slipper Cleaning Services</span>
+        </a>
+        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="./About.html">About</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="./faq.html">FAQ</a></li>
+        </ul>
+    </div>
+</header>
 
     <section class="hero">
         <div class="container">
