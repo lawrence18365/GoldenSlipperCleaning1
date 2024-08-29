@@ -52,6 +52,9 @@ header {
     transition: background-color 0.3s ease;
     z-index: 1000;
 }
+header.scrolled {
+            background-color: black;
+        }
 
 header .container {
     display: flex;
@@ -68,6 +71,15 @@ header .container {
 .menu-toggle {
     margin-left: auto; /* This pushes the hamburger to the right */
 }
+
+.logo-text .services-text {
+            display: inline;
+        }
+@media (max-width: 768px) {
+            .logo-text .services-text {
+                display: none;
+            }
+        }
 
 .logo-text {
     color: var(--white);
@@ -388,9 +400,9 @@ footer a:hover {
 <body>
    <header>
     <div class="container">
-        <a href="#" class="logo">
-            <span class="logo-text">Golden Slipper Cleaning Services</span>
-        </a>
+            <a href="#" class="logo">
+                <span class="logo-text">Golden Slipper <span class="services-text">Cleaning Services</span></span>
+            </a>    
         <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
             <i class="fas fa-bars"></i>
         </button>
@@ -532,13 +544,12 @@ footer a:hover {
             <p>
                 <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-facebook"></i></a>
                 <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-instagram"></i></a>
-                <a href="#" style="color: var(--gold); margin: 0 10px;"><i class="fab fa-linkedin"></i></a>
             </p>
         </div>
     </footer>
 
   <script>
-       document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('header');
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
