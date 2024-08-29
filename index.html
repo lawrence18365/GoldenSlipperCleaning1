@@ -100,6 +100,7 @@
 
         .nav-links a:hover {
             color: var(--white);
+            opacity: 0.8;
         }
 
         .hero {
@@ -129,6 +130,7 @@
         }
 
         .hero-content h1 {
+            font-family: var(--font-heading-family);
             font-size: 48px;
             margin-bottom: 20px;
             color: var(--white);
@@ -191,8 +193,8 @@
         }
 
         .service-card {
-            background-color: var(--white);
-            color: var(--black);
+            background-color: var(--black);
+            border: 2px solid var(--white);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
@@ -201,24 +203,23 @@
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
         }
 
         .service-card i {
             font-size: 48px;
-            color: var(--black);
+            color: var(--white);
             margin-bottom: 20px;
         }
 
         .service-card h3 {
             font-size: 24px;
             margin-bottom: 15px;
-            color: var(--black);
+            color: var(--white);
         }
 
         #testimonials {
-            background-color: var(--white);
-            color: var(--black);
+            background-color: var(--black);
             padding: 80px 0;
         }
 
@@ -230,7 +231,7 @@
 
         .testimonial-card {
             background-color: var(--black);
-            color: var(--white);
+            border: 2px solid var(--white);
             border-radius: 10px;
             padding: 30px;
             text-align: center;
@@ -337,8 +338,7 @@
         }
 
         footer a:hover {
-            color: var(--black);
-            background-color: var(--white);
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
@@ -402,7 +402,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Where Luxury Meets ECO Friendly Living</h1>
+                <h1>Where Luxury Meets <span class="eco-text">ECO</span> Friendly Living</h1>
                 <p>Experience a fresher, healthier clean with our eco-friendly and organic cleaning services, using only non-toxic products that are gentle on your home and environment.</p>
                 <a href="#contact" class="cta-button">Book Now</a>
             </div>
@@ -442,6 +442,11 @@
                     <i class="fas fa-utensils" aria-hidden="true"></i>
                     <h3>Non-Toxic Oven Cleaning</h3>
                     <p>Detailed, non-toxic cleaning for your oven. Ensure optimal performance and hygiene without harmful chemicals.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hard-hat" aria-hidden="true"></i>
+                    <h3>Construction/Post-Renovation Cleaning</h3>
+                    <p>Specializing in thorough cleaning after construction or renovation projects. We'll make your space spotless and ready for use.</p>
                 </div>
             </div>
         </div>
