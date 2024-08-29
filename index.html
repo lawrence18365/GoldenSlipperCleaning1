@@ -62,8 +62,10 @@
         }
 
         .logo {
-            text-decoration: none;
-        }
+           text-decoration: none;
+           position: absolute;
+           left: 10px; /* Adjust this value as needed */
+       }
 
         .logo-text {
             font-family: var(--font-heading-family);
@@ -80,10 +82,7 @@
             cursor: pointer;
             z-index: 1001;
         }
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: block;
-    }
+
     .nav-links {
         display: none;
     }
