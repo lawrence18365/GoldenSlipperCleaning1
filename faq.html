@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Slipper Cleaning Services - Experience Pristine Cleanliness</title>
+    <title>FAQ - Experience Pristine Cleanliness</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
+       :root {
             --black: #000000;
             --white: #FFFFFF;
             --font-body-family: 'Lora', serif;
@@ -16,6 +16,7 @@
             --font-body-weight-bold: 700;
             --font-heading-weight: 400;
         }
+
         * {
             margin: 0;
             padding: 0;
@@ -98,13 +99,12 @@
         }
 
         .menu-toggle {
-            display: block;
-            font-size: 24px;
-            color: var(--gold);
-            cursor: pointer;
-            z-index: 1001;
-        }
-
+    display: block;
+    font-size: 24px;
+    color: var(--gold);
+    cursor: pointer;
+    z-index: 1001;
+}
         .nav-links {
             display: none;
             position: absolute;
@@ -144,7 +144,7 @@
 
     .hero {
     padding-top: 120px; /* Adjust this value to match your header height */
-    background-image: url('https://images.unsplash.com/photo-1724891067261-94ff172291bb?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
     background-size: cover;
     background-position: center;
     height: 50vh; /* Adjust as needed */
@@ -399,12 +399,100 @@
                 left: 0%;
             }
         }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--dark-gray);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: var(--font-body-weight-bold);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: var(--light-gray);
+        }
+
+        .faq-question::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 1000px;
+        }
+
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">
+            <a href="./index.html" class="logo">
                 <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
                 <span class="logo-text">Golden Slipper</span>
             </a>
@@ -419,79 +507,105 @@
             </ul>
         </nav>
     </header>
-
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Welcome to Golden Slipper Cleaning Services</h1>
+                <h1>Frequently Asked Questions</h1>
             </div>
         </div>
     </section>
 
-    <section id="about">
+ <section id="faq">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <p>At Golden Slipper Cleaning Services, our story began in 2021 with a vision to make a difference in people's lives. Our founder, Abbie, embarked on a journey fueled by perseverance and dedication. Overcoming personal health challenges really sparked a passion for non-toxic cleaning products and a more holistic lifestyle. Through self-education, Abbie discovered the incredible benefits of combining non-toxic products with essential oils, leading to amazing results.</p>
-                    <p>Today, Golden Slipper Cleaning Services offers high-attention-to-detail cleaning that stands out from the rest. We save you precious time, allowing you to focus on what matters most - yourself, your family, and your business. We understand that every client is unique, which is why we offer bespoke cleaning services tailored to your specific needs. Our packages are curated to meet your individual requirements, ensuring a personalized cleaning experience.</p>
-                    <p>With Golden Slipper Cleaning Services, you can trust that your space will be cleaned with care, respect, and a commitment to your wellbeing. Let us take care of the cleaning, so you can focus on what matters most.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What areas do you serve?</div>
+                    <div class="faq-answer">
+                        <p>We primarily serve Botany and the surrounding areas in Eastern Sydney. However, we may be able to accommodate requests in nearby suburbs. Please contact us for more information about your specific location.</p>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <img src="https://i.ibb.co/0QL9g66/1636c0cc-8ec9-4757-9461-22a2cefd2ec3.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
+
+                <div class="faq-item">
+                    <div class="faq-question">What types of cleaning services do you offer?</div>
+                    <div class="faq-answer">
+                        <p>We offer a wide range of cleaning services including:</p>
+                        <ul>
+                            <li>Spring Clean / Deep Clean</li>
+                            <li>End of Lease Cleaning</li>
+                            <li>Commercial Cleaning</li>
+                            <li>Domestic Cleaning</li>
+                            <li>Upholstery Cleaning</li>
+                            <li>Non-Toxic Oven Cleaning</li>
+                            <li>Construction/Post-Renovation Cleaning</li>
+                        </ul>
+                        <p>Each service can be tailored to meet your specific needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What makes your cleaning services eco-friendly?</div>
+                    <div class="faq-answer">
+                        <p>We use non-toxic, environmentally friendly cleaning products that are safe for you, your family, and the environment. Our cleaning solutions often incorporate essential oils, which not only clean effectively but also leave a natural, fresh scent. We avoid harsh chemicals that can be harmful to health and the environment.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do I book a cleaning service?</div>
+                    <div class="faq-answer">
+                        <p>Booking a cleaning service is easy! You can:</p>
+                            <li>Use our online booking form on the Contact page</li>
+                            <li>Call us at 0434 431 361</li>
+                            <li>Email us at GoldenSlipperCleaningservices@gmail.com</li>
+                        <p>We'll get back to you promptly to confirm your booking and discuss any specific requirements you may have.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to be home during the cleaning service?</div>
+                    <div class="faq-answer">
+                        <p>It's not necessary for you to be home during the cleaning service. Many of our clients provide us with a key or access code. However, if you prefer to be present, that's perfectly fine too. We can work around your schedule and preferences.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Are your cleaning staff insured and background checked?</div>
+                    <div class="faq-answer">
+                        <p>Yes, all our cleaning staff are fully insured and have undergone thorough background checks. We prioritize the safety and security of our clients and their properties. Our team is professionally trained and adheres to strict quality and safety standards.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What if I'm not satisfied with the cleaning service?</div>
+                    <div class="faq-answer">
+                        <p>Your satisfaction is our top priority. If you're not completely satisfied with any aspect of our service, please let us know within 24 hours of the cleaning. We'll be happy to return and address any areas of concern at no additional cost. We stand behind our work and are committed to ensuring your complete satisfaction.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Do you bring your own cleaning supplies and equipment?</div>
+                    <div class="faq-answer">
+                        <p>Yes, we bring all necessary cleaning supplies and equipment. Our eco-friendly cleaning products and professional-grade tools ensure a thorough and effective clean. If you have any specific products you'd like us to use or avoid, please let us know in advance.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How do you price your services?</div>
+                    <div class="faq-answer">
+                        <p>Our pricing is based on several factors including the type of service, size of the space, and specific cleaning requirements. We offer competitive rates and strive to provide excellent value for our high-quality, eco-friendly services. For an accurate quote, please contact us with details about your cleaning needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can you accommodate special requests or cleaning preferences?</div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We understand that every client and space is unique. We're happy to accommodate special requests or specific cleaning preferences. Please communicate any particular needs or concerns when booking your service, and we'll do our best to tailor our cleaning to your requirements.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="mission">
-        <div class="container">
-            <h2>Our Mission</h2>
-            <p>At Golden Slipper Cleaning Services, our mission is to provide exceptional, eco-friendly cleaning solutions that promote a healthier living environment and enhance the overall quality of life for our clients. We are committed to:</p>
-            <ul>
-                <li>Utilizing non-toxic, environmentally friendly cleaning products</li>
-                <li>Delivering personalized, high-quality cleaning services</li>
-                <li>Promoting wellness through cleaner, safer living spaces</li>
-                <li>Educating our clients about the benefits of non-toxic cleaning</li>
-                <li>Continuously improving our methods and staying updated with the latest eco-friendly cleaning technologies</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="journey">
-        <div class="container">
-            <section id="journey">
-        <div class="container">
-            <h2>Our Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>2021</h3>
-                        <p>Golden Slipper Cleaning Services is founded by Abbie, inspired by her personal health journey and passion for non-toxic cleaning.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Expansion of services to include commercial cleaning, catering to businesses in Eastern Sydney.</p>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>2023</h3>
-                        <p>Introduction of specialized services such as non-toxic oven cleaning and upholstery cleaning.</p>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="content">
-                        <h3>2024</h3>
-                        <p>Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
+     <footer>
         <div class="container">
             <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
             <p>Serving Botany and surrounding areas in Eastern Sydney</p>
@@ -504,8 +618,8 @@
         </div>
     </footer>
 
-    <script>
-       document.addEventListener('DOMContentLoaded', function() {
+<script>
+document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -538,7 +652,15 @@
             }
         });
     });
+
+    // JavaScript to handle FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentNode;
+            item.classList.toggle('active');
+        });
+    });
 });
-    </script>
+</script>
 </body>
 </html>
