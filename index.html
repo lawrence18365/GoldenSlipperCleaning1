@@ -55,12 +55,9 @@ header {
 
 header .container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-}
-
-header.scrolled {
-    background-color: var(--black);
+    width: 100%;
 }
 
 .logo {
@@ -74,6 +71,16 @@ header.scrolled {
     font-family: 'Lora', serif;
 }
 
+.menu-toggle {
+    display: block;
+    font-size: 24px;
+    color: var(--white);
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
 .nav-links {
     display: none;
     position: absolute;
@@ -84,7 +91,6 @@ header.scrolled {
     flex-direction: column;
     align-items: flex-end;
 }
-
 .nav-links.active {
     display: flex;
 }
@@ -374,7 +380,7 @@ footer a:hover {
 </style>
 </head>
 <body>
-    <header>
+   <header>
     <div class="container">
         <a href="#" class="logo">
             <span class="logo-text">Golden Slipper Cleaning Services</span>
