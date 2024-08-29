@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Golden Slipper Cleaning Services - Experience Pristine Cleanliness</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,11 +13,11 @@
             --dark-gray: #1a1a1a;
             --light-gray: #333333;
             --white: #FFFFFF;
-            --font-body-family: 'Poppins', sans-serif;
-            --font-heading-family: 'Poppins', sans-serif;
-            --font-body-weight: 300;
-            --font-body-weight-bold: 600;
-            --font-heading-weight: 600;
+            --font-body-family: 'Lora', serif;
+            --font-heading-family: 'Lora', serif;
+            --font-body-weight: 400;
+            --font-body-weight-bold: 700;
+            --font-heading-weight: 700;
         }
 
         * {
@@ -66,63 +66,58 @@
             text-decoration: none;
         }
 
-        .logo img {
-            height: 80px;
-            width: auto;
-            margin-right: 20px;
-        }
-
         .logo-text {
-            font-family: 'Great Vibes', cursive;
-            font-size: 36px;
-            color: var(--gold);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: var(--font-heading-family);
+            font-size: 24px;
+            color: var(--white);
+            font-weight: var(--font-heading-weight);
+            text-transform: uppercase;
         }
 
         .menu-toggle {
-        display: block;
-        font-size: 24px;
-        color: var(--gold);
-        cursor: pointer;
-        z-index: 1001;
-    }
+            display: block;
+            font-size: 24px;
+            color: var(--gold);
+            cursor: pointer;
+            z-index: 1001;
+        }
 
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        right: 20px; /* Align to the right */
-        background-color: rgba(0, 0, 0, 0.9);
-        padding: 20px;
-        flex-direction: column;
-        align-items: flex-start; /* Align items to the left within the dropdown */
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        min-width: 200px; /* Set a minimum width for the dropdown */
-    }
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            min-width: 200px;
+        }
 
-    .nav-links.active {
-        display: flex;
-    }
+        .nav-links.active {
+            display: flex;
+        }
 
-    .nav-links li {
-        list-style: none;
-        margin: 10px 0;
-        width: 100%; /* Make list items full width of the dropdown */
-    }
+        .nav-links li {
+            list-style: none;
+            margin: 10px 0;
+            width: 100%;
+        }
 
-    .nav-links a {
-        color: var(--gold);
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.3s ease;
-        display: block; /* Make the entire area clickable */
-        padding: 5px 0;
-    }
+        .nav-links a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 5px 0;
+        }
 
-    .nav-links a:hover {
-        color: var(--white);
-    }
+        .nav-links a:hover {
+            color: var(--white);
+        }
 
         .hero {
             background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/ZXYd_ZT_1Uox3s_E1YMEj.webp');
@@ -151,16 +146,16 @@
         }
 
         .hero-content h1 {
-    font-family: var(--font-heading-family);
-    font-size: 72px;
-    margin-bottom: 20px;
-    color: var(--gold);
-}
+            font-family: var(--font-heading-family);
+            font-size: 72px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
 
-.hero-content h1 .eco-text {
-    font-family: 'Great Vibes', cursive;
-    font-weight: normal; /* Adjust as needed */
-}
+        .hero-content h1 .eco-text {
+            font-family: var(--font-heading-family);
+            font-weight: var(--font-heading-weight);
+        }
 
         .hero-content p {
             font-size: 20px;
@@ -434,8 +429,7 @@
       <header>
         <nav class="container">
             <a href="#" class="logo">
-                <img src="https://i.ibb.co/mHTystb/c80a1e2a-8c5b-4f6b-b658-d2133f50385b-dwdpjld-2k.png" alt="Golden Slipper Cleaning Services Logo">
-                <span class="logo-text">Golden Slipper</span>
+                <span class="logo-text">GOLDEN SLIPPER CLEANING SERVICES</span>
             </a>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -449,10 +443,10 @@
         </nav>
     </header>
 
-    <section class="hero">
+ <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Welcome to <span class="eco-text">LOW TOX</span> Living</h1>
+                <h1>Where Luxury Meets <span class="eco-text">ECO</span> Friendly Living</h1>
                 <p>Experience a fresher, healthier clean with our eco-friendly and organic cleaning services, using only non-toxic products that are gentle on your home and environment.</p>
                 <a href="#contact" class="cta-button">Book Now</a>
             </div>
