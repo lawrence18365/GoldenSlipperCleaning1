@@ -63,6 +63,7 @@ header.scrolled {
 .logo {
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 .logo-text {
@@ -73,23 +74,12 @@ header.scrolled {
 }
 
 .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
-}
-
-.nav-links.active {
     display: flex;
+    list-style: none;
 }
 
 .nav-links li {
-    margin: 10px 0;
+    margin-left: 20px;
 }
 
 .nav-links a {
@@ -360,12 +350,11 @@ footer a:hover {
         display: none;
         position: absolute;
         top: 100%;
-        left: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.9);
         padding: 20px;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
     }
 
     .nav-links.active {
@@ -417,21 +406,21 @@ footer a:hover {
 </head>
 <body>
     <header>
-    <div class="container">
-        <a href="#" class="logo">
-            <span class="logo-text">Golden Slipper Cleaning Services</span>
-        </a>
-        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <ul class="nav-links">
-            <li><a href="./About.html">About</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="./faq.html">FAQ</a></li>
-        </ul>
-    </div>
-</header>
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-text">Golden Slipper Cleaning Services</span>
+            </a>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="./About.html">About</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </header>
 
     <section class="hero">
         <div class="container">
@@ -566,32 +555,32 @@ footer a:hover {
     </footer>
 
   <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const header = document.querySelector('header');
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+       document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
 
-    function toggleMenu() {
-        navLinks.classList.toggle('active');
-        menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-    }
+            function toggleMenu() {
+                navLinks.classList.toggle('active');
+                menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+            }
 
-    menuToggle.addEventListener('click', toggleMenu);
+            menuToggle.addEventListener('click', toggleMenu);
 
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
 
-    document.addEventListener('click', function(e) {
-        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-            navLinks.classList.remove('active');
-            menuToggle.setAttribute('aria-expanded', 'false');
-        }
-    });
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
