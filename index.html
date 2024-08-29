@@ -8,367 +8,376 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --black: #000000;
-            --white: #FFFFFF;
-            --font-body-family: 'Lora', serif;
-            --font-heading-family: 'Lora', serif;
-            --font-body-weight: 400;
-            --font-body-weight-bold: 700;
-            --font-heading-weight: 400;
-        }
+    --black: #000000;
+    --white: #FFFFFF;
+    --font-body-family: 'Lora', serif;
+    --font-heading-family: 'Lora', serif;
+    --font-body-weight: 400;
+    --font-body-weight-bold: 700;
+    --font-heading-weight: 400;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            font-family: var(--font-body-family);
-            font-weight: var(--font-body-weight);
-            background-color: var(--black);
-            color: var(--white);
-            line-height: 1.6;
-        }
+body {
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+    background-color: var(--black);
+    color: var(--white);
+    line-height: 1.6;
+}
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading-family);
-            font-weight: var(--font-heading-weight);
-        }
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading-family);
+    font-weight: var(--font-heading-weight);
+}
 
-          .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        header {
-    background-color: black;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+header.scrolled {
+    background-color: var(--black);
+}
+
+.logo-text {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    list-style: none;
 }
 
-.nav-links.active {
-    display: flex;
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
 }
 
 .menu-toggle {
-    display: block;
+    display: none;
     font-size: 24px;
-    color: var(--gold);
+    color: var(--white);
     cursor: pointer;
-    z-index: 1001;
 }
 
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            flex-direction: column;
-            align-items: flex-start;
-            width: 200px;
-            border-radius: 5px;
-        }
+.hero {
+    background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/ZXYd_ZT_1Uox3s_E1YMEj.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
 
-        .nav-links.active {
-            display: flex;
-        }
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
-        .nav-links li {
-            list-style: none;
-            margin: 10px 0;
-        }
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
 
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--white);
+}
 
-        .nav-links a:hover {
-            color: var(--white);
-            opacity: 0.8;
-        }
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
 
-        .hero {
-            background-image: url('https://cdn-uploads.huggingface.co/production/uploads/noauth/ZXYd_ZT_1Uox3s_E1YMEj.webp');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-        }
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+}
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
+section {
+    padding: 100px 0;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--white);
+}
 
-        .hero-content h1 {
-            font-family: var(--font-heading-family);
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--white);
-            font-weight: var(--font-heading-weight);
-        }
+.cta-button {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-        .hero-content p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: var(--white);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
+.cta-button:hover {
+    background-color: var(--black);
+    color: var(--white);
+    transform: translateY(-3px);
+}
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 100px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-        }
+#services {
+    background-color: var(--black);
+}
 
-        section {
-            padding: 100px 0;
-        }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 
-        h2 {
-            font-size: 40px;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--white);
-        }
+.service-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .cta-button {
-            display: inline-block;
-            background-color: var(--white);
-            color: var(--black);
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
 
-        .cta-button:hover {
-            background-color: var(--black);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
+.service-card i {
+    font-size: 48px;
+    color: var(--white);
+    margin-bottom: 20px;
+}
 
-       #services {
-            background-color: var(--black);
-        }
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--white);
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
+#testimonials {
+    background-color: var(--black);
+    padding: 80px 0;
+}
 
-        .service-card {
-            background-color: var(--dark-gray);
-            border: 2px solid var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(244, 208, 63, 0.2);
-        }
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 
-        .service-card i {
-            font-size: 48px;
-            color: var(--white);
-            margin-bottom: 20px;
-        }
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
 
-        .service-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--white);
-        }
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
 
-        #testimonials {
-            background-color: var(--black);
-            padding: 80px 0;
-        }
+.testimonial-card .stars {
+    color: var(--white);
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
+.testimonial-card h4 {
+    color: var(--white);
+    margin-top: 10px;
+}
 
-        .testimonial-card {
-            background-color: var(--black);
-            border: 2px solid var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
+#contact {
+    background-color: var(--black);
+}
 
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-            flex-grow: 1;
-        }
+.form-group {
+    margin-bottom: 20px;
+}
 
-        .testimonial-card .stars {
-            color: var(--white);
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--white);
+}
 
-        .testimonial-card h4 {
-            color: var(--white);
-            margin-top: 10px;
-        }
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    background-color: var(--black);
+    color: var(--white);
+    transition: border-color 0.3s ease;
+    font-family: var(--font-body-family);
+}
 
-        #contact {
-            background-color: var(--black);
-        }
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--white);
+}
 
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--white);
-        }
-
-        input,
-        textarea,
-        select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--white);
-            border-radius: 5px;
-            background-color: var(--black);
-            color: var(--white);
-            transition: border-color 0.3s ease;
-            font-family: var(--font-body-family);
-        }
-
-        input:focus,
-        textarea:focus,
-        select:focus {
-            outline: none;
-            border-color: var(--white);
-        }
-      .button-container {
-          text-align: center;
-          margin-top: 20px;
-       }
- button {
-            background-color: var(--white);
-            color: var(--black);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            font-family: var(--font-body-family);
-            display: inline-block; /* This ensures the button takes only the necessary width */
-        }
+button {
+    background-color: var(--white);
+    color: var(--black);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: var(--font-body-family);
+    display: inline-block;
+}
 
 button:hover {
-            background-color: var(--black);
-            color: var(--white);
-            transform: translateY(-3px);
-        }
+    background-color: var(--black);
+    color: var(--white);
+    transform: translateY(-3px);
+}
 
-        footer {
-            background-color: var(--black);
-            color: var(--white);
-            text-align: center;
-            padding: 40px 0;
-        }
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 40px 0;
+}
 
-        footer p {
-            margin-bottom: 10px;
-        }
+footer p {
+    margin-bottom: 10px;
+}
 
-        footer a {
-            color: var(--white);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+footer a {
+    color: var(--white);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
 
-        footer a:hover {
-            opacity: 0.8;
-        }
+footer a:hover {
+    opacity: 0.8;
+}
 
-        @media (max-width: 768px) {
-            .services-grid,
-            .testimonial-grid {
-                grid-template-columns: 1fr;
-            }
+@media (max-width: 768px) {
+    .services-grid,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
 
-            .hero-content h1 {
-                font-size: 40px;
-            }
+    .hero-content h1 {
+        font-size: 40px;
+    }
 
-            .hero-content p {
-                font-size: 18px;
-            }
-        }
-    </style>
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+}
+</style>
 </head>
 <body>
     <header>
-        <nav class="container">
+        <div class="container">
             <a href="#" class="logo">
                 <span class="logo-text">Golden Slipper Cleaning Services</span>
             </a>
@@ -381,7 +390,7 @@ button:hover {
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="./faq.html">FAQ</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
     <section class="hero">
@@ -522,8 +531,7 @@ button:hover {
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
 
-            function toggleMenu(e) {
-                e.stopPropagation();
+            function toggleMenu() {
                 navLinks.classList.toggle('active');
             }
 
