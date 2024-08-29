@@ -88,24 +88,36 @@
         }
 
         .nav-links {
-            display: flex;
-            list-style: none;
-        }
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 20px; /* Align with the hamburger button */
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 5px; /* Optional: adds rounded corners */
+}
+.nav-links.active {
+    display: flex;
+}
 
-        .nav-links li {
-            margin-left: 30px;
-        }
+.nav-links li {
+    list-style: none;
+    margin: 10px 0;
+}
 
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
 
-        .nav-links a:hover {
-            color: var(--gold);
-        }
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
 
         .hero {
             background-image: url('https://images.unsplash.com/photo-1724891067261-94ff172291bb?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
