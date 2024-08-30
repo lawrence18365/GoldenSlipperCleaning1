@@ -620,6 +620,7 @@ footer a:hover {
             const navLinks = document.querySelector('.nav-links');
 
             function toggleMenu() {
+                console.log('Toggle menu clicked');
                 navLinks.classList.toggle('active');
                 menuToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
             }
