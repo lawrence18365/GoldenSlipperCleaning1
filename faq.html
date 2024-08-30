@@ -363,23 +363,22 @@ footer a:hover {
 </style>
 </head>
 <body>
-    <header>
-    <div class="container">
-            <a href="#" class="logo">
-                <span class="logo-text">Golden Slipper <span class="services-text">Cleaning Services</span></span>
-            </a>    
-        <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
-            <i class="fas fa-bars"></i>
-        </button>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="./About.html">About</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-    </div>
+  <header>
+        <div class="container">
+            <a href="#" class="logo-text">Golden Slipper Cleaning Services</a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="./About.html">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 </header>
     <section class="hero">
         <div class="container">
@@ -490,7 +489,7 @@ footer a:hover {
             </p>
         </div>
     </footer>
-
+<script>
 document.addEventListener('DOMContentLoaded', function() {
         const header = document.querySelector('header');
         const menuToggle = document.querySelector('.menu-toggle');
@@ -543,7 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 item.classList.toggle('active');
             });
         });
-    });
+    })
     </script>
 </body>
 </html>
