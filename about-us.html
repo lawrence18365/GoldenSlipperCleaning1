@@ -43,13 +43,17 @@
         }
 
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 20px;
-            z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+header.scrolled {
+            background-color: black;
         }
 
         header .container {
@@ -67,40 +71,38 @@
     margin-left: auto; /* This pushes the hamburger to the right */
 }
 
-.logo-text .services-text {
+logo-text .services-text {
             display: inline;
         }
-@media (max-width: 768px) {
+
+        @media (max-width: 768px) {
             .logo-text .services-text {
                 display: none;
             }
-        }
 
-        .logo-text {
-            color: var(--white);
-            font-size: 24px;
-            font-weight: 400;
-            font-family: 'Lora', serif;
-        }
+            .menu-toggle {
+                display: block;
+            }
 
-        .menu-toggle {
-            display: none;
-            font-size: 24px;
-            color: var(--white);
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0;
-        }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+            }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
+            .nav-links.active {
+                display: flex;
+            }
 
-        .nav-links li {
-            list-style: none;
-            margin-left: 20px;
+            .nav-links li {
+                margin: 10px 0;
+            }
         }
 
         .nav-links a {
@@ -190,6 +192,7 @@
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px 0;
         }
 
         .timeline::after {
@@ -206,7 +209,7 @@
         .timeline-item {
             padding: 10px 40px;
             position: relative;
-            background-color: inherit;
+            background-color: transparent;
             width: 50%;
         }
 
@@ -216,8 +219,8 @@
             width: 25px;
             height: 25px;
             right: -17px;
-            background-color: var(--white);
-            border: 4px solid var(--black);
+            background-color: var(--black);
+            border: 4px solid var(--white);
             top: 15px;
             border-radius: 50%;
             z-index: 1;
@@ -263,10 +266,11 @@
 
         .content {
             padding: 20px 30px;
-            background-color: var(--white);
+            background-color: var(--black);
             position: relative;
             border-radius: 6px;
-            color: var(--black);
+            border: 2px solid var(--white);
+            color: var(--white);
         }
 
         footer {
@@ -359,7 +363,7 @@
     <header>
         <div class="container">
             <a href="#" class="logo">
-                <span class="logo-text">Golden Slipper Cleaning Services</span>
+                <span class="logo-text">Golden Slipper <span class="services-text">Cleaning Services</span></span>
             </a>
             <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
@@ -413,20 +417,14 @@
         </div>
     </section>
 
-    <section id="journey">
+   <section id="journey">
         <div class="container">
             <h2>Our Journey</h2>
             <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>2021</h3>
-                        <p>Golden Slipper Cleaning Services is founded by Abbie, inspired by her personal health journey and passion for non-toxic cleaning.</p>
-                    </div>
-                </div>
                 <div class="timeline-item right">
                     <div class="content">
-                        <h3>2022</h3>
-                        <p>Expansion of services to include commercial cleaning, catering to businesses in Eastern Sydney.</p>
+                        <h3>2024</h3>
+                        <p>Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
@@ -437,8 +435,14 @@
                 </div>
                 <div class="timeline-item right">
                     <div class="content">
-                        <h3>2024</h3>
-                        <p>Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</p>
+                        <h3>2022</h3>
+                        <p>Expansion of services to include commercial cleaning, catering to businesses in Eastern Sydney.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="content">
+                        <h3>2021</h3>
+                        <p>Golden Slipper Cleaning Services is founded by Abbie, inspired by her personal health journey and passion for non-toxic cleaning.</p>
                     </div>
                 </div>
             </div>
@@ -458,8 +462,7 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.querySelector('header');
+         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.querySelector('.menu-toggle');
             const navLinks = document.querySelector('.nav-links');
 
