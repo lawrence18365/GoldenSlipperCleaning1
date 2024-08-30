@@ -197,6 +197,47 @@ margin-top: 0; /* Ensure it's at the top */
 section {
     padding: 100px 0;
 }
+#about {
+    padding: 80px 0;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex: 0 0 300px; /* Reduced from the original size */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px; /* Added rounded corners */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-image {
+        order: -1; /* Move image to the top on mobile */
+        margin-bottom: 20px;
+    }
+}
 
 h2 {
     font-size: 40px;
@@ -214,106 +255,6 @@ h2 {
     border-radius: 50px;
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: var(--black);
-    color: var(--white);
-    transform: translateY(-3px);
-}
-
-#services {
-    background-color: var(--black);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.service-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid var(--white);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-}
-
-.service-card i {
-    font-size: 48px;
-    color: var(--white);
-    margin-bottom: 20px;
-}
-
-.service-card h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: var(--white);
-}
-
-#testimonials {
-    background-color: var(--black);
-    padding: 80px 0;
-}
-
-.testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.testimonial-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid var(--white);
-    border-radius: 10px;
-    padding: 30px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-}
-
-.testimonial-card p {
-    font-style: italic;
-    margin-bottom: 15px;
-    flex-grow: 1;
-}
-
-.testimonial-card .stars {
-    color: var(--white);
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.testimonial-card h4 {
-    color: var(--white);
-    margin-top: 10px;
-}
-
-#contact {
-    background-color: var(--black);
-}
-
-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    margin-bottom: 20px;
 }
 
 label {
@@ -514,19 +455,20 @@ footer a:hover {
     </section>
 
     <section id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <p>At Golden Slipper Cleaning Services, our story began in 2021 with a vision to make a difference in people's lives. Our founder, Abbie, embarked on a journey fueled by perseverance and dedication. Overcoming personal health challenges really sparked a passion for non-toxic cleaning products and a more holistic lifestyle. Through self-education, Abbie discovered the incredible benefits of combining non-toxic products with essential oils, leading to amazing results.</p>
-                    <p>Today, Golden Slipper Cleaning Services offers high-attention-to-detail cleaning that stands out from the rest. We save you precious time, allowing you to focus on what matters most - yourself, your family, and your business. We understand that every client is unique, which is why we offer bespoke cleaning services tailored to your specific needs. Our packages are curated to meet your individual requirements, ensuring a personalized cleaning experience.</p>
-                    <p>With Golden Slipper Cleaning Services, you can trust that your space will be cleaned with care, respect, and a commitment to your wellbeing. Let us take care of the cleaning, so you can focus on what matters most.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://i.ibb.co/0QL9g66/1636c0cc-8ec9-4757-9461-22a2cefd2ec3.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
-                </div>
+    <div class="container">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>At Golden Slipper Cleaning Services, our story began in 2021 with a vision to make a difference in people's lives. Our founder, Abbie, embarked on a journey fueled by perseverance and dedication. Overcoming personal health challenges really sparked a passion for non-toxic cleaning products and a more holistic lifestyle.</p>
+                <p>Through self-education, Abbie discovered the incredible benefits of combining non-toxic products with essential oils, leading to amazing results. Today, Golden Slipper Cleaning Services offers high-attention-to-detail cleaning that stands out from the rest.</p>
+                <p>We save you precious time, allowing you to focus on what matters most - yourself, your family, and your business. We understand that every client is unique, which is why we offer bespoke cleaning services tailored to your specific needs. Our packages are curated to meet your individual requirements, ensuring a personalized cleaning experience.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://i.ibb.co/0QL9g66/1636c0cc-8ec9-4757-9461-22a2cefd2ec3.jpg" alt="Abbie - Founder of Golden Slipper Cleaning Services">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="mission">
         <div class="container">
@@ -542,37 +484,37 @@ footer a:hover {
         </div>
     </section>
 
-    <section id="journey">
-        <div class="container">
-            <h2>Our Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>2021</h3>
-                        <p>Golden Slipper Cleaning Services is founded by Abbie, inspired by her personal health journey and passion for non-toxic cleaning.</p>
-                    </div>
+<section id="journey">
+    <div class="container">
+        <h2>Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>2024</h3>
+                    <p>Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</p>
                 </div>
-                <div class="timeline-item right">
-                    <div class="content">
-                        <h3>2022</h3>
-                        <p>Expansion of services to include commercial cleaning, catering to businesses in Eastern Sydney.</p>
-                    </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>2023</h3>
+                    <p>Introduction of specialized services such as non-toxic oven cleaning and upholstery cleaning.</p>
                 </div>
-                <div class="timeline-item left">
-                    <div class="content">
-                        <h3>2023</h3>
-                        <p>Introduction of specialized services such as non-toxic oven cleaning and upholstery cleaning.</p>
-                    </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>2022</h3>
+                    <p>Expansion of services to include commercial cleaning, catering to businesses in Eastern Sydney.</p>
                 </div>
-                <div class="timeline-item right">
-                    <div class="content">
-                        <h3>2024</h3>
-                        <p>Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</p>
-                    </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>2021</h3>
+                    <p>Golden Slipper Cleaning Services is founded by Abbie, inspired by her personal health journey and passion for non-toxic cleaning.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer>
         <div class="container">
@@ -631,33 +573,6 @@ footer a:hover {
         });
     });
 
-    // Form submission handling
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                if (response.ok) {
-                    alert('Thank you for your message! We will get back to you shortly.');
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                alert('Oops! There was a problem submitting your form. Please try again later.');
-                console.error(error);
-            }
-        });
-    }
-});
     </script>
 </body>
 </html>
