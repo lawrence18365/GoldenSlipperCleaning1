@@ -240,11 +240,75 @@ section {
 }
 #mission {
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 80px 0;
 }
 
-#mission ul {
-    display: inline-block;
-    text-align: left;
+#mission .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#mission h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--white);
+}
+
+.mission-content {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.mission-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mission-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mission-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.mission-list li::before {
+    content: '\2022';
+    color: #FFD700;
+    font-size: 24px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+    #mission {
+        padding: 60px 0;
+    }
+
+    #mission h2 {
+        font-size: 30px;
+    }
+
+    .mission-intro {
+        font-size: 16px;
+    }
+
+    .mission-list li {
+        font-size: 14px;
+    }
 }
 h2 {
     font-size: 40px;
@@ -477,34 +541,19 @@ footer a:hover {
     </div>
 </section>
 
-    <section id="mission" class="py-16 bg-gradient-to-b from-black to-gray-900">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center text-white mb-8">Our Mission</h2>
-        <div class="bg-black bg-opacity-50 p-8 rounded-lg shadow-lg">
-            <p class="text-lg text-white text-center mb-6">
+<section id="mission">
+    <div class="container">
+        <h2>Our Mission</h2>
+        <div class="mission-content">
+            <p class="mission-intro">
                 At Golden Slipper Cleaning Services, our mission is to provide exceptional, eco-friendly cleaning solutions that promote a healthier living environment and enhance the overall quality of life for our clients. We are committed to:
             </p>
-            <ul class="space-y-4 text-white">
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span>Utilizing non-toxic, environmentally friendly cleaning products</span>
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span>Delivering personalized, high-quality cleaning services</span>
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span>Promoting wellness through cleaner, safer living spaces</span>
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span>Educating our clients about the benefits of non-toxic cleaning</span>
-                </li>
-                <li class="flex items-start">
-                    <svg class="w-6 h-6 text-green-400 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span>Continuously improving our methods and staying updated with the latest eco-friendly cleaning technologies</span>
-                </li>
+            <ul class="mission-list">
+                <li>Utilizing non-toxic, environmentally friendly cleaning products</li>
+                <li>Delivering personalized, high-quality cleaning services</li>
+                <li>Promoting wellness through cleaner, safer living spaces</li>
+                <li>Educating our clients about the benefits of non-toxic cleaning</li>
+                <li>Continuously improving our methods and staying updated with the latest eco-friendly cleaning technologies</li>
             </ul>
         </div>
     </div>
