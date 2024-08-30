@@ -104,13 +104,15 @@ header .container {
     display: none;
     position: absolute;
     top: 100%;
-    right: 20px; /* Align with the hamburger button */
+    right: 0; /* Changed from right: 20px to align with the right edge */
     background-color: rgba(0, 0, 0, 0.9);
     padding: 20px;
     flex-direction: column;
-    align-items: flex-end;
-    border-radius: 5px; /* Optional: adds rounded corners */
+    align-items: flex-start; /* Changed from flex-end to flex-start */
+    border-radius: 5px;
+    width: 200px; /* Added a fixed width for consistency */
 }
+
 .nav-links.active {
     display: flex;
 }
@@ -118,17 +120,23 @@ header .container {
 .nav-links li {
     list-style: none;
     margin: 10px 0;
+    width: 100%; /* Make list items full width */
 }
 
 .nav-links a {
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease; /* Changed from opacity to all for more effects */
+    display: block; /* Make the entire area clickable */
+    padding: 10px 15px; /* Add some padding for better touch targets */
+    border-left: 3px solid transparent; /* Prepare for hover effect */
 }
 
 .nav-links a:hover {
-    opacity: 0.8;
+    opacity: 1; /* Keep full opacity on hover */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+    border-left: 3px solid var(--white); /* Left border on hover */
 }
 
 .menu-toggle {
