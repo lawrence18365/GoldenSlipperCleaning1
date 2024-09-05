@@ -515,7 +515,7 @@ footer a:hover {
     <section id="contact">
         <div class="container">
             <h2>Book Now</h2>
-            <form action="https://formspree.io/f/mgvwqkpe" method="POST" enctype="multipart/form-data">
+               <form id="contact-form" enctype="multipart/form-data"> 
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -612,20 +612,29 @@ footer a:hover {
         });
     });
 
-    // Form submission handling
+     // Form submission handling
     const form = document.querySelector('form');
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const formData = new FormData(form);
+            const webhookUrl = 'https://hook.eu2.make.com/6j427hxnmbcnn5dy7oyxchmtilc0qo0n';
+
+            // Convert FormData to a plain object
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
             try {
-                const response = await fetch(form.action, {
+                const response = await fetch(webhookUrl, {
                     method: 'POST',
-                    body: formData,
                     headers: {
-                        'Accept': 'application/json'
-                    }
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formObject),
                 });
+
                 if (response.ok) {
                     alert('Thank you for your message! We will get back to you shortly.');
                     form.reset();
