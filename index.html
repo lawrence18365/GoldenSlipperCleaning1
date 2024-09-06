@@ -613,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-  // Form submission handling
+// Form submission handling
 const form = document.getElementById('contact-form');
 
 if (form) {
@@ -630,17 +630,20 @@ if (form) {
             }
         });
 
-        // Handle file attachment
+        // Handle file attachments
         const fileInput = document.getElementById('file');
         if (fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-            formObject.attachmentName = file.name;
-            formObject.attachmentType = file.type;
-            formObject.attachmentSize = file.size;
-
-            // Convert file to base64
-            const base64String = await fileToBase64(file);
-            formObject.attachmentData = base64String;
+            formObject.attachments = [];
+            for (let i = 0; i < fileInput.files.length; i++) {
+                const file = fileInput.files[i];
+                const base64String = await fileToBase64(file);
+                formObject.attachments.push({
+                    name: file.name,
+                    type: file.type,
+                    size: file.size,
+                    data: base64String
+                });
+            }
         }
 
         await sendFormData(formObject, webhookUrl);
