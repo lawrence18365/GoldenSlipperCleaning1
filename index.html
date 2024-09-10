@@ -612,21 +612,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-     // Form submission handling
+    // Form submission handling
     const form = document.getElementById('contact-form');
 
-if (form) {
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const fileInput = document.getElementById('file');
+            
+            // Create an object to hold the form data
+            let payload = Object.fromEntries(formData);
+
+            // Handle file upload
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const reader = new FileReader();
+
+                reader.onload = async function(e) {
+                    payload.attachment = {
+                        filename: file.name,
+                        content: e.target.result.split(',')[1], // Get base64 data
+                        contentType: file.type
+                    };
+
+                    await sendFormData(payload);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                await sendFormData(payload);
+            }
+        });
+    }
+
+    async function sendFormData(payload) {
         try {
             console.log('Sending request to:', 'https://t6oqzbocxe.execute-api.ap-southeast-2.amazonaws.com');
-            console.log('Request payload:', JSON.stringify(Object.fromEntries(formData)));
+            console.log('Request payload:', JSON.stringify(payload));
             
             const response = await fetch('https://t6oqzbocxe.execute-api.ap-southeast-2.amazonaws.com', {
                 method: 'POST',
-                body: JSON.stringify(Object.fromEntries(formData)),
+                body: JSON.stringify(payload),
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
@@ -656,8 +683,8 @@ if (form) {
             console.error('Form submission error:', error);
             alert(`Oops! There was a problem submitting your form: ${error.message}. Please try again later.`);
         }
-    });
-}
+    }
+});
     </script>
 </body>
 </html>
