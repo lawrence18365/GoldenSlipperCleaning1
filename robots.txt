@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Block common web crawlers that might put unnecessary load on the server
+User-agent: AhrefsBot
+User-agent: MJ12bot
+User-agent: SemrushBot
+Disallow: /
+
+# Allow Google AdSense bot to crawl the site (if you use Google AdSense)
+User-agent: Mediapartners-Google
+Allow: /
+
+# Sitemap location
+Sitemap: https://goldenslippercleaningservices.com/sitemap.xml
