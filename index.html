@@ -621,20 +621,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            const formData = new FormData();
+            const formData = new FormData(form);
             const fileInput = document.getElementById('file');
             
-            // Add all form fields except the file
-            for (let [key, value] of new FormData(form)) {
-                if (key !== 'file') {
-                    formData.append(key, value);
-                }
-            }
+            // Remove any existing file data
+            formData.delete('file');
+            formData.delete('attachment');
+            formData.delete('uploadedFile');
 
-            // Add the file only once, using a different key
+            // Add the file only once, if it exists
             if (fileInput.files.length > 0) {
                 const file = fileInput.files[0];
-                formData.append('uploadedFile', file, file.name);
+                formData.append('file', file, file.name);
             }
 
             try {
