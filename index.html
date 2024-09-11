@@ -631,10 +631,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // Add the file only once
+            // Add the file only once, using a different key
             if (fileInput.files.length > 0) {
                 const file = fileInput.files[0];
-                formData.append('file', file);
+                formData.append('uploadedFile', file, file.name);
             }
 
             try {
