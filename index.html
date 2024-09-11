@@ -621,12 +621,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            const formData = new FormData(form);
+            const formData = new FormData();
             const fileInput = document.getElementById('file');
             
+            // Add all form fields except the file
+            for (let [key, value] of new FormData(form)) {
+                if (key !== 'file') {
+                    formData.append(key, value);
+                }
+            }
+
+            // Add the file only once
             if (fileInput.files.length > 0) {
                 const file = fileInput.files[0];
-                formData.set('file', file);
+                formData.append('file', file);
             }
 
             try {
