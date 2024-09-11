@@ -626,8 +626,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (fileInput.files.length > 0) {
                 const file = fileInput.files[0];
-                formData.append('file_name', file.name);
-                formData.append('file_data', file);
+                formData.set('attachment', file);
             }
 
             try {
