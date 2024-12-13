@@ -654,133 +654,161 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add this function to validate email format
-function isValidEmail(email) {
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailPattern.test(email);
-}
+// Add this to your existing JavaScript, replacing the current form handling code
 
-// Add this function to validate Australian phone numbers
-function isValidAustralianPhone(phone) {
-    // Allow empty phone since it's optional
-    if (!phone) return true;
-    
-    // Australian phone number formats:
-    // 04XX XXX XXX (mobile)
-    // +61 4XX XXX XXX (mobile with country code)
-    // 02|03|07|08 XXXX XXXX (landline)
-    // +61 2|3|7|8 XXXX XXXX (landline with country code)
-    const phonePattern = /^(?:\+?61|0)[2-478][0-9]{8}$/;
-    
-    // Remove spaces, dashes and parentheses before testing
-    const cleanPhone = phone.replace(/[\s()\-]/g, '');
-    return phonePattern.test(cleanPhone);
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const formLoadTime = Date.now();
 
-// Add this function to check for English text
-function isEnglishText(text) {
-    // This regex allows only English letters, numbers, and common punctuation
-    const englishPattern = /^[A-Za-z0-9\s.,!?'"()\-\n\r]+$/;
-    return englishPattern.test(text);
-}
+    function isValidEmail(email) {
+        return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+    }
 
-// Enhanced validateForm function
-function validateForm() {
-    const requiredFields = form.querySelectorAll('[required]');
-    let isValid = true;
-    let errorMessages = [];
+    function isValidAustralianPhone(phone) {
+        if (!phone) return true;
+        const cleanPhone = phone.replace(/[\s()\-]/g, '');
+        return /^(?:\+?61|0)[2-478][0-9]{8}$/.test(cleanPhone);
+    }
 
-    // Check required fields
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
+    function isEnglishText(text) {
+        // Allow only English letters, numbers, and basic punctuation
+        return /^[A-Za-z0-9\s.,!?'"()\-]+$/.test(text);
+    }
+
+    function isValidName(name) {
+        // Only allow English letters, spaces, hyphens, and apostrophes
+        return /^[A-Za-z\s'-]{2,50}$/.test(name);
+    }
+
+    function showError(element, message) {
+        // Remove any existing error message
+        const existingError = element.parentElement.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+
+        element.classList.add('error');
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.style.color = '#ff0000';
+        errorDiv.style.fontSize = '12px';
+        errorDiv.style.marginTop = '5px';
+        errorDiv.textContent = message;
+        element.parentElement.appendChild(errorDiv);
+    }
+
+    function clearError(element) {
+        element.classList.remove('error');
+        const errorDiv = element.parentElement.querySelector('.error-message');
+        if (errorDiv) {
+            errorDiv.remove();
+        }
+    }
+
+    function validateForm() {
+        let isValid = true;
+
+        // Validate name
+        const nameInput = document.getElementById('name');
+        if (!isValidName(nameInput.value)) {
+            showError(nameInput, 'Please enter a valid name (English letters only)');
             isValid = false;
-            field.classList.add('error');
-            errorMessages.push(`${field.getAttribute('name')} is required`);
         } else {
-            field.classList.remove('error');
-        }
-    });
-
-    // Validate email
-    const email = document.getElementById('email').value;
-    if (!isValidEmail(email)) {
-        isValid = false;
-        document.getElementById('email').classList.add('error');
-        errorMessages.push('Please enter a valid email address');
-    }
-
-    // Validate phone (if provided)
-    const phone = document.getElementById('phone').value;
-    if (phone && !isValidAustralianPhone(phone)) {
-        isValid = false;
-        document.getElementById('phone').classList.add('error');
-        errorMessages.push('Please enter a valid Australian phone number');
-    }
-
-    // Validate message for English text
-    const message = document.getElementById('message').value;
-    if (!isEnglishText(message)) {
-        isValid = false;
-        document.getElementById('message').classList.add('error');
-        errorMessages.push('Please use only English characters in your message');
-    }
-
-    // Show all error messages if any
-    if (!isValid) {
-        alert(errorMessages.join('\n'));
-    }
-
-    return isValid;
-}
-
-// Modified form submission handler
-if (form) {
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        if (!validateForm()) {
-            return;
+            clearError(nameInput);
         }
 
-        const formData = new FormData(form);
-        const fileInput = document.getElementById('file');
-        
-        // Clean phone number before submission
+        // Validate email
+        const emailInput = document.getElementById('email');
+        if (!isValidEmail(emailInput.value)) {
+            showError(emailInput, 'Please enter a valid email address');
+            isValid = false;
+        } else {
+            clearError(emailInput);
+        }
+
+        // Validate phone if provided
         const phoneInput = document.getElementById('phone');
-        if (phoneInput.value) {
-            const cleanPhone = phoneInput.value.replace(/[\s()\-]/g, '');
-            formData.set('phone', cleanPhone);
-        }
-        
-        // Remove any existing file data
-        formData.delete('file');
-        formData.delete('attachment');
-        formData.delete('uploadedFile');
-
-        // Add the file only once, if it exists
-        if (fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-            formData.append('file', file, file.name);
+        if (phoneInput.value && !isValidAustralianPhone(phoneInput.value)) {
+            showError(phoneInput, 'Please enter a valid Australian phone number');
+            isValid = false;
+        } else {
+            clearError(phoneInput);
         }
 
-        try {
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: formData
-            });
+        // Validate message
+        const messageInput = document.getElementById('message');
+        if (!messageInput.value.trim()) {
+            showError(messageInput, 'Message is required');
+            isValid = false;
+        } else if (!isEnglishText(messageInput.value)) {
+            showError(messageInput, 'Please use only English characters');
+            isValid = false;
+        } else {
+            clearError(messageInput);
+        }
 
-            if (response.ok) {
-                alert('Thank you for your message! We will get back to you shortly.');
-                form.reset();
-            } else {
-                throw new Error('Form submission failed');
+        // Check if form was filled too quickly (potential bot)
+        if (Date.now() - formLoadTime < 3000) {
+            console.log('Submission too quick - likely bot');
+            return false;
+        }
+
+        return isValid;
+    }
+
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!validateForm()) {
+                return;
             }
-        } catch (error) {
-            console.error('Form submission error:', error);
-            alert('Oops! There was a problem submitting your form. Please try again later.');
-        }
-    });
-}
+
+            const formData = new FormData();
+
+            // Add form fields
+            formData.append('name', document.getElementById('name').value.trim());
+            formData.append('email', document.getElementById('email').value.trim());
+            formData.append('service', document.getElementById('service').value);
+            formData.append('message', document.getElementById('message').value.trim());
+
+            // Add phone if provided
+            const phone = document.getElementById('phone').value.trim();
+            if (phone) {
+                formData.append('phone', phone.replace(/[\s()\-]/g, ''));
+            }
+
+            // Handle file upload
+            const fileInput = document.getElementById('file');
+            if (fileInput && fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                if (file.size <= 10 * 1024 * 1024) { // 10MB limit
+                    formData.append('file', file);
+                } else {
+                    alert('File size must be less than 10MB');
+                    return;
+                }
+            }
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert('Thank you for your message! We will get back to you shortly.');
+                    form.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('There was a problem submitting your form. Please try again later.');
+            }
+        });
+    }
+});
 </script>
 </body>
 </html>
