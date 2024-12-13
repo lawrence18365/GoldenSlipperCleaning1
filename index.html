@@ -524,18 +524,26 @@ footer a:hover {
     <div class="container">
         <h2>Book Now</h2>
         <form id="contact-form" action="https://hook.eu2.make.com/46lwkxsygrv4k5ugpq9qqnmo8bihznau" method="POST" enctype="multipart/form-data">
+            <!-- Honeypot field -->
+            <div class="form-group" style="display: none;">
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
             </div>
+            
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required placeholder="youremail@gmail.com">
             </div>
+            
             <div class="form-group">
-                <label for="phone">Phone (optional)</label>
-                <input type="tel" id="phone" name="phone">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="e.g., 0412 345 678 or 02 9123 4567">
             </div>
+            
             <div class="form-group">
                 <label for="service">Service Interested In</label>
                 <select id="service" name="service" required>
@@ -549,21 +557,22 @@ footer a:hover {
                     <option value="Construction Cleaning">Construction/Post-Renovation Cleaning</option>
                 </select>
             </div>
+            
             <div class="form-group">
                 <label for="message">Message or Questions</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
+                <textarea id="message" name="message" rows="5" required placeholder="Please enter your message in English"></textarea>
             </div>
+            
             <div class="form-group">
                 <label for="file">Attach Photo or Video (optional)</label>
                 <input type="file" id="file" name="file" accept="image/*,video/*">
             </div>
+            
             <div class="button-container">
                 <button type="submit">Book Now</button>
             </div>
         </form>
     </div>
-</section>
-
 <footer>
     <div class="container">
         <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
@@ -645,69 +654,133 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const form = document.getElementById('contact-form');
+    // Add this function to validate email format
+function isValidEmail(email) {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailPattern.test(email);
+}
 
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            if (!validateForm()) {
-                return;
-            }
+// Add this function to validate Australian phone numbers
+function isValidAustralianPhone(phone) {
+    // Allow empty phone since it's optional
+    if (!phone) return true;
+    
+    // Australian phone number formats:
+    // 04XX XXX XXX (mobile)
+    // +61 4XX XXX XXX (mobile with country code)
+    // 02|03|07|08 XXXX XXXX (landline)
+    // +61 2|3|7|8 XXXX XXXX (landline with country code)
+    const phonePattern = /^(?:\+?61|0)[2-478][0-9]{8}$/;
+    
+    // Remove spaces, dashes and parentheses before testing
+    const cleanPhone = phone.replace(/[\s()\-]/g, '');
+    return phonePattern.test(cleanPhone);
+}
 
-            const formData = new FormData(form);
-            const fileInput = document.getElementById('file');
-            
-            // Remove any existing file data
-            formData.delete('file');
-            formData.delete('attachment');
-            formData.delete('uploadedFile');
+// Add this function to check for English text
+function isEnglishText(text) {
+    // This regex allows only English letters, numbers, and common punctuation
+    const englishPattern = /^[A-Za-z0-9\s.,!?'"()\-\n\r]+$/;
+    return englishPattern.test(text);
+}
 
-            // Add the file only once, if it exists
-            if (fileInput.files.length > 0) {
-                const file = fileInput.files[0];
-                formData.append('file', file, file.name);
-            }
+// Enhanced validateForm function
+function validateForm() {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    let errorMessages = [];
 
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData
-                });
+    // Check required fields
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add('error');
+            errorMessages.push(`${field.getAttribute('name')} is required`);
+        } else {
+            field.classList.remove('error');
+        }
+    });
 
-                if (response.ok) {
-                    alert('Thank you for your message! We will get back to you shortly.');
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                alert('Oops! There was a problem submitting your form. Please try again later.');
-            }
-        });
+    // Validate email
+    const email = document.getElementById('email').value;
+    if (!isValidEmail(email)) {
+        isValid = false;
+        document.getElementById('email').classList.add('error');
+        errorMessages.push('Please enter a valid email address');
     }
 
-    function validateForm() {
-        const requiredFields = form.querySelectorAll('[required]');
-        let isValid = true;
+    // Validate phone (if provided)
+    const phone = document.getElementById('phone').value;
+    if (phone && !isValidAustralianPhone(phone)) {
+        isValid = false;
+        document.getElementById('phone').classList.add('error');
+        errorMessages.push('Please enter a valid Australian phone number');
+    }
 
-        requiredFields.forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-                field.classList.add('error');
-            } else {
-                field.classList.remove('error');
-            }
-        });
+    // Validate message for English text
+    const message = document.getElementById('message').value;
+    if (!isEnglishText(message)) {
+        isValid = false;
+        document.getElementById('message').classList.add('error');
+        errorMessages.push('Please use only English characters in your message');
+    }
 
-        if (!isValid) {
-            alert('Please fill in all required fields.');
+    // Show all error messages if any
+    if (!isValid) {
+        alert(errorMessages.join('\n'));
+    }
+
+    return isValid;
+}
+
+// Modified form submission handler
+if (form) {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        if (!validateForm()) {
+            return;
         }
 
-        return isValid;
-    }
-});
+        const formData = new FormData(form);
+        const fileInput = document.getElementById('file');
+        
+        // Clean phone number before submission
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput.value) {
+            const cleanPhone = phoneInput.value.replace(/[\s()\-]/g, '');
+            formData.set('phone', cleanPhone);
+        }
+        
+        // Remove any existing file data
+        formData.delete('file');
+        formData.delete('attachment');
+        formData.delete('uploadedFile');
+
+        // Add the file only once, if it exists
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            formData.append('file', file, file.name);
+        }
+
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData
+            });
+
+            if (response.ok) {
+                alert('Thank you for your message! We will get back to you shortly.');
+                form.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('Oops! There was a problem submitting your form. Please try again later.');
+        }
+    });
+}
 </script>
 </body>
 </html>
