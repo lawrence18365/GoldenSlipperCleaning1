@@ -645,17 +645,13 @@ footer a:hover {
 <section id="contact">
     <div class="container">
         <h2>Book Now</h2>
-        <form id="contact-form" action="https://hook.eu2.make.com/46lwkxsygrv4k5ugpq9qqnmo8bihznau" method="POST" enctype="multipart/form-data">
-            <!-- Add this HTML right after your form opening tag -->
-<div id="form-notification" class="notification" style="display: none;">
-    <div class="notification-content">
-        <span class="notification-message"></span>
-        <button class="notification-close">&times;</button>
-    </div>
-</div>
-            <!-- Honeypot field -->
-            <div class="form-group" style="display: none;">
-                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        <form id="contact-form" action="https://formspree.io/f/mjkgplda" method="POST" enctype="multipart/form-data">
+            <!-- Notification element -->
+            <div id="form-notification" class="notification" style="display: none;">
+                <div class="notification-content">
+                    <span class="notification-message"></span>
+                    <button class="notification-close">&times;</button>
+                </div>
             </div>
             
             <div class="form-group">
@@ -694,13 +690,15 @@ footer a:hover {
             
             <div class="form-group">
                 <label for="file">Attach Photo or Video (optional)</label>
-                <input type="file" id="file" name="file" accept="image/*,video/*">
+                <input type="file" id="file" name="upload" accept="image/*,video/*">
             </div>
             
             <div class="button-container">
                 <button type="submit">Book Now</button>
             </div>
         </form>
+    </div>
+</section>
     </div>
 <footer>
     <div class="container">
@@ -739,7 +737,8 @@ footer a:hover {
 }
 </style>
 
-<script>document.addEventListener('DOMContentLoaded', function() {
+<script>
+document.addEventListener('DOMContentLoaded', function() {
     // Navigation functionality
     const header = document.querySelector('header');
     const menuToggle = document.querySelector('.menu-toggle');
@@ -918,48 +917,36 @@ footer a:hover {
             submitButton.classList.add('button-loading');
             form.classList.add('form-loading');
 
-            const formData = new FormData();
-
-            // Add form fields
-            formData.append('name', document.getElementById('name').value.trim());
-            formData.append('email', document.getElementById('email').value.trim());
-            formData.append('service', document.getElementById('service').value);
-            formData.append('message', document.getElementById('message').value.trim());
-
-            // Add phone if provided
-            const phone = document.getElementById('phone').value.trim();
-            if (phone) {
-                formData.append('phone', phone.replace(/[\s()\-]/g, ''));
-            }
-
-            // Handle file upload
-            const fileInput = document.getElementById('file');
-            if (fileInput && fileInput.files.length > 0) {
-                const file = fileInput.files[0];
-                if (file.size <= 10 * 1024 * 1024) { // 10MB limit
-                    formData.append('file', file);
-                } else {
-                    showNotification('File size must be less than 10MB', 'error');
-                    submitButton.classList.remove('button-loading');
-                    form.classList.remove('form-loading');
-                    return;
-                }
-            }
+            const formData = new FormData(form);
 
             try {
                 const response = await fetch(form.action, {
                     method: 'POST',
-                    mode: 'no-cors', // Prevent redirect
-                    body: formData
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
-
-                // Since no-cors mode doesn't provide response details,
-                // we assume success if no error is thrown
-                showNotification('Thank you for your message! We will get back to you shortly.', 'success');
-                form.reset();
                 
-                // Scroll to top of form
-                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                if (response.ok) {
+                    showNotification('Thank you for your message! We will get back to you shortly.', 'success');
+                    form.reset();
+                    
+                    // Scroll to top of form
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    // Form submission failed
+                    let errorMessage = 'There was a problem submitting your form. Please try again later.';
+                    try {
+                        const result = await response.json();
+                        if (result && result.errors) {
+                            errorMessage = result.errors.map(error => error.message).join(' ');
+                        }
+                    } catch (e) {
+                        // If we can't parse the response as JSON, use default error message
+                    }
+                    showNotification(errorMessage, 'error');
+                }
                 
             } catch (error) {
                 console.error('Form submission error:', error);
@@ -975,6 +962,7 @@ footer a:hover {
     if (window.history.replaceState) {
         window.history.replaceState(null, null, window.location.href);
     }
-});</script>
+});
+        </script>
 </body>
 </html>
