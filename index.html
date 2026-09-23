@@ -13,6 +13,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Golden Slipper Cleaning Services</title>
+    <meta name="description" content="Award-winning non-toxic cleaning in Botany and Eastern Sydney. Winner, Outstanding Cleaning Business – Bayside Local Business Awards 2025. Finalist 2025 & 2026.">
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Golden Slipper Cleaning Services","url":"https://goldenslippercleaningservices.com/","telephone":"+61434431361","email":"GoldenSlipperCleaningservices@gmail.com","foundingDate":"2021","areaServed":"Botany and Eastern Sydney, NSW, Australia","image":"https://goldenslippercleaningservices.com/images/awards/golden-slipper-cleaning-award-winner-bayside-2025.jpg","award":["Winner – Outstanding Cleaning Business, Bayside Local Business Awards 2025","Finalist – Bayside Local Business Awards 2025","Finalist – Bayside Local Business Awards 2026"],"sameAs":["https://www.facebook.com/profile.php?id=100064050013914","https://www.instagram.com/goldenslippercleaningservices/"]}
+</script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -400,6 +404,140 @@ footer a:hover {
     opacity: 0.8;
 }
 
+.hero-content .hero-award {
+    display: inline-block;
+    font-size: 15px;
+    color: #c79950;
+    border: 1px solid #c79950;
+    border-radius: 50px;
+    padding: 8px 20px;
+    margin-bottom: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-shadow: none;
+}
+
+#awards {
+    background-color: var(--black);
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.awards-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    border: 2px solid #c79950;
+}
+
+.awards-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.awards-text strong {
+    color: #c79950;
+}
+
+.badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.badge-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #c79950;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.badge-card img {
+    width: 100%;
+    max-width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 4px;
+}
+
+.badge-card span {
+    color: #c79950;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#founder {
+    background-color: var(--black);
+}
+
+.founder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.founder-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    border: 2px solid #c79950;
+}
+
+.founder-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#our-story {
+    background-color: var(--black);
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.story-timeline {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.story-timeline li {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #c79950;
+    border-radius: 5px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+
+.story-timeline span {
+    color: #c79950;
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+.story-photo img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: 2px solid #c79950;
+}
+
 @media (max-width: 768px) {
     .services-grid,
     .testimonial-grid {
@@ -412,6 +550,39 @@ footer a:hover {
 
     .hero-content p {
         font-size: 18px;
+    }
+
+    .hero-content .hero-award {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .badges {
+        gap: 10px;
+    }
+
+    .badge-card {
+        padding: 8px;
+    }
+
+    .badge-card span {
+        font-size: 12px;
+    }
+
+    .founder-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-photo {
+        order: -1;
     }
 }
 </style>
@@ -443,10 +614,30 @@ footer a:hover {
             <div class="hero-content">
                 <h1>Where Luxury Meets <span class="eco-text">ECO</span> Friendly Living</h1>
                 <p>Experience a fresher, healthier clean with our eco-friendly and organic cleaning services, using only non-toxic products that are gentle on your home and environment.</p>
+                <p class="hero-award"><i class="fas fa-award" aria-hidden="true"></i> Winner – Outstanding Cleaning Business, Bayside Local Business Awards 2025 · Finalist 2025 &amp; 2026</p>
                 <a href="#contact" class="cta-button">Book Now</a>
             </div>
         </div>
     </section>
+
+  <section id="awards">
+    <div class="container">
+        <h2>Award-Winning Cleaning</h2>
+        <div class="awards-grid">
+            <div class="awards-photo">
+                <img src="images/awards/golden-slipper-cleaning-outstanding-cleaning-business-trophy-2025.jpg" width="1366" height="2048" loading="lazy" alt="2025 Bayside Local Business Awards trophy engraved Golden Slipper Cleaning Services, Outstanding Cleaning Business, Winner">
+            </div>
+            <div class="awards-text">
+                <p>In 2025 Golden Slipper Cleaning Services was named <strong>Winner of Outstanding Cleaning Business</strong> at the Bayside Local Business Awards, and we're proud to be a finalist again in 2026. Thank you to every client who has trusted us with their home and business.</p>
+                <div class="badges">
+                    <div class="badge-card"><img src="images/awards/local-business-awards-2025-winner-bayside-badge.jpg" width="1206" height="1478" loading="lazy" alt="Local Business Awards 2025 Winner, Bayside"><span>Winner 2025</span></div>
+                    <div class="badge-card"><img src="images/awards/local-business-awards-2025-finalist-bayside-badge.jpg" width="1156" height="1439" loading="lazy" alt="Local Business Awards 2025 Finalist, Bayside"><span>Finalist 2025</span></div>
+                    <div class="badge-card"><img src="images/awards/local-business-awards-2026-finalist-bayside-badge.jpg" width="1153" height="1427" loading="lazy" alt="Local Business Awards 2026 Finalist, Bayside"><span>Finalist 2026</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
   <section id="services">
     <div class="container">
@@ -492,11 +683,6 @@ footer a:hover {
                 <h3>Upholstery Cleaning</h3>
                 <p>Revitalize your furniture with our specialized techniques. Expert care for sofas, chairs, and other upholstered items.</p>
             </div>
-            <div class="service-card">
-                <i class="fas fa-utensils" aria-hidden="true"></i>
-                <h3>Non-Toxic Oven Cleaning</h3>
-                <p>Detailed, non-toxic cleaning for your oven. Ensure optimal performance and hygiene without harmful chemicals.</p>
-            </div>
         </div>
     </div>
 </section>
@@ -522,6 +708,42 @@ footer a:hover {
         </div>
     </div>
 </section>
+
+<section id="founder">
+  <div class="container">
+    <h2>Meet Abbie</h2>
+    <div class="founder-grid">
+      <div class="founder-photo">
+        <img src="images/awards/golden-slipper-cleaning-award-winner-bayside-2025.jpg" width="2048" height="1366" loading="lazy" alt="Abbie, founder of Golden Slipper Cleaning Services, holding the 2025 Bayside Local Business Awards trophy">
+      </div>
+      <div class="founder-text">
+        <p>Golden Slipper Cleaning Services was founded by Abbie in 2021. Overcoming personal health challenges sparked her passion for non-toxic cleaning products and a more holistic lifestyle.</p>
+        <p>Today, Abbie and her team bring that same care and attention to detail to every home and business they clean across Eastern Sydney, using only non-toxic products that are gentle on your family and the environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="our-story">
+  <div class="container">
+    <h2>Our Story</h2>
+    <div class="story-grid">
+      <div class="story-text">
+        <ul class="story-timeline">
+          <li><span>2021</span> Golden Slipper Cleaning Services is founded by Abbie</li>
+          <li><span>2022</span> Commercial cleaning added for businesses in Eastern Sydney</li>
+          <li><span>2025</span> Winner – Outstanding Cleaning Business, Bayside Local Business Awards</li>
+          <li><span>2026</span> Finalist – Bayside Local Business Awards</li>
+        </ul>
+        <a href="https://goldenslippercleaningservices.com/about-us.html" class="cta-button">Read Our Story</a>
+      </div>
+      <div class="story-photo">
+        <img src="images/awards/golden-slipper-cleaning-bayside-local-business-awards-2025-winner.jpg" width="1366" height="2048" loading="lazy" alt="Abbie of Golden Slipper Cleaning Services at the 2025 Bayside Local Business Awards">
+      </div>
+    </div>
+  </div>
+</section>
+
 <style>
 /* Notification Styles */
 .notification {
@@ -680,7 +902,6 @@ footer a:hover {
                     <option value="Commercial Cleaning">Commercial Cleaning</option>
                     <option value="Domestic Cleaning">Domestic Cleaning</option>
                     <option value="Upholstery Cleaning">Upholstery Cleaning</option>
-                    <option value="Non-Toxic Oven Cleaning">Non-Toxic Oven Cleaning</option>
                     <option value="Construction Cleaning">Construction/Post-Renovation Cleaning</option>
                 </select>
             </div>
