@@ -319,6 +319,16 @@ h2 {
     padding: 30px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+}
+
+/* Align icon, heading and body across every card in a row, at any width */
+@supports (grid-template-rows: subgrid) {
+    .service-card {
+        grid-row: span 3;
+        grid-template-rows: subgrid;
+    }
 }
 
 .service-card:hover {
@@ -334,6 +344,11 @@ h2 {
 
 .service-card h3 {
     font-size: 24px;
+    line-height: 1.3;
+    min-height: 2.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 15px;
     color: var(--white);
 }
