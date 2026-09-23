@@ -236,6 +236,72 @@ h2 {
     transform: translateY(-3px);
 }
 
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: #c79950;
+    border: 2px solid #c79950;
+    padding: 10px 28px;
+}
+
+.cta-button.secondary:hover {
+    background-color: #c79950;
+    color: black;
+}
+
+.contact-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 35px;
+    color: var(--white);
+}
+
+.enquiry-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.enquiry-option {
+    display: block;
+    border: 2px solid #c79950;
+    border-radius: 10px;
+    padding: 18px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.enquiry-option:hover {
+    transform: translateY(-3px);
+}
+
+.enquiry-option.is-selected {
+    background-color: rgba(199, 153, 80, 0.2);
+}
+
+.enquiry-option input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.enquiry-option strong {
+    color: #c79950;
+}
+
+.enquiry-option span {
+    display: block;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
 #services {
     background-color: var(--black);
 }
@@ -555,7 +621,8 @@ footer a:hover {
 
 @media (max-width: 768px) {
     .services-grid,
-    .testimonial-grid {
+    .testimonial-grid,
+    .enquiry-options {
         grid-template-columns: 1fr;
     }
 
@@ -630,7 +697,10 @@ footer a:hover {
                 <h1>Where Luxury Meets <span class="eco-text">ECO</span> Friendly Living</h1>
                 <p>Experience a fresher, healthier clean with our eco-friendly and organic cleaning services, using only non-toxic products that are gentle on your home and environment.</p>
                 <p class="hero-award"><i class="fas fa-award" aria-hidden="true"></i> Winner of Outstanding Cleaning Business, Bayside Local Business Awards 2025 · Finalist 2025 &amp; 2026</p>
-                <a href="#contact" class="cta-button">Book Now</a>
+                <div class="hero-actions">
+                    <a href="#contact" class="cta-button" data-enquiry="consultation">Book a Free 15-Min Call</a>
+                    <a href="#contact" class="cta-button secondary" data-enquiry="enquiry">Send an Enquiry</a>
+                </div>
             </div>
         </div>
     </section>
@@ -889,7 +959,8 @@ footer a:hover {
 </style>
 <section id="contact">
     <div class="container">
-        <h2>Book Now</h2>
+        <h2>Let's See If We're a Fit</h2>
+        <p class="contact-intro">Start with a free 15-minute call to talk through your home and what you need, with no obligation on either side. If you would rather just ask a question, send a general enquiry instead.</p>
         <form id="contact-form" action="https://formspree.io/f/mjkgplda" method="POST" enctype="multipart/form-data">
             <!-- Notification element -->
             <div id="form-notification" class="notification" style="display: none;">
@@ -897,6 +968,19 @@ footer a:hover {
                     <span class="notification-message"></span>
                     <button class="notification-close">&times;</button>
                 </div>
+            </div>
+            
+            <div class="enquiry-options">
+                <label class="enquiry-option is-selected">
+                    <input type="radio" name="enquiry_type" value="Free 15-minute consultation" checked>
+                    <strong>Free 15-minute consultation</strong>
+                    <span>A relaxed chat to see if we are the right fit for your home.</span>
+                </label>
+                <label class="enquiry-option">
+                    <input type="radio" name="enquiry_type" value="General enquiry">
+                    <strong>General enquiry</strong>
+                    <span>A question about services, availability or anything else.</span>
+                </label>
             </div>
             
             <div class="form-group">
@@ -912,6 +996,11 @@ footer a:hover {
             <div class="form-group">
                 <label for="phone">Phone</label>
                 <input type="tel" id="phone" name="phone" placeholder="e.g., 0412 345 678 or 02 9123 4567">
+            </div>
+            
+            <div class="form-group" id="call-times-group">
+                <label for="call-times">Best days and times for a call</label>
+                <input type="text" id="call-times" name="call_times" placeholder="e.g., weekday mornings, or Tue and Thu after 2pm">
             </div>
             
             <div class="form-group">
@@ -933,7 +1022,7 @@ footer a:hover {
             </div>
         
             <div class="button-container">
-                <button type="submit">Book Now</button>
+                <button type="submit" id="submit-button">Request My Free Call</button>
             </div>
         </form>
     </div>
@@ -1196,6 +1285,45 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Enquiry type: toggle the call-times field and the submit label
+    const enquiryRadios = document.querySelectorAll('input[name="enquiry_type"]');
+    const callTimesGroup = document.getElementById('call-times-group');
+    const submitLabel = document.getElementById('submit-button');
+
+    function syncEnquiryType() {
+        const selected = document.querySelector('input[name="enquiry_type"]:checked');
+        const wantsCall = !!selected && selected.value.indexOf('consultation') !== -1;
+
+        if (callTimesGroup) {
+            callTimesGroup.style.display = wantsCall ? '' : 'none';
+        }
+        if (submitLabel) {
+            submitLabel.textContent = wantsCall ? 'Request My Free Call' : 'Send Enquiry';
+        }
+        document.querySelectorAll('.enquiry-option').forEach(function (option) {
+            option.classList.toggle('is-selected', !!selected && option.contains(selected));
+        });
+    }
+
+    enquiryRadios.forEach(function (radio) {
+        radio.addEventListener('change', syncEnquiryType);
+    });
+    syncEnquiryType();
+
+    // Hero buttons preselect the matching enquiry type
+    document.querySelectorAll('[data-enquiry]').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+            const wanted = trigger.getAttribute('data-enquiry') === 'consultation'
+                ? 'Free 15-minute consultation'
+                : 'General enquiry';
+            const radio = document.querySelector('input[name="enquiry_type"][value="' + wanted + '"]');
+            if (radio) {
+                radio.checked = true;
+                syncEnquiryType();
+            }
+        });
+    });
 
     // Prevent form resubmission on page refresh
     if (window.history.replaceState) {

@@ -515,6 +515,42 @@ footer a:hover {
             border: 2px solid #c79950;
             text-align: center;
         }
+
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 22px;
+                margin-left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding: 10px 0 10px 60px;
+            }
+
+            .left,
+            .right {
+                left: 0;
+            }
+
+            .left::after,
+            .right::after {
+                left: 9px;
+                right: auto;
+            }
+
+            .left::before,
+            .right::before {
+                left: 50px;
+                right: auto;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #c79950 transparent transparent;
+            }
+
+            .content {
+                padding: 18px 20px;
+                text-align: left;
+            }
+        }
 </style>
   <script defer src="https://a.178-105-145-93.sslip.io/g.js" data-website-id="0759341a-b6ce-470b-9db5-948b99148f3f"></script>
   <script defer src="https://a.178-105-145-93.sslip.io/c.js"></script>
@@ -585,6 +621,18 @@ footer a:hover {
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="content">
+                    <h3>2026</h3>
+                    <p>Named a finalist at the Bayside Local Business Awards for a second year, as the business grows into a premium home wellness service.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>2025</h3>
+                    <p>Named Winner of Outstanding Cleaning Business at the Bayside Local Business Awards, after being selected as a finalist the same year.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="content">
                     <h3>2024</h3>
                     <p>Celebrating continued growth and the loyal client base we've built through our commitment to excellence and eco-friendly practices.</p>
                 </div>
@@ -592,7 +640,7 @@ footer a:hover {
             <div class="timeline-item right">
                 <div class="content">
                     <h3>2023</h3>
-                    <p>Introduction of specialized services such as non-toxic oven cleaning and upholstery cleaning.</p>
+                    <p>Expanding the range of specialist non-toxic services offered to homes and businesses across Eastern Sydney.</p>
                 </div>
             </div>
             <div class="timeline-item left">
