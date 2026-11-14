@@ -22,6 +22,9 @@
     var removeTimer;
     var pollTimer;
     var video;
+    var CAP_MS = 5300;   // exit starts by here; 750 ms pull-up ends by ~6.05 s
+    var EXIT_MS = 750;
+    var TAIL_S = 0.3;    // start the pull-up this close to the video's end
 
     function cleanup() {
         window.clearTimeout(guardTimer);
@@ -34,6 +37,7 @@
             video.removeEventListener('loadeddata', markStarted);
             video.removeEventListener('ended', dismiss);
             video.removeEventListener('error', dismiss);
+            video.removeEventListener('timeupdate', onTimeUpdate);
         }
     }
 
@@ -44,7 +48,7 @@
     }
 
     function onTransitionEnd(event) {
-        if (event.target === overlay && event.propertyName === 'opacity') removeOverlay();
+        if (event.target === overlay && event.propertyName === 'transform') removeOverlay();
     }
 
     function dismiss() {
@@ -56,13 +60,17 @@
             root.classList.remove('gs-intro');
             return;
         }
-        overlay.classList.add('is-fading');
-        overlay.addEventListener('transitionend', onTransitionEnd, { once: true });
-        removeTimer = window.setTimeout(removeOverlay, 600);
+        overlay.classList.add('is-leaving');
+        overlay.addEventListener('transitionend', onTransitionEnd);
+        removeTimer = window.setTimeout(removeOverlay, EXIT_MS + 60);
     }
 
     function onKeydown(event) {
         if (event.key === 'Escape') dismiss();
+    }
+
+    function onTimeUpdate() {
+        if (video.duration && video.duration - video.currentTime <= TAIL_S) dismiss();
     }
 
     function markStarted() {
@@ -91,6 +99,7 @@
         video.addEventListener('loadeddata', markStarted);
         video.addEventListener('ended', dismiss);
         video.addEventListener('error', dismiss);
+        video.addEventListener('timeupdate', onTimeUpdate);
 
         var webm = document.createElement('source');
         webm.type = 'video/webm';
@@ -107,7 +116,7 @@
         video.autoplay = true;
         guardTimer = window.setTimeout(function () {
             if (!started && video.readyState < 2) dismiss();
-        }, Math.max(0, Math.min(2500, 5500 - performance.now())));
+        }, Math.max(0, Math.min(2500, CAP_MS - performance.now())));
 
         try {
             video.load();
@@ -126,7 +135,7 @@
         }
     }
 
-    capTimer = window.setTimeout(dismiss, Math.max(0, 5500 - performance.now()));
+    capTimer = window.setTimeout(dismiss, Math.max(0, CAP_MS - performance.now()));
     if (overlay) {
         initialize();
     } else if (document.readyState === 'loading') {

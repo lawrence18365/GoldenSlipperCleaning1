@@ -16,14 +16,19 @@
         document.documentElement.classList.add('gs-intro');
         window.setTimeout(function () {
             if (!document.documentElement.classList.contains('gs-intro')) return;
-            document.documentElement.classList.remove('gs-intro');
             var overlay = document.getElementById('gs-preloader');
-            if (overlay) overlay.remove();
-        }, 6200);
+            if (overlay) overlay.classList.add('is-leaving');
+            window.setTimeout(function () {
+                document.documentElement.classList.remove('gs-intro');
+                var current = document.getElementById('gs-preloader');
+                if (current) current.remove();
+            }, 800);
+        }, 5350);
     }
 })();
 </script>
     <script async src="/js/preloader.js"></script>
+    <script defer src="/js/header-autohide.js"></script>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9BC6T37T3"></script>
@@ -54,16 +59,17 @@ html.gs-intro #gs-preloader {
     background: #000000;
     display: grid;
     place-items: center;
-    opacity: 1;
-    transition: opacity 450ms ease;
+    transform: translateY(0);
+    transition: transform 750ms cubic-bezier(.76, 0, .24, 1);
+    will-change: transform;
 }
 #gs-preloader video {
     width: min(90vw, 960px);
     height: auto;
     object-fit: contain;
 }
-html.gs-intro #gs-preloader.is-fading {
-    opacity: 0;
+html.gs-intro #gs-preloader.is-leaving {
+    transform: translateY(-100%);
     pointer-events: none;
 }
 header .logo picture { display: block; line-height: 0; }
@@ -121,8 +127,13 @@ header {
     right: 0;
     background-color: #000000;
     padding: 12px 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 250ms ease;
     z-index: 1000;
+}
+header.is-hidden { transform: translateY(-100%); }
+html { scroll-padding-top: 96px; }
+@media (prefers-reduced-motion: reduce) {
+    header { transition: none; }
 }
 header.scrolled {
             background-color: #000000;
@@ -623,8 +634,8 @@ footer a:hover {
     <div class="container">
         <a href="https://goldenslippercleaningservices.com" class="logo">
             <picture>
-                <source srcset="/images/brand/web/logo-horizontal.webp" type="image/webp">
-                <img src="/images/brand/web/logo-horizontal.png" alt="Golden Slipper Cleaning Services" width="165" height="64">
+                <source srcset="/images/brand/web/logo-horizontal-home-wellness.webp" type="image/webp">
+                <img src="/images/brand/web/logo-horizontal-home-wellness.png" alt="Golden Slipper Home Wellness Cleaning Services" width="165" height="64">
             </picture>
         </a>    
         <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
@@ -731,8 +742,8 @@ footer a:hover {
     <footer>
         <div class="container">
 <picture class="footer-logo">
-                <source srcset="/images/brand/web/logo-stacked.webp" type="image/webp">
-                <img src="/images/brand/web/logo-stacked.png" alt="Golden Slipper Cleaning Services" width="360" height="293" loading="lazy">
+                <source srcset="/images/brand/web/logo-stacked-home-wellness.webp" type="image/webp">
+                <img src="/images/brand/web/logo-stacked-home-wellness.png" alt="Golden Slipper Home Wellness Cleaning Services" width="360" height="322" loading="lazy">
             </picture>
             <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved. <span class="footer-credit">Site by <a href="https://novanorthstudio.com/?utm_source=goldenslippercleaningservices.com&amp;utm_medium=referral&amp;utm_campaign=site-credit">Nova North Studio</a></span></p>
             <p>Servicing Botany and surrounding areas in Eastern Sydney</p>
