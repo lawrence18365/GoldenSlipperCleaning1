@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function () {
+    var shouldShow = false;
+    try {
+        if (!sessionStorage.getItem('gs-intro-seen') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            sessionStorage.setItem('gs-intro-seen', '1');
+            shouldShow = true;
+        }
+    } catch (error) {
+        shouldShow = false;
+    }
+    if (shouldShow) {
+        document.documentElement.classList.add('gs-intro');
+        window.setTimeout(function () {
+            if (!document.documentElement.classList.contains('gs-intro')) return;
+            document.documentElement.classList.remove('gs-intro');
+            var overlay = document.getElementById('gs-preloader');
+            if (overlay) overlay.remove();
+        }, 6200);
+    }
+})();
+</script>
+    <script async src="/js/preloader.js"></script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9BC6T37T3"></script>
 <script>
@@ -12,17 +36,54 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
     <title>Golden Slipper Cleaning Services</title>
-    <meta name="description" content="Award-winning non-toxic cleaning in Botany and Eastern Sydney. Winner, Outstanding Cleaning Business at the Bayside Local Business Awards 2025. Finalist 2025 & 2026.">
+    <meta name="description" content="Award-winning non-toxic cleaning in Botany and Eastern Sydney. Winner, Outstanding Cleaning Business at the Bayside Local Business Awards 2025 & 2026.">
     <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Golden Slipper Cleaning Services","url":"https://goldenslippercleaningservices.com/","telephone":"+61434431361","email":"GoldenSlipperCleaningservices@gmail.com","foundingDate":"2021","areaServed":"Botany and Eastern Sydney, NSW, Australia","image":"https://goldenslippercleaningservices.com/images/awards/golden-slipper-cleaning-award-winner-bayside-2025.jpg","award":["Winner of Outstanding Cleaning Business, Bayside Local Business Awards 2025","Finalist, Bayside Local Business Awards 2025","Finalist, Bayside Local Business Awards 2026"],"sameAs":["https://www.facebook.com/profile.php?id=100064050013914","https://www.instagram.com/goldenslippercleaningservices/"]}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Golden Slipper Cleaning Services","url":"https://goldenslippercleaningservices.com/","telephone":"+61434431361","email":"GoldenSlipperCleaningservices@gmail.com","foundingDate":"2021","areaServed":"Botany and Eastern Sydney, NSW, Australia","image":"https://goldenslippercleaningservices.com/images/awards/golden-slipper-cleaning-outstanding-cleaning-business-trophy-2026.jpg","award":["Winner of Outstanding Cleaning Business, Bayside Local Business Awards 2026","Winner of Outstanding Cleaning Business, Bayside Local Business Awards 2025","Finalist, Bayside Local Business Awards 2026","Finalist, Bayside Local Business Awards 2025"],"sameAs":["https://www.facebook.com/profile.php?id=100064050013914","https://www.instagram.com/goldenslippercleaningservices/"]}
 </script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+html.gs-intro body { overflow: hidden; }
+#gs-preloader { display: none; }
+html.gs-intro #gs-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000000;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+    transition: opacity 450ms ease;
+}
+#gs-preloader video {
+    width: min(90vw, 960px);
+    height: auto;
+    object-fit: contain;
+}
+html.gs-intro #gs-preloader.is-fading {
+    opacity: 0;
+    pointer-events: none;
+}
+header .logo picture { display: block; line-height: 0; }
+header .logo img { display: block; height: 64px; width: auto; }
+footer .footer-logo { display: block; width: 180px; margin: 0 auto 24px; }
+footer .footer-logo img { display: block; width: 100%; height: auto; }
+@media (max-width: 768px) {
+    header .logo img { height: 52px; }
+    footer .footer-logo { width: 150px; }
+}
+
 :root {
     --black: #000000;
     --white: #FFFFFF;
+    --gold: #D2A85A;
+    --gold-ink: #9A7430;
     --font-body-family: 'Lora', serif;
     --font-heading-family: 'Lora', serif;
     --font-body-weight: 400;
@@ -60,13 +121,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
-    padding: 20px;
+    background-color: #000000;
+    padding: 12px 20px;
     transition: background-color 0.3s ease;
     z-index: 1000;
 }
 header.scrolled {
-            background-color: black;
+            background-color: #000000;
         }
 
 header .container {
@@ -85,21 +146,6 @@ header .container {
     margin-left: auto; /* This pushes the hamburger to the right */
 }
 
-.logo-text .services-text {
-            display: inline;
-        }
-@media (max-width: 768px) {
-            .logo-text .services-text {
-                display: none;
-            }
-        }
-
-.logo-text {
-    color: white;
-    font-size: 24px;
-    font-weight: 400;
-    font-family: 'Lora', serif;
-}
 
 .menu-toggle {
     display: block;
@@ -221,7 +267,7 @@ h2 {
 
 .cta-button {
     display: inline-block;
-    background-color: #c79950;
+    background-color: var(--gold);
     color: black;
     padding: 12px 30px;
     text-decoration: none;
@@ -245,13 +291,13 @@ h2 {
 
 .cta-button.secondary {
     background-color: transparent;
-    color: #c79950;
-    border: 2px solid #c79950;
+    color: var(--gold);
+    border: 2px solid var(--gold);
     padding: 10px 28px;
 }
 
 .cta-button.secondary:hover {
-    background-color: #c79950;
+    background-color: var(--gold);
     color: black;
 }
 
@@ -271,7 +317,7 @@ h2 {
 
 .enquiry-option {
     display: block;
-    border: 2px solid #c79950;
+    border: 2px solid var(--gold);
     border-radius: 10px;
     padding: 18px;
     cursor: pointer;
@@ -284,7 +330,7 @@ h2 {
 }
 
 .enquiry-option.is-selected {
-    background-color: rgba(199, 153, 80, 0.2);
+    background-color: rgba(210, 168, 90, 0.2);
 }
 
 .enquiry-option input {
@@ -293,7 +339,7 @@ h2 {
 }
 
 .enquiry-option strong {
-    color: #c79950;
+    color: var(--gold);
 }
 
 .enquiry-option span {
@@ -314,7 +360,7 @@ h2 {
 
 .service-card {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #c79950;
+    border: 2px solid var(--gold);
     border-radius: 10px;
     padding: 26px 24px;
     text-align: center;
@@ -339,7 +385,7 @@ h2 {
 
 .service-card i {
     font-size: 42px;
-    color: #c79950;
+    color: var(--gold);
     margin-bottom: 0;
 }
 
@@ -384,7 +430,7 @@ h2 {
 }
 
 .reviews-meta .stars {
-    color: #c79950;
+    color: var(--gold);
     font-size: 19px;
     letter-spacing: 2px;
     margin-right: 6px;
@@ -398,7 +444,7 @@ h2 {
 
 .testimonial-card {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #c79950;
+    border: 2px solid var(--gold);
     border-radius: 10px;
     padding: 30px;
     text-align: center;
@@ -420,7 +466,7 @@ h2 {
 }
 
 .testimonial-card .stars {
-    color: #c79950;
+    color: var(--gold);
     font-size: 24px;
     margin-bottom: 10px;
 }
@@ -454,7 +500,7 @@ textarea,
 select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #c79950;
+    border: 1px solid var(--gold);
     border-radius: 5px;
     background-color: var(--black);
     color: var(--white);
@@ -475,7 +521,7 @@ select:focus {
 }
 
 button {
-    background-color: #c79950;
+    background-color: var(--gold);
     color: black;
     padding: 16px 40px;
     border: none;
@@ -520,8 +566,8 @@ footer a:hover {
 .hero-content .hero-award {
     display: inline-block;
     font-size: 15px;
-    color: #c79950;
-    border: 1px solid #c79950;
+    color: var(--gold);
+    border: 1px solid var(--gold);
     border-radius: 50px;
     padding: 8px 20px;
     margin-bottom: 30px;
@@ -542,10 +588,12 @@ footer a:hover {
 
 .awards-photo img {
     width: 100%;
+    aspect-ratio: 3 / 2;
     height: auto;
+    object-fit: cover;
     display: block;
     border-radius: 10px;
-    border: 2px solid #c79950;
+    border: 2px solid var(--gold);
 }
 
 .awards-text p {
@@ -554,18 +602,18 @@ footer a:hover {
 }
 
 .awards-text strong {
-    color: #c79950;
+    color: var(--gold);
 }
 
 .badges {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
 .badge-card {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #c79950;
+    border: 2px solid var(--gold);
     border-radius: 10px;
     padding: 15px;
     text-align: center;
@@ -581,7 +629,7 @@ footer a:hover {
 }
 
 .badge-card span {
-    color: #c79950;
+    color: var(--gold);
     font-size: 14px;
     font-weight: bold;
 }
@@ -602,7 +650,7 @@ footer a:hover {
     height: auto;
     display: block;
     border-radius: 10px;
-    border: 2px solid #c79950;
+    border: 2px solid var(--gold);
 }
 
 .founder-text p {
@@ -628,7 +676,7 @@ footer a:hover {
 
 .story-timeline li {
     background-color: rgba(255, 255, 255, 0.1);
-    border-left: 3px solid #c79950;
+    border-left: 3px solid var(--gold);
     border-radius: 5px;
     padding: 15px 20px;
     margin-bottom: 15px;
@@ -636,7 +684,7 @@ footer a:hover {
 }
 
 .story-timeline span {
-    color: #c79950;
+    color: var(--gold);
     font-weight: bold;
     margin-right: 12px;
 }
@@ -648,7 +696,7 @@ footer a:hover {
     display: block;
     margin: 0 auto;
     border-radius: 10px;
-    border: 2px solid #c79950;
+    border: 2px solid var(--gold);
 }
 
 @media (max-width: 768px) {
@@ -702,12 +750,20 @@ footer a:hover {
 </style>
   <script defer src="https://a.178-105-145-93.sslip.io/g.js" data-website-id="0759341a-b6ce-470b-9db5-948b99148f3f"></script>
   <script defer src="https://a.178-105-145-93.sslip.io/c.js"></script>
+    <noscript><style>#gs-preloader{display:none!important}</style></noscript>
 </head>
 <body>
+<div id="gs-preloader" aria-hidden="true">
+    <video muted playsinline autoplay preload="none" poster="/images/brand/preloader/gs-intro-poster.jpg"></video>
+</div>
+
    <header>
     <div class="container">
             <a href="#" class="logo">
-                <span class="logo-text">Golden Slipper <span class="services-text">Cleaning Services</span></span>
+                <picture>
+                    <source srcset="/images/brand/web/logo-horizontal.webp" type="image/webp">
+                    <img src="/images/brand/web/logo-horizontal.png" alt="Golden Slipper Cleaning Services" width="165" height="64">
+                </picture>
             </a>    
         <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
             <i class="fas fa-bars"></i>
@@ -728,7 +784,7 @@ footer a:hover {
             <div class="hero-content">
                 <h1>Where Conscious Living Meets Elevated Home Care</h1>
                 <p>We create pristine, low-tox homes and workspaces through eco-conscious products and mindful, holistic practices, transforming the spaces you live and work in into sanctuaries that support wellbeing, balance, clarity and restorative energy.</p>
-                <p class="hero-award"><i class="fas fa-award" aria-hidden="true"></i> Winner of Outstanding Cleaning Business, Bayside Local Business Awards 2025 · Finalist 2025 &amp; 2026</p>
+                <p class="hero-award"><i class="fas fa-award" aria-hidden="true"></i> Winner of Outstanding Cleaning Business, Bayside Local Business Awards 2025 &amp; 2026</p>
                 <div class="hero-actions">
                     <a href="#contact" class="cta-button" data-enquiry="consultation">Book a Free 15-Min Call</a>
                     <a href="#contact" class="cta-button secondary" data-enquiry="enquiry">Send an Enquiry</a>
@@ -742,14 +798,13 @@ footer a:hover {
         <h2>Award-Winning Cleaning</h2>
         <div class="awards-grid">
             <div class="awards-photo">
-                <img src="images/awards/golden-slipper-cleaning-outstanding-cleaning-business-trophy-2025.jpg" width="1366" height="2048" loading="lazy" alt="2025 Bayside Local Business Awards trophy engraved Golden Slipper Cleaning Services, Outstanding Cleaning Business, Winner">
+                <img src="images/awards/golden-slipper-cleaning-outstanding-cleaning-business-trophy-2026.jpg" width="1800" height="1200" loading="lazy" alt="Abbie of Golden Slipper Cleaning Services holding the 2026 Bayside Local Business Awards trophy for Outstanding Cleaning Business">
             </div>
             <div class="awards-text">
-                <p>In 2025 Golden Slipper Cleaning Services was named <strong>Winner of Outstanding Cleaning Business</strong> at the Bayside Local Business Awards, and we're proud to be a finalist again in 2026. Thank you to every client who has trusted us with their home and business.</p>
+                <p>Golden Slipper Cleaning Services was named <strong>Winner of Outstanding Cleaning Business</strong> at the Bayside Local Business Awards in 2025, and won again in 2026. Thank you to every client who has trusted us with their home and business.</p>
                 <div class="badges">
+                    <div class="badge-card"><img src="images/awards/local-business-awards-2026-winner-bayside-badge.jpg" width="1144" height="1416" loading="lazy" alt="Local Business Awards 2026 Winner, Bayside"><span>Winner 2026</span></div>
                     <div class="badge-card"><img src="images/awards/local-business-awards-2025-winner-bayside-badge.jpg" width="1206" height="1478" loading="lazy" alt="Local Business Awards 2025 Winner, Bayside"><span>Winner 2025</span></div>
-                    <div class="badge-card"><img src="images/awards/local-business-awards-2025-finalist-bayside-badge.jpg" width="1156" height="1439" loading="lazy" alt="Local Business Awards 2025 Finalist, Bayside"><span>Finalist 2025</span></div>
-                    <div class="badge-card"><img src="images/awards/local-business-awards-2026-finalist-bayside-badge.jpg" width="1153" height="1427" loading="lazy" alt="Local Business Awards 2026 Finalist, Bayside"><span>Finalist 2026</span></div>
                 </div>
             </div>
         </div>
@@ -837,7 +892,7 @@ footer a:hover {
     <h2>Meet Abbie</h2>
     <div class="founder-grid">
       <div class="founder-photo">
-        <img src="images/awards/golden-slipper-cleaning-award-winner-bayside-2025.jpg" width="2048" height="1366" loading="lazy" alt="Abbie, founder of Golden Slipper Cleaning Services, holding the 2025 Bayside Local Business Awards trophy">
+        <img src="images/awards/golden-slipper-cleaning-abbie-winner-bayside-2026.jpg" width="1800" height="1200" loading="lazy" alt="Abbie, founder of Golden Slipper Cleaning Services, holding the 2026 Bayside Local Business Awards trophy with both hands">
       </div>
       <div class="founder-text">
         <p>Golden Slipper Cleaning Services was founded by Abbie in 2021. Overcoming personal health challenges sparked her passion for non-toxic cleaning products and a more holistic lifestyle.</p>
@@ -856,7 +911,7 @@ footer a:hover {
           <li><span>2021</span> Golden Slipper Cleaning Services is founded by Abbie</li>
           <li><span>2022</span> Commercial cleaning added for businesses in Eastern Sydney</li>
           <li><span>2025</span> Winner of Outstanding Cleaning Business, Bayside Local Business Awards</li>
-          <li><span>2026</span> Finalist, Bayside Local Business Awards</li>
+          <li><span>2026</span> Winner again, Outstanding Cleaning Business, Bayside Local Business Awards</li>
         </ul>
         <a href="https://goldenslippercleaningservices.com/about-us.html" class="cta-button">Read Our Story</a>
       </div>
@@ -1062,6 +1117,10 @@ footer a:hover {
     </div>
 <footer>
     <div class="container">
+<picture class="footer-logo">
+                <source srcset="/images/brand/web/logo-stacked.webp" type="image/webp">
+                <img src="/images/brand/web/logo-stacked.png" alt="Golden Slipper Cleaning Services" width="360" height="293" loading="lazy">
+            </picture>
         <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
         <p>Servicing Botany and surrounding areas in Eastern Sydney</p>
         <p>Contact: <a href="tel:0434431361">0434 431 361</a> | <a href="mailto:GoldenSlipperCleaningservices@gmail.com">GoldenSlipperCleaningservices@gmail.com</a></p>

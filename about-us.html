@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function () {
+    var shouldShow = false;
+    try {
+        if (!sessionStorage.getItem('gs-intro-seen') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            sessionStorage.setItem('gs-intro-seen', '1');
+            shouldShow = true;
+        }
+    } catch (error) {
+        shouldShow = false;
+    }
+    if (shouldShow) {
+        document.documentElement.classList.add('gs-intro');
+        window.setTimeout(function () {
+            if (!document.documentElement.classList.contains('gs-intro')) return;
+            document.documentElement.classList.remove('gs-intro');
+            var overlay = document.getElementById('gs-preloader');
+            if (overlay) overlay.remove();
+        }, 6200);
+    }
+})();
+</script>
+    <script async src="/js/preloader.js"></script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-C9BC6T37T3"></script>
 <script>
@@ -12,13 +36,50 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
     <title>About Us - Golden Slipper Cleaning Services</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+html.gs-intro body { overflow: hidden; }
+#gs-preloader { display: none; }
+html.gs-intro #gs-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #000000;
+    display: grid;
+    place-items: center;
+    opacity: 1;
+    transition: opacity 450ms ease;
+}
+#gs-preloader video {
+    width: min(90vw, 960px);
+    height: auto;
+    object-fit: contain;
+}
+html.gs-intro #gs-preloader.is-fading {
+    opacity: 0;
+    pointer-events: none;
+}
+header .logo picture { display: block; line-height: 0; }
+header .logo img { display: block; height: 64px; width: auto; }
+footer .footer-logo { display: block; width: 180px; margin: 0 auto 24px; }
+footer .footer-logo img { display: block; width: 100%; height: auto; }
+@media (max-width: 768px) {
+    header .logo img { height: 52px; }
+    footer .footer-logo { width: 150px; }
+}
+
 :root {
     --black: #000000;
     --white: #FFFFFF;
+    --gold: #D2A85A;
+    --gold-ink: #9A7430;
     --font-body-family: 'Lora', serif;
     --font-heading-family: 'Lora', serif;
     --font-body-weight: 400;
@@ -58,13 +119,13 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: transparent;
-    padding: 20px;
+    background-color: #000000;
+    padding: 12px 20px;
     transition: background-color 0.3s ease;
     z-index: 1000;
 }
 header.scrolled {
-            background-color: black;
+            background-color: #000000;
         }
 
 header .container {
@@ -83,21 +144,6 @@ header .container {
     margin-left: auto; /* This pushes the hamburger to the right */
 }
 
-.logo-text .services-text {
-            display: inline;
-        }
-@media (max-width: 768px) {
-            .logo-text .services-text {
-                display: none;
-            }
-        }
-
-.logo-text {
-    color: var(--white);
-    font-size: 24px;
-    font-weight: 400;
-    font-family: 'Lora', serif;
-}
 
 .menu-toggle {
     display: block;
@@ -431,7 +477,19 @@ footer a:hover {
         font-size: 18px;
     }
 }
- .about-content,
+ .award-figure {
+            max-width: 720px;
+            margin: 0 auto 32px;
+        }
+
+        .award-figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .about-content,
           .timeline {
             position: relative;
             max-width: 1200px;
@@ -442,7 +500,7 @@ footer a:hover {
             content: '';
             position: absolute;
             width: 6px;
-            background-color: #c79950;
+            background-color: var(--gold);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -462,7 +520,7 @@ footer a:hover {
             width: 25px;
             height: 25px;
             right: -17px;
-            background-color: #c79950;
+            background-color: var(--gold);
             border: 4px solid var(--black);
             top: 15px;
             border-radius: 50%;
@@ -485,9 +543,9 @@ footer a:hover {
             width: 0;
             z-index: 1;
             right: 30px;
-            border: medium solid #c79950;
+            border: medium solid var(--gold);
             border-width: 10px 0 10px 10px;
-            border-color: transparent transparent transparent #c79950;
+            border-color: transparent transparent transparent var(--gold);
         }
 
         .right::before {
@@ -498,9 +556,9 @@ footer a:hover {
             width: 0;
             z-index: 1;
             left: 30px;
-            border: medium solid #c79950;
+            border: medium solid var(--gold);
             border-width: 10px 10px 10px 0;
-            border-color: transparent #c79950 transparent transparent;
+            border-color: transparent var(--gold) transparent transparent;
         }
 
         .right::after {
@@ -512,7 +570,7 @@ footer a:hover {
             background-color: var(--black);
             position: relative;
             border-radius: 6px;
-            border: 2px solid #c79950;
+            border: 2px solid var(--gold);
             text-align: center;
         }
 
@@ -543,7 +601,7 @@ footer a:hover {
                 left: 50px;
                 right: auto;
                 border-width: 10px 10px 10px 0;
-                border-color: transparent #c79950 transparent transparent;
+                border-color: transparent var(--gold) transparent transparent;
             }
 
             .content {
@@ -554,12 +612,20 @@ footer a:hover {
 </style>
   <script defer src="https://a.178-105-145-93.sslip.io/g.js" data-website-id="0759341a-b6ce-470b-9db5-948b99148f3f"></script>
   <script defer src="https://a.178-105-145-93.sslip.io/c.js"></script>
+    <noscript><style>#gs-preloader{display:none!important}</style></noscript>
 </head>
 <body>
+<div id="gs-preloader" aria-hidden="true">
+    <video muted playsinline autoplay preload="none" poster="/images/brand/preloader/gs-intro-poster.jpg"></video>
+</div>
+
     <header>
     <div class="container">
         <a href="https://goldenslippercleaningservices.com" class="logo">
-            <span class="logo-text">Golden Slipper <span class="services-text">Cleaning Services</span></span>
+            <picture>
+                <source srcset="/images/brand/web/logo-horizontal.webp" type="image/webp">
+                <img src="/images/brand/web/logo-horizontal.png" alt="Golden Slipper Cleaning Services" width="165" height="64">
+            </picture>
         </a>    
         <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
             <i class="fas fa-bars"></i>
@@ -617,12 +683,15 @@ footer a:hover {
 
 <section id="journey">
     <div class="container">
+        <figure class="award-figure">
+            <img src="images/awards/golden-slipper-cleaning-bayside-local-business-awards-2026-winner.jpg" width="2048" height="1366" loading="lazy" alt="Abbie of Golden Slipper Cleaning Services holding the 2026 Bayside Local Business Awards trophy and pointing to it">
+        </figure>
         <h2>Our Journey</h2>
         <div class="timeline">
             <div class="timeline-item left">
                 <div class="content">
                     <h3>2026</h3>
-                    <p>Named a finalist at the Bayside Local Business Awards for a second year, as the business grows into a premium home wellness service.</p>
+                    <p>Won Outstanding Cleaning Business at the Bayside Local Business Awards for a second year running, as the business grows into a premium home wellness service.</p>
                 </div>
             </div>
             <div class="timeline-item right">
@@ -661,6 +730,10 @@ footer a:hover {
 
     <footer>
         <div class="container">
+<picture class="footer-logo">
+                <source srcset="/images/brand/web/logo-stacked.webp" type="image/webp">
+                <img src="/images/brand/web/logo-stacked.png" alt="Golden Slipper Cleaning Services" width="360" height="293" loading="lazy">
+            </picture>
             <p>&copy; 2024 Golden Slipper Cleaning Services. All rights reserved.</p>
             <p>Servicing Botany and surrounding areas in Eastern Sydney</p>
             <p>Contact: <a href="tel:0434431361">0434 431 361</a> | <a href="mailto:GoldenSlipperCleaningservices@gmail.com">GoldenSlipperCleaningservices@gmail.com</a></p>
