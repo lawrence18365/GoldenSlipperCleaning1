@@ -72,12 +72,18 @@ html.gs-intro #gs-preloader.is-leaving {
     transform: translateY(-100%);
     pointer-events: none;
 }
-header .logo picture { display: block; line-height: 0; }
-header .logo img { display: block; height: 64px; width: auto; }
+header .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+header .logo picture { display: block; line-height: 0; flex: none; }
+header .logo img { display: block; height: 48px; width: auto; }
+header .logo-words { display: flex; flex-direction: column; line-height: 1.1; }
+header .logo-name { font-family: 'Lora', serif; font-size: 21px; color: var(--gold); letter-spacing: 0.4px; white-space: nowrap; }
+header .logo-tagline { font-family: 'Lora', serif; font-size: 11px; color: rgba(210, 168, 90, 0.85); letter-spacing: 1.6px; text-transform: uppercase; margin-top: 5px; white-space: nowrap; }
 footer .footer-logo { display: block; width: 180px; margin: 0 auto 24px; }
 footer .footer-logo img { display: block; width: 100%; height: auto; }
 @media (max-width: 768px) {
-    header .logo img { height: 52px; }
+    header .logo { gap: 10px; }
+    header .logo-name { font-size: 20px; }
+    header .logo-tagline { display: none; }
     footer .footer-logo { width: 150px; }
 }
 
@@ -634,9 +640,10 @@ footer a:hover {
     <div class="container">
         <a href="https://goldenslippercleaningservices.com" class="logo">
             <picture>
-                <source srcset="/images/brand/web/logo-horizontal-home-wellness.webp" type="image/webp">
-                <img src="/images/brand/web/logo-horizontal-home-wellness.png" alt="Golden Slipper Home Wellness Cleaning Services" width="165" height="64">
-            </picture>
+                    <source srcset="/images/brand/web/logo-mark.webp" type="image/webp">
+                    <img src="/images/brand/web/logo-mark.png" alt="" width="33" height="48">
+                </picture>
+                <span class="logo-words"><span class="logo-name">Golden Slipper</span><span class="logo-tagline">Home Wellness Cleaning Services</span></span>
         </a>    
         <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
             <i class="fas fa-bars"></i>
